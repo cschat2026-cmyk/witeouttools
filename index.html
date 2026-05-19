@@ -1,0 +1,5112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whiteout Survival Tools - Codes, Event Timers, Fire Crystal Planner</title>
+    <meta
+      name="description"
+      content="Fast Whiteout Survival tools for gift codes, Frostfire Mine timers, Fire Crystal planning, SvS checklist, alliance event prep, and multilingual guides."
+    />
+    <link rel="canonical" href="https://example.com/" data-domain-href="/" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="Whiteout Hub" />
+    <meta name="application-name" content="Whiteout Survival Tools" />
+    <meta name="apple-mobile-web-app-title" content="Whiteout Hub" />
+    <meta property="og:title" content="Whiteout Survival Tools" />
+    <meta property="og:description" content="Codes, event timers, planners, and high-frequency guides for Whiteout Survival players." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/" data-domain-content="/" />
+    <meta property="og:image" content="https://example.com/assets/og-whiteout-tools.png" data-domain-content="/assets/og-whiteout-tools.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0a2236" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Whiteout Survival Tools",
+        "url": "https://example.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://example.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Whiteout Survival Tools",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "url": "https://example.com/",
+        "description": "Browser tools for Whiteout Survival gift codes, Frostfire Mine timing, Fire Crystal planning, resource route calculations, and alliance briefs.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What can I calculate with Whiteout Survival Tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can check gift codes, run a Frostfire Mine phase timer, estimate Fire Crystal and Refined Fire Crystal gaps, plan Furnace routes, and calculate Chief Gear, Chief Charm, and War Academy material pacing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the site save my Whiteout Survival planning data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The site saves planner inputs, resource settings, Player IDs, region notes, checklist state, and timer state locally on your device so you can continue after refreshing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often is Whiteout Survival code and planning data refreshed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The page checks for newer local data on first open and then roughly every eight hours. The maintenance script is designed for three refreshes per day and filters expired codes from the active view."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Whiteout Hub home">
+        <span class="brand-mark"><img src="assets/logo-mark.svg" alt="Whiteout Hub logo" /></span>
+        <span>
+          <strong data-i18n="brand">Whiteout Hub</strong>
+          <small data-i18n="brandSub">Player planning hub</small>
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#codes" data-i18n="navCodes">Codes</a>
+        <a href="#timer" data-i18n="navTimer">Event Timer</a>
+        <a href="#planner" data-i18n="navPlanner">Planner</a>
+        <a href="#resource-lab" data-i18n="navResource">Resources</a>
+        <a href="#guides" data-i18n="navGuides">Guides</a>
+      </nav>
+      <div class="top-actions">
+        <label class="search-box">
+          <span class="sr-only" data-i18n="searchLabel">Search</span>
+          <input id="siteSearch" type="search" autocomplete="off" placeholder="Search tools, events, codes" data-i18n-placeholder="searchPlaceholder" />
+        </label>
+        <select id="langSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="zh-CN">简中</option>
+          <option value="zh-TW">繁中</option>
+        </select>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero-section">
+        <div class="hero-arena" aria-hidden="true">
+          <div class="skyline"></div>
+          <div class="furnace-core"></div>
+          <div class="fort fort-a"></div>
+          <div class="fort fort-b"></div>
+          <div class="march-line line-a"></div>
+          <div class="march-line line-b"></div>
+        </div>
+        <div class="hero-copy panel-glass">
+          <span class="eyebrow" data-i18n="heroEyebrow">Updated player tools for Whiteout Survival</span>
+          <h1 data-i18n="heroTitle">Plan events, copy codes, and save Fire Crystals without spreadsheet pain.</h1>
+          <p data-i18n="heroText">
+            A fast utility hub for recurring Whiteout Survival tasks: gift code checks, Frostfire Mine timing, Fire Crystal upgrade gaps, SvS prep, and alliance-ready checklists.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#codes" data-i18n="ctaCodes">Check codes</a>
+            <a class="button secondary" href="#planner" data-i18n="ctaPlanner">Open planner</a>
+          </div>
+          <div class="hero-kpis" aria-label="Project status">
+            <span><strong>13</strong><small data-i18n="kpiCodes">codes tracked</small></span>
+            <span><strong>30m</strong><small data-i18n="kpiTimer">mine timer</small></span>
+            <span><strong>F30-FC10</strong><small data-i18n="kpiPlanner">crystal plan</small></span>
+          </div>
+        </div>
+        <aside class="command-panel panel-glass hero-visual-panel">
+          <div class="hero-live-snapshot" id="heroLiveSnapshot"></div>
+          <div class="command-head">
+            <span data-i18n="commandLabel">Today command board</span>
+            <strong data-i18n="commandTitle">Do these before reset</strong>
+          </div>
+          <div class="command-list">
+            <a href="#codes"><span>01</span><strong data-i18n="commandCode">Copy and test new gift codes</strong></a>
+            <a href="#timer"><span>02</span><strong data-i18n="commandTimer">Run Frostfire phase timer</strong></a>
+            <a href="#planner"><span>03</span><strong data-i18n="commandPlanner">Check Fire Crystal gap</strong></a>
+          </div>
+          <div class="market-pick">
+            <span data-i18n="decisionLabel">Project decision</span>
+            <strong data-i18n="decisionTitle">Recommended: Whiteout Survival</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="status-strip" aria-label="Live utility status">
+        <div>
+          <strong id="lastUpdated">2026-05-15</strong>
+          <span data-i18n="updatedLabel">Last content refresh</span>
+        </div>
+        <div>
+          <strong>8</strong>
+          <span data-i18n="toolCount">core tools live</span>
+        </div>
+        <div>
+          <strong>EN / 简中 / 繁中</strong>
+          <span data-i18n="langReady">language coverage</span>
+        </div>
+        <div>
+          <strong data-i18n="sourceMix">Official + community + inference</strong>
+          <span data-i18n="sourceLabel">source labels</span>
+        </div>
+      </section>
+
+      <section class="ad-band ad-band-compact" aria-label="Advertisement" data-ad-slot-key="top"></section>
+
+      <section class="hub-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="hubEyebrow">Player hub</span>
+          <h2 data-i18n="hubTitle">Open the thing you need right now</h2>
+          <p data-i18n="hubText">This homepage is arranged around repeated player jobs: redeem, time, plan, coordinate, and report updates.</p>
+        </div>
+        <div class="hub-grid" id="hubGrid"></div>
+      </section>
+
+
+      <section class="strategy-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="strategyEyebrow">Personal coach</span>
+          <h2 data-i18n="strategyTitle">Save-or-spend strategy mode</h2>
+          <p data-i18n="strategyText">Players keep asking whether to save for SvS, push KOI, or spend now. Pick a play style and the site turns broad advice into a more useful operating rule.</p>
+        </div>
+        <div class="strategy-shell tool-card">
+          <div class="strategy-tabs" id="strategyTabs" role="tablist" aria-label="Player strategy mode">
+            <button type="button" data-strategy="f2p" class="active" data-i18n="strategyF2P">F2P</button>
+            <button type="button" data-strategy="low" data-i18n="strategyLow">Low spender</button>
+            <button type="button" data-strategy="push" data-i18n="strategyPush">Ranking push</button>
+          </div>
+          <div class="strategy-board" id="strategyBoard"></div>
+        </div>
+      </section>
+
+      <section class="ops-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="opsEyebrow">High-repeat tasks</span>
+          <h2 data-i18n="opsTitle">Player operations desk</h2>
+          <p data-i18n="opsText">The fastest repeat tasks are here: open the official redemption page, keep your Player ID handy, and work through a daily board before reset.</p>
+        </div>
+        <div class="ops-grid">
+          <article class="ops-card searchable" data-search="redeem player id official redemption gift code whiteout survival">
+            <span class="tag" data-i18n="opsOfficialTag">Official</span>
+            <h3 data-i18n="opsRedeemTitle">Redemption quick access</h3>
+            <p data-i18n="opsRedeemText">Open the official gift-code center, then paste your Player ID and codes without hunting for links.</p>
+            <div class="ops-actions">
+              <a class="button primary" href="https://wos-giftcode.centurygame.com/" target="_blank" rel="noreferrer" data-i18n="opsRedeemButton">Open redeem page</a>
+              <button class="button secondary" type="button" id="copyRedeemGuide" data-i18n="opsGuideButton">Copy redeem steps</button>
+            </div>
+          </article>
+          <article class="ops-card searchable" data-search="player id note whiteout survival id save">
+            <span class="tag" data-i18n="opsLocalTag">Local</span>
+            <h3 data-i18n="opsIdTitle">Player ID vault</h3>
+            <p data-i18n="opsIdText">Keep one or more Player IDs on this device so code redemption and alliance help are faster.</p>
+            <label>
+              <span data-i18n="opsIdLabel">Player ID</span>
+              <input id="playerIdInput" type="text" inputmode="numeric" autocomplete="off" placeholder="123456789" />
+            </label>
+            <div class="ops-actions compact">
+              <button class="button primary" type="button" id="savePlayerId" data-i18n="opsSaveId">Save Player ID</button>
+              <button class="button secondary" type="button" id="copyPlayerId" data-i18n="opsCopyLastId">Copy latest</button>
+            </div>
+            <small id="savedPlayerId" class="ops-meta"></small>
+            <div class="player-id-list" id="playerIdList"></div>
+          </article>
+          <article class="ops-card searchable" data-search="daily checklist reset bear trap alliance mobilization intel furnace whiteout survival">
+            <span class="tag" data-i18n="opsRoutineTag">Routine</span>
+            <h3 data-i18n="opsRoutineTitle">Before-reset board</h3>
+            <div class="ops-briefing" id="opsBriefing"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="codes" class="section-grid">
+        <div class="section-copy">
+          <span class="eyebrow" data-i18n="codesEyebrow">High-frequency search</span>
+          <h2 data-i18n="codesTitle">Gift code copy board</h2>
+          <p data-i18n="codesText">Codes change fast. This board keeps copy actions fast and labels uncertain community codes clearly instead of pretending every code is official.</p>
+          <div class="source-note">
+            <strong data-i18n="sourceRuleTitle">Source rule</strong>
+            <span data-i18n="sourceRuleText">Official items are marked separately. Community-reported items should be verified in-game.</span>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-head">
+            <div>
+              <h3 data-i18n="codesCardTitle">Quick copy codes</h3>
+              <p data-i18n="codesCardText">Tap a code to copy it. Use the status filter before posting to your alliance chat.</p>
+            </div>
+            <select id="codeFilter" aria-label="Code status filter">
+              <option value="all" data-i18n="filterAll">All</option>
+              <option value="active" data-i18n="filterActive">Likely active</option>
+              <option value="check" data-i18n="filterCheck">Needs check</option>
+              <option value="expired" data-i18n="filterExpired">Expired reports</option>
+              <option value="official" data-i18n="filterOfficial">Official</option>
+            </select>
+          </div>
+          <div id="codesList" class="codes-list"></div>
+        </div>
+      </section>
+
+      <section id="timeline" class="guides-section timeline-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="timelineEyebrow">Retention feature</span>
+          <h2 data-i18n="timelineTitle">State Age / server timeline tracker</h2>
+          <p data-i18n="timelineText">One of the strongest repeat-visit features in this category is a state-age tracker. Players come back to check what unlocks next and how many days remain.</p>
+        </div>
+        <div class="tool-card timeline-tool">
+          <div class="planner-grid timeline-input-grid">
+            <label>
+              <span data-i18n="timelineInputLabel">State age in days</span>
+              <input id="stateAgeDays" type="number" min="1" step="1" value="58" />
+            </label>
+            <label>
+              <span data-i18n="timelineLevelLabel">My current furnace stage</span>
+              <select id="stateAgeCurrentLevel"></select>
+            </label>
+          </div>
+          <small class="memory-status" data-memory-status></small>
+          <div class="planner-insight-grid">
+            <div class="priority planner-brief" id="stateAgeNow"></div>
+            <div class="priority planner-brief" id="stateAgeNext"></div>
+            <div class="priority planner-brief" id="stateAgeMethod"></div>
+          </div>
+          <div class="state-age-cockpit" id="stateAgeCockpit"></div>
+          <div class="planner-route planner-route-compact timeline-growth-route" id="stateAgeGrowthRoute"></div>
+          <div class="timeline-actions">
+            <button class="button primary" type="button" id="applyStateAgePlan" data-i18n="timelineApplyPlan">Apply recommended route</button>
+            <a class="button secondary" href="#resource-lab" data-i18n="timelineOpenLab">Open resource lab</a>
+            <a class="button secondary" href="#day-plan" data-i18n="timelineOpenDayPlan">Open event day plan</a>
+          </div>
+          <div class="planner-route" id="stateTimelineBoard"></div>
+        </div>
+      </section>
+
+      <section class="source-log-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="sourceHubEyebrow">Trust layer</span>
+          <h2 data-i18n="sourceHubTitle">What was updated and where it came from</h2>
+          <p data-i18n="sourceHubText">Launch-ready portals make the source trail visible. This board shows refresh date and the public references used for current code status.</p>
+        </div>
+        <div class="source-log-card">
+          <div class="source-log-meta">
+            <strong id="sourceUpdatedAt"></strong>
+            <span data-i18n="sourceUpdatedLabel">Latest source refresh</span>
+          </div>
+          <div class="refresh-policy">
+            <div>
+              <strong data-i18n="refreshPolicyLabel">Auto-refresh policy</strong>
+              <span data-i18n="refreshPolicyText">This page checks for newer data on first open and then roughly every 8 hours. Expired or stale codes are hidden from the active view.</span>
+            </div>
+            <small id="refreshStatus" data-i18n="refreshStatusIdle">Refresh ready</small>
+          </div>
+          <div class="source-log-list" id="sourceLog"></div>
+        </div>
+      </section>
+
+      <section class="intel-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="intelEyebrow">Market intel</span>
+          <h2 data-i18n="intelTitle">Why this project beats the alternatives</h2>
+        </div>
+        <div class="score-grid" id="marketScores"></div>
+      </section>
+
+      <section id="timer" class="section-grid reversed">
+        <div class="section-copy">
+          <span class="eyebrow" data-i18n="timerEyebrow">Return-visit utility</span>
+          <h2 data-i18n="timerTitle">Frostfire Mine 30-minute timer</h2>
+          <p data-i18n="timerText">Start it when the event opens. The checklist changes by phase so players know when to gather, fight, heal, and bank points.</p>
+          <div class="mini-list">
+            <span data-i18n="timerPoint1">00:00-10:00: secure early nodes and buffs</span>
+            <span data-i18n="timerPoint2">10:00-22:00: contest high-value objectives</span>
+            <span data-i18n="timerPoint3">22:00-30:00: spend heals, avoid waste, lock score</span>
+          </div>
+        </div>
+        <div class="tool-card timer-card">
+          <div class="timer-face">
+            <span id="phaseLabel" data-i18n="phaseReady">Ready</span>
+            <strong id="timerDisplay">30:00</strong>
+            <small id="phaseAdvice" data-i18n="phaseAdviceReady">Set your alliance target, buffs, and march slots before starting.</small>
+          </div>
+          <div class="timer-controls">
+            <button class="icon-button" id="startTimer" type="button" aria-label="Start timer">▶</button>
+            <button class="icon-button" id="pauseTimer" type="button" aria-label="Pause timer">Ⅱ</button>
+            <button class="icon-button" id="resetTimer" type="button" aria-label="Reset timer">↺</button>
+          </div>
+          <div class="next-window" id="nextWindow"></div>
+          <div class="battle-board" id="battleBoard"></div>
+          <div class="timeline" id="frostfireTimeline" aria-label="Frostfire Mine key timeline"></div>
+          <div class="checklist" id="eventChecklist"></div>
+        </div>
+      </section>
+
+
+      <section class="section-grid beartrap-section">
+        <div class="section-copy">
+          <span class="eyebrow" data-i18n="bearEyebrow">Community demand</span>
+          <h2 data-i18n="bearTitle">Bear Trap prep helper</h2>
+          <p data-i18n="bearText">Players repeatedly ask how much training and power they should line up before Bear Trap. This quick helper turns your rough power gain into a clean prep note.</p>
+        </div>
+        <div class="tool-card planner beartrap-card">
+          <label>
+            <span data-i18n="bearPowerLabel">Expected power gain</span>
+            <input id="bearTrapPower" type="number" min="0" step="50000" value="2500000" />
+          </label>
+          <label>
+            <span data-i18n="bearTrainsLabel">Planned troop batches</span>
+            <input id="bearTrapBatches" type="number" min="0" step="1" value="6" />
+          </label>
+          <div class="result-card">
+            <span data-i18n="bearEstimateLabel">Estimated prep rating</span>
+            <strong id="bearTrapRating">Solid</strong>
+            <span data-i18n="bearAdviceLabel">Prep note</span>
+            <strong id="bearTrapAdviceShort">Train and hold speedups.</strong>
+          </div>
+          <p class="priority" id="bearTrapAdvice"></p>
+          <button class="button primary full" id="copyBearTrapPlan" type="button" data-i18n="copyBearTrapPlan">Copy Bear Trap plan</button>
+        </div>
+      </section>
+
+      <section id="planner" class="section-grid">
+        <div class="section-copy">
+          <span class="eyebrow" data-i18n="plannerEyebrow">Calculator demand</span>
+          <h2 data-i18n="plannerTitle">Fire Crystal gap planner</h2>
+          <p data-i18n="plannerText">Estimate how many Fire Crystals and days you still need for your next furnace target. Values are community planning estimates, not official costs.</p>
+          <div class="source-note warning">
+            <strong data-i18n="estimateTitle">Estimate label</strong>
+            <span data-i18n="estimateText">Use this to plan saving windows, then confirm exact costs in-game before spending.</span>
+          </div>
+        </div>
+        <div class="tool-card planner planner-upgraded">
+          <div class="planner-grid">
+            <label>
+              <span data-i18n="currentLevel">Current FC level</span>
+              <select id="currentLevel"></select>
+            </label>
+            <label>
+              <span data-i18n="targetLevel">Target level</span>
+              <select id="targetLevel"></select>
+            </label>
+            <label>
+              <span data-i18n="currentCrystals">Current Fire Crystals</span>
+              <input id="currentCrystals" type="number" min="0" step="10" value="0" />
+            </label>
+            <label>
+              <span data-i18n="currentRefined">Current Refined Fire Crystals</span>
+              <input id="currentRefined" type="number" min="0" step="1" value="0" />
+            </label>
+            <label>
+              <span data-i18n="dailyCrystals">Average crystals per day</span>
+              <input id="dailyCrystals" type="number" min="1" step="1" value="120" />
+            </label>
+            <label>
+              <span data-i18n="weeklyRefined">Average refined per week</span>
+              <input id="weeklyRefined" type="number" min="0" step="1" value="50" />
+            </label>
+            <label>
+              <span data-i18n="daysUntilEventLabel">Days until event</span>
+              <input id="daysUntilEvent" type="number" min="0" step="1" value="14" />
+            </label>
+            <label>
+              <span data-i18n="speedupHoursLabel">Construction speedups available</span>
+              <input id="speedupHours" type="number" min="0" step="1" value="0" />
+            </label>
+          </div>
+          <div class="planner-mode-row" id="plannerModeRow" role="tablist" aria-label="Planner mode">
+            <button type="button" data-planner-mode="f2p" class="active" data-i18n="plannerModeF2P">F2P</button>
+            <button type="button" data-planner-mode="low" data-i18n="plannerModeLow">Low spender</button>
+            <button type="button" data-planner-mode="push" data-i18n="plannerModePush">Push</button>
+          </div>
+          <div class="result-grid planner-result-grid">
+            <div class="result-card">
+              <span data-i18n="missingLabel">Missing crystals</span>
+              <strong id="missingCrystals">0</strong>
+              <span data-i18n="daysLabel">Estimated days</span>
+              <strong id="daysNeeded">0</strong>
+            </div>
+            <div class="result-card refined-card">
+              <span data-i18n="missingRefined">Missing refined crystals</span>
+              <strong id="missingRefined">0</strong>
+              <span data-i18n="weeksLabel">Estimated weeks</span>
+              <strong id="weeksNeeded">0</strong>
+            </div>
+            <div class="result-card blocker-card">
+              <span data-i18n="mainBlockerLabel">Main blocker</span>
+              <strong id="mainBlocker">-</strong>
+              <span data-i18n="eventReadyLabel">Event readiness</span>
+              <strong id="eventReadiness">-</strong>
+            </div>
+          </div>
+          <div class="planner-insight-grid">
+            <div class="priority planner-brief" id="upgradePriority"></div>
+            <div class="priority planner-brief" id="plannerMilestone"></div>
+            <div class="priority planner-brief" id="plannerSources"></div>
+          </div>
+          <div class="planner-smart-panel">
+            <div class="planner-smart-head">
+              <div>
+                <span class="tag" data-i18n="smartPlannerTag">Smart presets</span>
+                <h3 data-i18n="smartPlannerTitle">What should I prepare next?</h3>
+              </div>
+              <button class="button secondary" id="syncResourceLab" type="button" data-i18n="syncResourceLab">Deep calculate below</button>
+            </div>
+            <div class="smart-preset-grid" id="smartPresetGrid"></div>
+            <div class="smart-next-grid" id="smartNextNeeds"></div>
+          </div>
+          <div class="planner-route planner-route-compact" id="plannerRoute"></div>
+          <small class="memory-status" data-memory-status></small>
+          <button class="button primary full" id="savePlanner" type="button" data-i18n="savePlanner">Save my planner</button>
+        </div>
+      </section>
+
+
+      <section id="resource-lab" class="guides-section resource-lab-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="resourceLabEyebrow">Data-backed planning</span>
+          <h2 data-i18n="resourceLabTitle">Resource data lab</h2>
+          <p data-i18n="resourceLabText">A deeper calculator for the resources players actually get blocked by: furnace rows, hidden prerequisite buildings, refined crystals, chief gear, chief charms, and War Academy shards.</p>
+        </div>
+        <div class="resource-lab-shell">
+          <article class="tool-card resource-lab-card resource-lab-main searchable" data-search="resource data lab furnace fire crystal refined crystal prerequisite embassy troop camp fc rfc cost planner">
+            <div class="resource-lab-head">
+              <div>
+                <span class="tag" data-i18n="resourceLabSourceTag">Source labels on every result</span>
+                <h3 data-i18n="furnaceLabTitle">Furnace route cost table</h3>
+              </div>
+              <span class="confidence-badge" id="furnaceConfidenceBadge">source-backed</span>
+            </div>
+            <div class="planner-grid resource-controls">
+              <label>
+                <span data-i18n="routeStartLabel">Current stage</span>
+                <select id="furnaceStart"></select>
+              </label>
+              <label>
+                <span data-i18n="routeTargetLabel">Target stage</span>
+                <select id="furnaceTarget"></select>
+              </label>
+              <label>
+                <span data-i18n="ownedFcLabel">Owned Fire Crystals</span>
+                <input id="ownedFc" type="number" min="0" step="10" value="600" />
+              </label>
+              <label>
+                <span data-i18n="ownedRfcLabel">Owned Refined Fire Crystals</span>
+                <input id="ownedRfc" type="number" min="0" step="1" value="0" />
+              </label>
+              <label>
+                <span data-i18n="dailyFcIncomeLabel">Daily FC income</span>
+                <input id="dailyFcIncome" type="number" min="1" step="1" value="80" />
+              </label>
+              <label>
+                <span data-i18n="weeklyRfcIncomeLabel">Weekly RFC income</span>
+                <input id="weeklyRfcIncome" type="number" min="0" step="1" value="35" />
+              </label>
+              <label class="toggle-row">
+                <input id="includePrereqTax" type="checkbox" checked />
+                <span data-i18n="includePrereqTaxLabel">Include Embassy + required troop camp FC/RFC tax</span>
+              </label>
+            </div>
+            <div class="resource-total-grid" id="furnaceTotals"></div>
+            <small class="memory-status" data-memory-status></small>
+            <div class="resource-insight-grid">
+              <div class="priority planner-brief" id="furnaceRouteAdvice"></div>
+              <div class="priority planner-brief" id="furnacePrereqAdvice"></div>
+              <div class="priority planner-brief" id="furnaceRefineAdvice"></div>
+            </div>
+            <div class="planner-route resource-route" id="furnaceRouteRows"></div>
+          </article>
+
+          <aside class="resource-side-stack">
+            <article class="tool-card resource-lab-card searchable" data-search="refined fire crystal refinement efficiency plan weekly cost">
+              <div class="resource-lab-head compact">
+                <h3 data-i18n="refineAdvisorTitle">Refinement advisor</h3>
+                <span class="confidence-badge modelled" data-i18n="modelledBadge">modelled</span>
+              </div>
+              <div class="refine-advisor" id="refineAdvisor"></div>
+            </article>
+            <article class="tool-card resource-lab-card searchable" data-search="data coverage source backed modelled player report resource database">
+              <div class="resource-lab-head compact">
+                <h3 data-i18n="coverageTitle">Data coverage</h3>
+                <span class="confidence-badge" data-i18n="sourceBackedBadge">source-backed</span>
+              </div>
+              <p class="resource-note" id="resourcePolicyNote"></p>
+              <div class="coverage-grid" id="resourceCoverage"></div>
+            </article>
+          </aside>
+        </div>
+
+        <div class="resource-lab-shell secondary">
+          <article class="tool-card resource-lab-card searchable" data-search="chief gear hardened alloy polishing solution design plans lunar amber materials calculator">
+            <div class="resource-lab-head compact">
+              <h3 data-i18n="chiefGearLabTitle">Chief Gear material gap</h3>
+              <span class="confidence-badge" data-i18n="sourceBackedBadge">source-backed</span>
+            </div>
+            <div class="planner-grid resource-controls compact-grid">
+              <label>
+                <span data-i18n="gearStartLabel">Current gear row</span>
+                <select id="gearStart"></select>
+              </label>
+              <label>
+                <span data-i18n="gearTargetLabel">Target gear row</span>
+                <select id="gearTarget"></select>
+              </label>
+              <label>
+                <span data-i18n="gearPiecesLabel">Pieces to upgrade</span>
+                <input id="gearPieces" type="number" min="1" max="6" step="1" value="1" />
+              </label>
+            </div>
+            <div class="resource-total-grid material-grid" id="gearTotals"></div>
+            <p class="resource-note" id="gearAdvice"></p>
+          </article>
+
+          <article class="tool-card resource-lab-card searchable" data-search="chief charm charm guides charm designs jewel secrets materials calculator">
+            <div class="resource-lab-head compact">
+              <h3 data-i18n="chiefCharmLabTitle">Chief Charm material gap</h3>
+              <span class="confidence-badge" data-i18n="sourceBackedBadge">source-backed</span>
+            </div>
+            <div class="planner-grid resource-controls compact-grid">
+              <label>
+                <span data-i18n="charmStartLabel">Current charm level</span>
+                <select id="charmStart"></select>
+              </label>
+              <label>
+                <span data-i18n="charmTargetLabel">Target charm level</span>
+                <select id="charmTarget"></select>
+              </label>
+              <label>
+                <span data-i18n="charmPiecesLabel">Charms to upgrade</span>
+                <input id="charmPieces" type="number" min="1" max="18" step="1" value="6" />
+              </label>
+            </div>
+            <div class="resource-total-grid material-grid" id="charmTotals"></div>
+            <p class="resource-note" id="charmAdvice"></p>
+          </article>
+
+          <article class="tool-card resource-lab-card searchable" data-search="war academy fire crystal shard steel conversion calculator research resource">
+            <div class="resource-lab-head compact">
+              <h3 data-i18n="warAcademyLabTitle">War Academy shard pacing</h3>
+              <span class="confidence-badge modelled" data-i18n="mixedBadge">mixed data</span>
+            </div>
+            <div class="planner-grid resource-controls compact-grid">
+              <label>
+                <span data-i18n="targetShardsLabel">Target shards</span>
+                <input id="targetShards" type="number" min="1" step="10" value="520" />
+              </label>
+              <label>
+                <span data-i18n="ownedShardsLabel">Owned shards</span>
+                <input id="ownedShards" type="number" min="0" step="1" value="0" />
+              </label>
+              <label>
+                <span data-i18n="dailyShardLabel">Daily shard cap used</span>
+                <select id="dailyShardMode">
+                  <option value="conservative" data-i18n="dailyShardConservative">Conservative cap</option>
+                  <option value="high" data-i18n="dailyShardHigh">High-cap model</option>
+                </select>
+              </label>
+            </div>
+            <div class="resource-total-grid material-grid" id="academyTotals"></div>
+            <p class="resource-note" id="academyAdvice"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="ad-band ad-band-tool" aria-label="Advertisement" data-ad-slot-key="tools"></section>
+
+      <section class="guides-section planner-support-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="plannerSupportEyebrow">Planning support</span>
+          <h2 data-i18n="plannerSupportTitle">What usually blocks resource plans</h2>
+          <p data-i18n="plannerSupportText">Players usually fail the jump not because of one number, but because of hidden blockers, wrong refine pacing, or spending on the wrong event.</p>
+        </div>
+        <div class="planner-support-grid">
+          <div class="tool-card">
+            <h3 data-i18n="plannerBlockersTitle">Route blockers</h3>
+            <div class="support-list" id="plannerBlockers"></div>
+          </div>
+          <div class="tool-card">
+            <h3 data-i18n="refinePlanTitle">Refined Fire Crystal plans</h3>
+            <div class="support-list refine-list" id="refinePlans"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="spend-map" class="guides-section spendmap-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="spendMapEyebrow">Spend map</span>
+          <h2 data-i18n="spendMapTitle">What to save for which event</h2>
+          <p data-i18n="spendMapText">This is the kind of table players keep asking for in chats: which stock should be held for SvS, KOI, officer cycles, and alliance events.</p>
+        </div>
+        <div class="spendmap-grid" id="eventSpendMap"></div>
+      </section>
+
+      <section id="day-plan" class="guides-section dayplan-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="dayPlanEyebrow">Day plans</span>
+          <h2 data-i18n="dayPlanTitle">How to spend by event day</h2>
+          <p data-i18n="dayPlanText">Players do not only need totals. They need to know what to spend first, what to hold, and what not to touch on each event day.</p>
+        </div>
+        <div class="dayplan-grid" id="eventDayPlans"></div>
+      </section>
+
+      <section class="guides-section hoard-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="hoardEyebrow">Today board</span>
+          <h2 data-i18n="hoardTitle">What should you hoard today</h2>
+          <p data-i18n="hoardText">This board is for repeat visits: open it, decide what to keep, what to spend, and what to double-check before you waste stock.</p>
+        </div>
+        <div class="hoard-grid" id="todayHoardBoards"></div>
+      </section>
+
+      <section class="guides-section chain-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="chainEyebrow">Route map</span>
+          <h2 data-i18n="chainTitle">Building prerequisite route</h2>
+          <p data-i18n="chainText">Most players do not fail because they lack one resource. They fail because the supporting route is out of sync. This makes that route visible.</p>
+        </div>
+        <div class="chain-grid" id="buildingChains"></div>
+      </section>
+
+      <section id="share" class="share-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="shareEyebrow">Alliance utility</span>
+          <h2 data-i18n="shareTitle">Chat-ready alliance brief</h2>
+          <p data-i18n="shareText">Generate a compact message with likely active codes, your Fire Crystal gap, and the next Frostfire window.</p>
+        </div>
+        <div class="share-card">
+          <div class="share-preview" id="shareBrief" aria-live="polite"></div>
+          <button class="button primary full" id="copyShareBrief" type="button" data-i18n="copyShareBrief">Copy alliance brief</button>
+        </div>
+      </section>
+
+      <section id="guides" class="guides-section">
+        <div class="section-heading">
+          <span class="eyebrow" data-i18n="guidesEyebrow">Content that earns repeat visits</span>
+          <h2 data-i18n="guidesTitle">Event and upgrade playbooks</h2>
+          <p data-i18n="guidesText">Short, practical pages users can scan before an event. The site is structured so each guide can become its own SEO landing page later.</p>
+        </div>
+        <div class="guide-grid" id="guideGrid"></div>
+      </section>
+
+      <section class="ad-band" aria-label="Advertisement" data-ad-slot-key="guides"></section>
+
+      <section id="region" class="region-section">
+        <div>
+          <span class="eyebrow" data-i18n="regionEyebrow">Regional differences</span>
+          <h2 data-i18n="regionTitle">Server notes by region</h2>
+          <p data-i18n="regionText">Some codes, event windows, and shop bundles vary by server age and region. Choose a region to keep your notes local.</p>
+        </div>
+        <div class="region-controls" role="tablist" aria-label="Region selector">
+          <button type="button" class="active" data-region="Global">Global</button>
+          <button type="button" data-region="US">US</button>
+          <button type="button" data-region="TW/HK">TW/HK</button>
+          <button type="button" data-region="SEA">SEA</button>
+        </div>
+        <textarea id="regionNotes" rows="5" placeholder="Save local server notes here"></textarea>
+      </section>
+
+      <section class="feedback-section">
+        <div>
+          <h2 data-i18n="feedbackTitle">Found a working code or wrong event note?</h2>
+          <p data-i18n="feedbackText">Send the code, server, and screenshot source. Verified reports become update-log items.</p>
+        </div>
+        <a class="button secondary" href="mailto:cschat2026@gmail.com?subject=Whiteout%20Survival%20Tools%20-%20Player%20Feedback%20from%20whiteout-survival-tools" data-i18n="feedbackButton">Email feedback</a>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>Whiteout Hub</strong>
+        <p data-i18n="footerDisclaimer">Fan-made utility site. Not affiliated with Century Games or Whiteout Survival.</p>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
+        <a href="disclaimer.html" data-i18n="disclaimer">Disclaimer</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script id="contentData" type="application/json">{
+  "updatedAt": "2026-05-19T03:23:17.311Z",
+  "sources": [
+    {
+      "name": "Whiteout Survival official channels",
+      "type": "official",
+      "url": "https://www.whiteoutsurvival.com/"
+    },
+    {
+      "name": "Whiteout Survival Wiki gift code list",
+      "type": "official-wiki",
+      "url": "https://www.whiteoutsurvival.wiki/giftcodes/"
+    },
+    {
+      "name": "GamesRadar code checks",
+      "type": "editorial",
+      "url": "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/"
+    },
+    {
+      "name": "Whiteout Survival Wiki Fire Crystal Furnace",
+      "type": "official-wiki",
+      "url": "https://www.whiteoutsurvival.wiki/buildings/fire-crystal-furnace/"
+    },
+    {
+      "name": "WOSC Fire Crystal Furnace database",
+      "type": "community-database",
+      "url": "https://www.whiteoutsurvival-community.com/tools/database/building/fire-crystal-furnace.html"
+    },
+    {
+      "name": "WhiteoutData Chief Gear",
+      "type": "community-database",
+      "url": "https://whiteoutdata.com/items/chief-gear/"
+    },
+    {
+      "name": "WhiteoutData Chief Charms",
+      "type": "community-database",
+      "url": "https://whiteoutdata.com/items/chief-charms/"
+    },
+    {
+      "name": "Whiteout Survival Wiki War Academy",
+      "type": "official-wiki",
+      "url": "https://www.whiteoutsurvival.wiki/buildings/war-academy/"
+    }
+  ],
+  "codes": [
+    {
+      "code": "WOSFAMILY26",
+      "region": "Global",
+      "expiresAt": "2026-05-20",
+      "rewards": [
+        "1K Gems",
+        "8x 1h Training Speedup",
+        "2x 100 VIP XP",
+        "10x 5m General Speedup"
+      ],
+      "sourceLevel": "official+editorial",
+      "activeWhenSeen": true,
+      "note": {
+        "en": "Confirmed active by the official wiki and GamesRadar on May 15, 2026. Expires May 20, 2026.",
+        "zh-CN": "2026 年 5 月 15 日官方 Wiki 与 GamesRadar 均确认可用，已标注 2026 年 5 月 20 日到期。",
+        "zh-TW": "2026 年 5 月 15 日官方 Wiki 與 GamesRadar 均確認可用，已標註 2026 年 5 月 20 日到期。"
+      },
+      "status": "active"
+    },
+    {
+      "code": "gogoWOS",
+      "region": "Global",
+      "rewards": [
+        "500 Gems",
+        "10K Hero XP",
+        "2x Gold Keys",
+        "20x 5m General Speedup"
+      ],
+      "sourceLevel": "official+editorial",
+      "activeWhenSeen": true,
+      "note": {
+        "en": "Still listed as active by the official wiki and GamesRadar on May 15, 2026.",
+        "zh-CN": "截至 2026 年 5 月 15 日，官方 Wiki 与 GamesRadar 仍列为可用。",
+        "zh-TW": "截至 2026 年 5 月 15 日，官方 Wiki 與 GamesRadar 仍列為可用。"
+      },
+      "status": "active"
+    },
+    {
+      "code": "LoveMom2026",
+      "region": "Global",
+      "rewards": [
+        "1K Gems",
+        "2x Gold Keys",
+        "20x 5m General Speedup"
+      ],
+      "sourceLevel": "editorial",
+      "activeWhenSeen": false,
+      "note": {
+        "en": "Marked expired by GamesRadar on May 15, 2026. Keep only for history so players do not repost it as active.",
+        "zh-CN": "GamesRadar 于 2026 年 5 月 15 日标为过期，仅保留作历史记录，避免再转发为可用码。",
+        "zh-TW": "GamesRadar 於 2026 年 5 月 15 日標為過期，僅保留作歷史記錄，避免再轉發為可用碼。"
+      },
+      "status": "expired"
+    },
+    {
+      "code": "FE5BY8",
+      "region": "Global",
+      "rewards": [
+        "1K Gems",
+        "50K Hero XP",
+        "3x 1h Training Speedup"
+      ],
+      "sourceLevel": "editorial",
+      "activeWhenSeen": false,
+      "note": {
+        "en": "Listed as expired by GamesRadar on May 15, 2026. Required Furnace Lv. 9 while active.",
+        "zh-CN": "GamesRadar 于 2026 年 5 月 15 日列为过期，生效时要求熔炉 9 级。",
+        "zh-TW": "GamesRadar 於 2026 年 5 月 15 日列為過期，生效時要求熔爐 9 級。"
+      },
+      "status": "expired"
+    },
+    {
+      "code": "ChildrensDay505",
+      "region": "Global",
+      "rewards": [
+        "1K Gems",
+        "8x 1h Training Speedup",
+        "10x 5m General Speedup"
+      ],
+      "sourceLevel": "editorial",
+      "activeWhenSeen": false,
+      "note": {
+        "en": "Now listed as expired by GamesRadar on May 15, 2026.",
+        "zh-CN": "GamesRadar 于 2026 年 5 月 15 日已列为过期。",
+        "zh-TW": "GamesRadar 於 2026 年 5 月 15 日已列為過期。"
+      },
+      "status": "expired"
+    }
+  ],
+  "events": [
+    {
+      "key": "frostfire",
+      "type": "recurring",
+      "durationMinutes": 30,
+      "frequency": {
+        "en": "Short recurring competitive event; exact schedule depends on state and event rotation.",
+        "zh-CN": "短时周期竞技活动，具体开放时间取决于州服与活动轮换。",
+        "zh-TW": "短時週期競技活動，具體開放時間取決於州服與活動輪替。"
+      },
+      "needs": [
+        "timer",
+        "task list",
+        "resource priority",
+        "alliance coordination"
+      ]
+    },
+    {
+      "key": "svs",
+      "type": "seasonal",
+      "durationMinutes": null,
+      "frequency": {
+        "en": "State-vs-state cycle with preparation, battle, and recovery phases.",
+        "zh-CN": "跨州周期，通常包含准备、战斗和恢复阶段。",
+        "zh-TW": "跨州週期，通常包含準備、戰鬥與恢復階段。"
+      },
+      "needs": [
+        "phase checklist",
+        "buff timing",
+        "resource saving",
+        "troop protection"
+      ]
+    },
+    {
+      "key": "foundry",
+      "type": "scheduled",
+      "durationMinutes": 60,
+      "frequency": {
+        "en": "Alliance battlefield event. Registration and bracket timing vary.",
+        "zh-CN": "联盟战场活动，报名与分组时间会变动。",
+        "zh-TW": "聯盟戰場活動，報名與分組時間會變動。"
+      },
+      "needs": [
+        "lineup",
+        "role assignment",
+        "healing speedups",
+        "rally timing"
+      ]
+    }
+  ],
+  "frostfireTimeline": [
+    {
+      "minute": 0,
+      "type": "setup",
+      "label": {
+        "en": "Spawn check",
+        "zh-CN": "开局侦察",
+        "zh-TW": "開局偵察"
+      },
+      "advice": {
+        "en": "Find nearby patrols and Lv. 2-3 veins before committing your free teleport.",
+        "zh-CN": "先确认附近巡逻怪和 2-3 级矿脉，再决定免费迁城位置。",
+        "zh-TW": "先確認附近巡邏怪與 2-3 級礦脈，再決定免費遷城位置。"
+      }
+    },
+    {
+      "minute": 3,
+      "type": "skill",
+      "label": {
+        "en": "Skill push",
+        "zh-CN": "技能冲刺",
+        "zh-TW": "技能衝刺"
+      },
+      "advice": {
+        "en": "Clear patrols aggressively and keep one march flexible for vein touches.",
+        "zh-CN": "集中清巡逻怪，同时保留一队机动，用来触碰矿脉拿触发收益。",
+        "zh-TW": "集中清巡邏怪，同時保留一隊機動，用來觸碰礦脈拿觸發收益。"
+      }
+    },
+    {
+      "minute": 7,
+      "type": "warning",
+      "label": {
+        "en": "Pre-position",
+        "zh-CN": "提前站位",
+        "zh-TW": "提前站位"
+      },
+      "advice": {
+        "en": "Move into range for the first Outburst cluster; missing it is the biggest early loss.",
+        "zh-CN": "进入第一波爆发矿范围；错过这一波通常是前期最大损失。",
+        "zh-TW": "進入第一波爆發礦範圍；錯過這一波通常是前期最大損失。"
+      }
+    },
+    {
+      "minute": 8,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 1",
+        "zh-CN": "爆发矿 1",
+        "zh-TW": "爆發礦 1"
+      },
+      "advice": {
+        "en": "Prioritize Outburst Veins over routine patrols and low-value fights.",
+        "zh-CN": "优先抢爆发矿，不要被普通巡逻怪或低价值战斗拖住。",
+        "zh-TW": "優先搶爆發礦，不要被普通巡邏怪或低價值戰鬥拖住。"
+      }
+    },
+    {
+      "minute": 9,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 2",
+        "zh-CN": "爆发矿 2",
+        "zh-TW": "爆發礦 2"
+      },
+      "advice": {
+        "en": "Rotate fast; the cluster is worth more than holding a weak common vein.",
+        "zh-CN": "快速轮转；这一簇收益通常高于死守普通低级矿。",
+        "zh-TW": "快速輪轉；這一簇收益通常高於死守普通低級礦。"
+      }
+    },
+    {
+      "minute": 10,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 3",
+        "zh-CN": "爆发矿 3",
+        "zh-TW": "爆發礦 3"
+      },
+      "advice": {
+        "en": "Finish the first cluster, then return to patrol XP and controlled vein touches.",
+        "zh-CN": "收完第一簇后，回到巡逻经验和可控矿脉触发节奏。",
+        "zh-TW": "收完第一簇後，回到巡邏經驗與可控礦脈觸發節奏。"
+      }
+    },
+    {
+      "minute": 17,
+      "type": "warning",
+      "label": {
+        "en": "Second setup",
+        "zh-CN": "第二波预备",
+        "zh-TW": "第二波預備"
+      },
+      "advice": {
+        "en": "Reposition for the second Outburst cluster and hold mobility cooldowns.",
+        "zh-CN": "为第二波爆发矿重新站位，保留迁城/行军机动空间。",
+        "zh-TW": "為第二波爆發礦重新站位，保留遷城/行軍機動空間。"
+      }
+    },
+    {
+      "minute": 18,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 4",
+        "zh-CN": "爆发矿 4",
+        "zh-TW": "爆發礦 4"
+      },
+      "advice": {
+        "en": "Commit your fastest available march and avoid stalled marches across the map.",
+        "zh-CN": "投入最快可用队列，避免队伍卡在远处回不来。",
+        "zh-TW": "投入最快可用隊列，避免隊伍卡在遠處回不來。"
+      }
+    },
+    {
+      "minute": 19,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 5",
+        "zh-CN": "爆发矿 5",
+        "zh-TW": "爆發礦 5"
+      },
+      "advice": {
+        "en": "Fight only if the trade secures the vein or denies a direct rival.",
+        "zh-CN": "只有能拿矿或压制直接竞争者时才打，不要无效换血。",
+        "zh-TW": "只有能拿礦或壓制直接競爭者時才打，不要無效換血。"
+      }
+    },
+    {
+      "minute": 20,
+      "type": "outburst",
+      "label": {
+        "en": "Outburst 6",
+        "zh-CN": "爆发矿 6",
+        "zh-TW": "爆發礦 6"
+      },
+      "advice": {
+        "en": "Close the second cluster and switch into score protection mode.",
+        "zh-CN": "收完第二簇后，切换到保分和补分节奏。",
+        "zh-TW": "收完第二簇後，切換到保分與補分節奏。"
+      }
+    },
+    {
+      "minute": 22,
+      "type": "close",
+      "label": {
+        "en": "Closing push",
+        "zh-CN": "收尾冲刺",
+        "zh-TW": "收尾衝刺"
+      },
+      "advice": {
+        "en": "Spend heals only when they convert into points; stop feeding losing fights.",
+        "zh-CN": "治疗只用于能换分的场景；亏分战斗及时停止。",
+        "zh-TW": "治療只用於能換分的場景；虧分戰鬥及時停止。"
+      }
+    },
+    {
+      "minute": 30,
+      "type": "finish",
+      "label": {
+        "en": "Result check",
+        "zh-CN": "结算检查",
+        "zh-TW": "結算檢查"
+      },
+      "advice": {
+        "en": "Screenshot rank, rewards, and anything your alliance wants to review.",
+        "zh-CN": "截图排名、奖励和联盟复盘需要的信息。",
+        "zh-TW": "截圖排名、獎勵與聯盟復盤需要的資訊。"
+      }
+    }
+  ],
+  "fireCrystalLevels": [
+    {
+      "level": "FC1",
+      "order": 1,
+      "crystals": 1320,
+      "refined": 0,
+      "days": 4,
+      "source": "community-estimate",
+      "priority": {
+        "en": "Rush furnace first, then keep Embassy and your main troop camp close behind.",
+        "zh-CN": "先冲熔炉，再让大使馆和主力兵营紧跟，不要让前置拖后腿。",
+        "zh-TW": "先衝熔爐，再讓大使館和主力兵營緊跟，不要讓前置拖後腿。"
+      }
+    },
+    {
+      "level": "FC2",
+      "order": 2,
+      "crystals": 1680,
+      "refined": 0,
+      "days": 5,
+      "source": "community-estimate",
+      "priority": {
+        "en": "Do not let Embassy lag behind if you are planning for event scoring windows.",
+        "zh-CN": "如果准备卡活动积分窗口，大使馆不要落后，否则会卡下一段。",
+        "zh-TW": "如果準備卡活動積分窗口，大使館不要落後，否則會卡下一段。"
+      }
+    },
+    {
+      "level": "FC3",
+      "order": 3,
+      "crystals": 2250,
+      "refined": 0,
+      "days": 7,
+      "source": "community-estimate",
+      "priority": {
+        "en": "Keep one troop camp aligned with furnace progress so the next jump is not blocked.",
+        "zh-CN": "至少让一个兵营跟上熔炉进度，避免下一跳被兵营前置卡住。",
+        "zh-TW": "至少讓一個兵營跟上熔爐進度，避免下一跳被兵營前置卡住。"
+      }
+    },
+    {
+      "level": "FC4",
+      "order": 4,
+      "crystals": 3100,
+      "refined": 0,
+      "days": 9,
+      "source": "community-estimate",
+      "priority": {
+        "en": "Line this jump up with SvS or KOI construction value if your state scores seriously.",
+        "zh-CN": "如果州服重视积分，把这一跳尽量卡到 SvS 或 KOI 建筑积分窗口。",
+        "zh-TW": "如果州服重視積分，把這一跳盡量卡到 SvS 或 KOI 建築積分窗口。"
+      }
+    },
+    {
+      "level": "FC5",
+      "order": 5,
+      "crystals": 4200,
+      "refined": 0,
+      "days": 12,
+      "source": "community-estimate",
+      "priority": {
+        "en": "Treat this as the last easy FC checkpoint before refined planning starts.",
+        "zh-CN": "把这里当成精炼火晶压力出现前的最后舒适节点，别把火晶一次清空。",
+        "zh-TW": "把這裡當成精煉火晶壓力出現前的最後舒適節點，別把火晶一次清空。"
+      }
+    },
+    {
+      "level": "FC6",
+      "order": 6,
+      "crystals": 5100,
+      "refined": 60,
+      "days": 16,
+      "source": "furnace-rfc-path",
+      "priority": {
+        "en": "Plan refined fire crystals before you commit to the furnace push.",
+        "zh-CN": "真正投入前先算精炼火晶，不然火晶够了也会被 RFC 卡住。",
+        "zh-TW": "真正投入前先算精煉火晶，不然火晶夠了也會被 RFC 卡住。"
+      }
+    },
+    {
+      "level": "FC7",
+      "order": 7,
+      "crystals": 6180,
+      "refined": 150,
+      "days": 22,
+      "source": "furnace-rfc-path",
+      "priority": {
+        "en": "Do not convert too aggressively if it slows your next furnace checkpoint.",
+        "zh-CN": "精炼不要过猛，先确认不会拖慢下一段熔炉节点。",
+        "zh-TW": "精煉不要過猛，先確認不會拖慢下一段熔爐節點。"
+      }
+    },
+    {
+      "level": "FC8",
+      "order": 8,
+      "crystals": 7260,
+      "refined": 270,
+      "days": 30,
+      "source": "furnace-rfc-path",
+      "priority": {
+        "en": "This is usually where hidden prep and refined pacing punish weak planning.",
+        "zh-CN": "这个阶段最容易被隐藏前置和精炼节奏惩罚，必须连装备护符一起看。",
+        "zh-TW": "這個階段最容易被隱藏前置和精煉節奏懲罰，必須連裝備護符一起看。"
+      }
+    },
+    {
+      "level": "FC9",
+      "order": 9,
+      "crystals": 8520,
+      "refined": 450,
+      "days": 42,
+      "source": "furnace-rfc-path",
+      "priority": {
+        "en": "Budget furnace, embassy, and one camp together before promising a jump.",
+        "zh-CN": "承诺升级前，把熔炉、大使馆和一个兵营一起预算，不要只看熔炉本体。",
+        "zh-TW": "承諾升級前，把熔爐、大使館和一個兵營一起預算，不要只看熔爐本體。"
+      }
+    },
+    {
+      "level": "FC10",
+      "order": 10,
+      "crystals": 10095,
+      "refined": 870,
+      "days": 60,
+      "source": "furnace-rfc-path",
+      "priority": {
+        "en": "Only push if your refined stock and scoring window both line up.",
+        "zh-CN": "只有精炼库存和积分窗口都对齐时才建议冲，不然性价比很差。",
+        "zh-TW": "只有精煉庫存和積分窗口都對齊時才建議衝，不然性價比很差。"
+      }
+    }
+  ],
+  "marketNotes": [
+    {
+      "game": "Whiteout Survival",
+      "score": 92,
+      "why": {
+        "en": "Large global strategy audience, seasonal/event loops, alliance coordination, codes, upgrade planning, and calculator demand.",
+        "zh-CN": "全球策略用户量大，赛季/活动循环强，有联盟协作、兑换码、升级规划和计算器需求。",
+        "zh-TW": "全球策略用戶量大，賽季/活動循環強，有聯盟協作、兌換碼、升級規劃與計算器需求。"
+      }
+    },
+    {
+      "game": "Last War: Survival",
+      "score": 84,
+      "why": {
+        "en": "Very strong revenue and broad casual reach, but the content angle is more crowded around heroes and codes.",
+        "zh-CN": "收入和泛用户热度很强，但内容需求更集中在英雄和兑换码，差异化难度略高。",
+        "zh-TW": "收入和泛用戶熱度很強，但內容需求更集中在英雄與兌換碼，差異化難度略高。"
+      }
+    },
+    {
+      "game": "Clash of Clans",
+      "score": 78,
+      "why": {
+        "en": "Evergreen search volume and upgrade tools, but mature competitors already own many high-intent queries.",
+        "zh-CN": "长青流量和升级工具需求稳定，但成熟竞品已覆盖大量高意图关键词。",
+        "zh-TW": "長青流量和升級工具需求穩定，但成熟競品已覆蓋大量高意圖關鍵字。"
+      }
+    },
+    {
+      "game": "Mobile Legends: Bang Bang",
+      "score": 73,
+      "why": {
+        "en": "Huge active community, yet a content product depends heavily on frequent tier updates and esports/editorial labor.",
+        "zh-CN": "活跃社区巨大，但站点长期价值更依赖频繁榜单和电竞内容，人力维护压力更高。",
+        "zh-TW": "活躍社群巨大，但站點長期價值更依賴頻繁榜單與電競內容，人力維護壓力更高。"
+      }
+    }
+  ],
+  "frostfireCommands": {
+    "ready": {
+      "objective": {
+        "en": "Lock your opening route before the event starts.",
+        "zh-CN": "活动开始前先锁定开局路线。",
+        "zh-TW": "活動開始前先鎖定開局路線。"
+      },
+      "doNow": {
+        "en": [
+          "Confirm teleport target",
+          "Set fastest march order",
+          "Tell alliance which side you are opening"
+        ],
+        "zh-CN": [
+          "确认迁城目标点",
+          "排好最快队列顺序",
+          "在联盟里说明你开局去哪一侧"
+        ],
+        "zh-TW": [
+          "確認遷城目標點",
+          "排好最快隊列順序",
+          "在聯盟裡說明你開局去哪一側"
+        ]
+      },
+      "nextPrep": {
+        "en": "Be ready to move into patrol and low-risk vein range in the first 3 minutes.",
+        "zh-CN": "准备在前 3 分钟进入巡逻怪和低风险矿脉范围。",
+        "zh-TW": "準備在前 3 分鐘進入巡邏怪和低風險礦脈範圍。"
+      },
+      "avoid": {
+        "en": "Do not burn free teleport without checking nearby Lv. 2-3 vein density first.",
+        "zh-CN": "先别盲目交免费迁城，先看附近 2-3 级矿脉密度。",
+        "zh-TW": "先別盲目交免費遷城，先看附近 2-3 級礦脈密度。"
+      }
+    },
+    "open": {
+      "objective": {
+        "en": "Build a safe early score base without getting dragged into bad fights.",
+        "zh-CN": "先建立稳定前期分数，不要被烂战拖住。",
+        "zh-TW": "先建立穩定前期分數，不要被爛戰拖住。"
+      },
+      "doNow": {
+        "en": [
+          "Farm safe patrols and easy veins",
+          "Keep one march flexible",
+          "Move toward first outburst zone by minute 7"
+        ],
+        "zh-CN": [
+          "先吃安全巡逻怪和容易拿的矿",
+          "保留一队机动",
+          "7 分钟前往第一波爆发矿区域站位"
+        ],
+        "zh-TW": [
+          "先吃安全巡邏怪和容易拿的礦",
+          "保留一隊機動",
+          "7 分鐘前往第一波爆發礦區域站位"
+        ]
+      },
+      "nextPrep": {
+        "en": "The next high-value swing is the first outburst cluster at minutes 8-10.",
+        "zh-CN": "下一次高价值分差来自 8-10 分钟第一波爆发矿。",
+        "zh-TW": "下一次高價值分差來自 8-10 分鐘第一波爆發礦。"
+      },
+      "avoid": {
+        "en": "Do not chase isolated fights that keep your marches away from the first outburst spawn.",
+        "zh-CN": "不要追孤立战斗，避免队伍错过第一波爆发矿。",
+        "zh-TW": "不要追孤立戰鬥，避免隊伍錯過第一波爆發礦。"
+      }
+    },
+    "fight": {
+      "objective": {
+        "en": "Convert the mid-game into outburst control and efficient point trades.",
+        "zh-CN": "把中盘转成爆发矿控制和高效率换分。",
+        "zh-TW": "把中盤轉成爆發礦控制和高效率換分。"
+      },
+      "doNow": {
+        "en": [
+          "Rotate to every outburst cluster",
+          "Heal only when it returns points",
+          "Follow alliance rally calls, not random skirmishes"
+        ],
+        "zh-CN": [
+          "围绕每一波爆发矿轮转",
+          "只在能换分时治疗",
+          "跟联盟集结指令，不跟随机小规模混战"
+        ],
+        "zh-TW": [
+          "圍繞每一波爆發礦輪轉",
+          "只在能換分時治療",
+          "跟聯盟集結指令，不跟隨機小規模混戰"
+        ]
+      },
+      "nextPrep": {
+        "en": "Second outburst prep starts around minute 17, so keep mobility and teleports available.",
+        "zh-CN": "17 分钟左右要准备第二波爆发矿，保留机动和迁城空间。",
+        "zh-TW": "17 分鐘左右要準備第二波爆發礦，保留機動和遷城空間。"
+      },
+      "avoid": {
+        "en": "Do not over-heal low-value trades or leave your strongest march stranded across the map.",
+        "zh-CN": "不要给低价值换血过度治疗，也别让主力队卡在地图另一侧。",
+        "zh-TW": "不要給低價值換血過度治療，也別讓主力隊卡在地圖另一側。"
+      }
+    },
+    "close": {
+      "objective": {
+        "en": "Protect score, finish efficient heals, and stop late waste.",
+        "zh-CN": "保分、补关键治疗、停止无效消耗。",
+        "zh-TW": "保分、補關鍵治療、停止無效消耗。"
+      },
+      "doNow": {
+        "en": [
+          "Use heals only for real point swings",
+          "Protect occupied value positions",
+          "Take final screenshots for alliance review"
+        ],
+        "zh-CN": [
+          "治疗只给关键分差",
+          "守住已占住的高价值位置",
+          "截好最终分数给联盟复盘"
+        ],
+        "zh-TW": [
+          "治療只給關鍵分差",
+          "守住已占住的高價值位置",
+          "截好最終分數給聯盟復盤"
+        ]
+      },
+      "nextPrep": {
+        "en": "The only next step now is clean finish and reward review after 30:00.",
+        "zh-CN": "现在唯一的下一步就是干净收尾，30:00 后看奖励。",
+        "zh-TW": "現在唯一的下一步就是乾淨收尾，30:00 後看獎勵。"
+      },
+      "avoid": {
+        "en": "Do not feed losing fights in the last minutes just because marches are already out.",
+        "zh-CN": "别因为队伍已经在外面就硬打亏分战。",
+        "zh-TW": "別因為隊伍已經在外面就硬打虧分戰。"
+      }
+    }
+  },
+  "fireCrystalPlannerMeta": {
+    "crystalLabDaily": 7,
+    "refinedWeeklyCap": 100,
+    "notes": {
+      "en": "FC1-FC5 remain community planning estimates. FC6-FC10 here uses a furnace-path model with refined fire crystal requirements separated out for planning.",
+      "zh-CN": "FC1-FC5 仍按社区常用规划估算；FC6-FC10 这里采用熔炉路径模型，并把精炼火晶单独拆出来做规划。",
+      "zh-TW": "FC1-FC5 仍按社群常用規劃估算；FC6-FC10 這裡採用熔爐路徑模型，並把精煉火晶單獨拆出來做規劃。"
+    }
+  },
+  "plannerSupport": {
+    "blockers": {
+      "en": [
+        "Common FC path blocker: Embassy and one troop camp often need to stay near furnace stage.",
+        "If your server has not unlocked the later Fire Crystal age yet, FC6+ planning can be early.",
+        "Treat route totals as planning guidance, then verify exact live requirements in-game before spending."
+      ],
+      "zh-CN": [
+        "常见 FC 路线卡点：大使馆和一个主力兵营通常要跟上熔炉阶段。",
+        "如果你的服务器还没进入后续火晶时代，FC6+ 规划可能会偏早。",
+        "这里先给路线规划，正式投入资源前请回游戏内再确认实时前置。"
+      ],
+      "zh-TW": [
+        "常見 FC 路線卡點：大使館和一個主力兵營通常要跟上熔爐階段。",
+        "如果你的伺服器還沒進入後續火晶時代，FC6+ 規劃可能會偏早。",
+        "這裡先給路線規劃，正式投入資源前請回遊戲內再確認即時前置。"
+      ]
+    },
+    "refinePlans": [
+      {
+        "key": "light",
+        "title": {
+          "en": "Discount-only refine",
+          "zh-CN": "折扣轻炼路线",
+          "zh-TW": "折扣輕煉路線"
+        },
+        "detail": {
+          "en": "Use the discounted daily refine when you are still stockpiling FC for a major furnace jump.",
+          "zh-CN": "当你还在攒火晶等大跳级时，只吃每日折扣精炼。",
+          "zh-TW": "當你還在存火晶等大跳級時，只吃每日折扣精煉。"
+        }
+      },
+      {
+        "key": "steady",
+        "title": {
+          "en": "Steady weekly refine",
+          "zh-CN": "周常稳定精炼",
+          "zh-TW": "週常穩定精煉"
+        },
+        "detail": {
+          "en": "A mid-range weekly refine plan fits most F2P and low-spend accounts better than full conversion.",
+          "zh-CN": "中等强度的周精炼通常比全力转换更适合大多数 F2P / 低氪玩家。",
+          "zh-TW": "中等強度的週精煉通常比全力轉換更適合大多數 F2P / 低課玩家。"
+        }
+      },
+      {
+        "key": "push",
+        "title": {
+          "en": "Push-week refine",
+          "zh-CN": "冲级周精炼",
+          "zh-TW": "衝級週精煉"
+        },
+        "detail": {
+          "en": "Only go heavy on refined conversion when the furnace checkpoint and scoring event are both close.",
+          "zh-CN": "只有当熔炉关键档和冲分活动窗口同时临近时，才适合重压精炼。",
+          "zh-TW": "只有當熔爐關鍵檔和衝分活動窗口同時臨近時，才適合重壓精煉。"
+        }
+      }
+    ]
+  },
+  "eventSpendMap": [
+    {
+      "key": "svs",
+      "title": {
+        "en": "SvS Prep",
+        "zh-CN": "SvS 备战",
+        "zh-TW": "SvS 備戰"
+      },
+      "when": {
+        "en": "High-value state scoring window",
+        "zh-CN": "高价值跨州冲分窗口",
+        "zh-TW": "高價值跨州衝分窗口"
+      },
+      "save": {
+        "en": [
+          "Construction speedups",
+          "Research speedups",
+          "Fire Crystals / Refined FC",
+          "Chief gear and charm materials"
+        ],
+        "zh-CN": [
+          "建筑加速",
+          "研究加速",
+          "火晶 / 精炼火晶",
+          "领主装备与护符材料"
+        ],
+        "zh-TW": [
+          "建築加速",
+          "研究加速",
+          "火晶 / 精煉火晶",
+          "領主裝備與護符材料"
+        ]
+      },
+      "avoid": {
+        "en": "Do not burn major stock before confirming your state scoring rules and Day 1 plan.",
+        "zh-CN": "没确认本州冲分规则和 Day 1 计划前，不要先把大库存烧掉。",
+        "zh-TW": "沒確認本州衝分規則和 Day 1 計畫前，不要先把大庫存燒掉。"
+      },
+      "bestFor": {
+        "en": "Construction pushes and planned FC jumps",
+        "zh-CN": "建筑冲分和计划好的 FC 跳级",
+        "zh-TW": "建築衝分和計畫好的 FC 跳級"
+      }
+    },
+    {
+      "key": "koi",
+      "title": {
+        "en": "King of Icefield",
+        "zh-CN": "冰原之王 KOI",
+        "zh-TW": "冰原之王 KOI"
+      },
+      "when": {
+        "en": "Best non-SvS saving target for many F2P players",
+        "zh-CN": "很多 F2P 玩家最常见的非 SvS 囤货目标",
+        "zh-TW": "很多 F2P 玩家最常見的非 SvS 囤貨目標"
+      },
+      "save": {
+        "en": [
+          "Hero shards",
+          "Pet / chief growth items",
+          "Speedups aligned with stage tasks",
+          "Any item that matches that week's daily point table"
+        ],
+        "zh-CN": [
+          "英雄碎片",
+          "宠物 / 领主养成材料",
+          "和当日任务对口的加速",
+          "所有能对上当周每日积分表的道具"
+        ],
+        "zh-TW": [
+          "英雄碎片",
+          "寵物 / 領主養成材料",
+          "和當日任務對口的加速",
+          "所有能對上當週每日積分表的道具"
+        ]
+      },
+      "avoid": {
+        "en": "Do not open random growth items early if they can line up with a later KOI day.",
+        "zh-CN": "能对上后面 KOI 日程的养成道具，不要提前乱开。",
+        "zh-TW": "能對上後面 KOI 日程的養成道具，不要提前亂開。"
+      },
+      "bestFor": {
+        "en": "F2P players chasing milestone rewards or selective rankings",
+        "zh-CN": "追里程碑奖励或卡位名次的 F2P 玩家",
+        "zh-TW": "追里程碑獎勵或卡位名次的 F2P 玩家"
+      }
+    },
+    {
+      "key": "armament",
+      "title": {
+        "en": "Armament / Officer",
+        "zh-CN": "军备竞赛 / 军官计划",
+        "zh-TW": "軍備競賽 / 軍官計畫"
+      },
+      "when": {
+        "en": "Frequent item-spend event loop",
+        "zh-CN": "高频轮换的消耗类活动",
+        "zh-TW": "高頻輪換的消耗類活動"
+      },
+      "save": {
+        "en": [
+          "Widgets",
+          "Hero gear materials",
+          "Essence stones / mithril",
+          "Specific hero upgrade items matching the active variant"
+        ],
+        "zh-CN": [
+          "专属零件",
+          "英雄装备材料",
+          "精华石 / 秘银",
+          "与当前活动版本对口的英雄养成材料"
+        ],
+        "zh-TW": [
+          "專屬零件",
+          "英雄裝備材料",
+          "精華石 / 祕銀",
+          "與當前活動版本對口的英雄養成材料"
+        ]
+      },
+      "avoid": {
+        "en": "Do not assume every growth item scores every cycle; check the current variant first.",
+        "zh-CN": "不要默认每种养成材料每轮都算分，先看当前版本任务。",
+        "zh-TW": "不要預設每種養成材料每輪都算分，先看目前版本任務。"
+      },
+      "bestFor": {
+        "en": "Targeted hero progression without waiting for a huge SvS dump",
+        "zh-CN": "不想等 SvS 大爆发时做定向英雄养成",
+        "zh-TW": "不想等 SvS 大爆發時做定向英雄養成"
+      }
+    },
+    {
+      "key": "showdown",
+      "title": {
+        "en": "Alliance Showdown",
+        "zh-CN": "联盟争霸 / Showdown",
+        "zh-TW": "聯盟爭霸 / Showdown"
+      },
+      "when": {
+        "en": "Alliance-focused spend window",
+        "zh-CN": "更看联盟配合的活动窗口",
+        "zh-TW": "更看聯盟配合的活動窗口"
+      },
+      "save": {
+        "en": [
+          "Participation tasks your alliance coordinates around",
+          "Extra stamina / speedups only if your alliance pushes hard",
+          "Items that overlap with ongoing mini-events"
+        ],
+        "zh-CN": [
+          "联盟统一安排的参与任务",
+          "只有联盟认真打时才额外备体力 / 加速",
+          "与当前小活动重叠的可顺带消耗道具"
+        ],
+        "zh-TW": [
+          "聯盟統一安排的參與任務",
+          "只有聯盟認真打時才額外備體力 / 加速",
+          "與目前小活動重疊的可順帶消耗道具"
+        ]
+      },
+      "avoid": {
+        "en": "Do not overspend here if your alliance does not coordinate seriously.",
+        "zh-CN": "如果联盟并不认真协同，这里不要过度投入。",
+        "zh-TW": "如果聯盟並不認真協同，這裡不要過度投入。"
+      },
+      "bestFor": {
+        "en": "Alliance milestone rewards rather than solo dumping",
+        "zh-CN": "更适合拿联盟里程碑，不适合自己单刷爆仓",
+        "zh-TW": "更適合拿聯盟里程碑，不適合自己單刷爆倉"
+      }
+    }
+  ],
+  "eventDayPlans": [
+    {
+      "key": "svs",
+      "title": {
+        "en": "SvS Day Plan",
+        "zh-CN": "SvS 分日规划",
+        "zh-TW": "SvS 分日規劃"
+      },
+      "days": [
+        {
+          "day": {
+            "en": "Prep window",
+            "zh-CN": "备战窗口",
+            "zh-TW": "備戰窗口"
+          },
+          "use": {
+            "en": "Only do controlled prep: queue builds, line up research, stop random spending.",
+            "zh-CN": "只做可控预备：排建筑、排研究、停止随机消耗。",
+            "zh-TW": "只做可控預備：排建築、排研究、停止隨機消耗。"
+          },
+          "hold": {
+            "en": "Construction, research, FC/RFC, chief growth materials.",
+            "zh-CN": "建筑、研究、火晶/精炼火晶、领主养成材料。",
+            "zh-TW": "建築、研究、火晶/精煉火晶、領主養成材料。"
+          },
+          "avoid": {
+            "en": "Do not burn speedups before your state confirms point focus.",
+            "zh-CN": "本州没确认冲分重点前，不要先烧加速。",
+            "zh-TW": "本州沒確認衝分重點前，不要先燒加速。"
+          }
+        },
+        {
+          "day": {
+            "en": "Construction / research day",
+            "zh-CN": "建筑 / 研究日",
+            "zh-TW": "建築 / 研究日"
+          },
+          "use": {
+            "en": "Push furnace-linked upgrades and any big research chain you pre-queued.",
+            "zh-CN": "优先推熔炉相关升级和提前排好的研究链。",
+            "zh-TW": "優先推熔爐相關升級和提前排好的研究鏈。"
+          },
+          "hold": {
+            "en": "Keep some reserve in case your alliance calls a different final sprint.",
+            "zh-CN": "保留一部分库存，防止联盟临时改最后冲刺目标。",
+            "zh-TW": "保留一部分庫存，防止聯盟臨時改最後衝刺目標。"
+          },
+          "avoid": {
+            "en": "Do not scatter speedups into low-score side buildings.",
+            "zh-CN": "不要把加速零散丢进低价值支线建筑。",
+            "zh-TW": "不要把加速零散丟進低價值支線建築。"
+          }
+        },
+        {
+          "day": {
+            "en": "Fight / cleanup day",
+            "zh-CN": "战斗 / 收尾日",
+            "zh-TW": "戰鬥 / 收尾日"
+          },
+          "use": {
+            "en": "Use the leftovers only where score or war outcome clearly moves.",
+            "zh-CN": "只把余量用在能明显换到积分或战果的地方。",
+            "zh-TW": "只把餘量用在能明顯換到積分或戰果的地方。"
+          },
+          "hold": {
+            "en": "Save emergency heals and fallback speedups until the state call is clear.",
+            "zh-CN": "紧急治疗和补位加速要留到州内指挥定调后。",
+            "zh-TW": "緊急治療和補位加速要留到州內指揮定調後。"
+          },
+          "avoid": {
+            "en": "Do not empty everything just to finish with zero inventory.",
+            "zh-CN": "不要为了清空库存而把所有东西硬打出去。",
+            "zh-TW": "不要為了清空庫存而把所有東西硬打出去。"
+          }
+        }
+      ]
+    },
+    {
+      "key": "koi",
+      "title": {
+        "en": "KOI Day Plan",
+        "zh-CN": "KOI 分日规划",
+        "zh-TW": "KOI 分日規劃"
+      },
+      "days": [
+        {
+          "day": {
+            "en": "Before cycle starts",
+            "zh-CN": "开周前",
+            "zh-TW": "開週前"
+          },
+          "use": {
+            "en": "Sort hero shards, pet items, chief items, and speedups by likely scoring day.",
+            "zh-CN": "先把英雄碎片、宠物、领主道具和加速按可能的计分日分开。",
+            "zh-TW": "先把英雄碎片、寵物、領主道具和加速按可能的計分日分開。"
+          },
+          "hold": {
+            "en": "Anything that could match multiple KOI days.",
+            "zh-CN": "所有可能跨多个 KOI 日程通吃的道具。",
+            "zh-TW": "所有可能跨多個 KOI 日程通吃的道具。"
+          },
+          "avoid": {
+            "en": "Do not open random item boxes before that day is confirmed.",
+            "zh-CN": "当天没确认前，不要先乱开随机箱。",
+            "zh-TW": "當天沒確認前，不要先亂開隨機箱。"
+          }
+        },
+        {
+          "day": {
+            "en": "Hero / growth day",
+            "zh-CN": "英雄 / 养成日",
+            "zh-TW": "英雄 / 養成日"
+          },
+          "use": {
+            "en": "Spend only the hero or growth items that match milestone and ranking value.",
+            "zh-CN": "只花能同时对上里程碑和名次价值的英雄/养成资源。",
+            "zh-TW": "只花能同時對上里程碑和名次價值的英雄/養成資源。"
+          },
+          "hold": {
+            "en": "Keep premium items if the ranking gap is unrealistic.",
+            "zh-CN": "如果名次差距不现实，贵重资源就先留。",
+            "zh-TW": "如果名次差距不現實，貴重資源就先留。"
+          },
+          "avoid": {
+            "en": "Do not chase every day equally; pick your strongest day.",
+            "zh-CN": "不要每天都想冲，选你最强的一天。",
+            "zh-TW": "不要每天都想衝，選你最強的一天。"
+          }
+        },
+        {
+          "day": {
+            "en": "Final push day",
+            "zh-CN": "最后冲刺日",
+            "zh-TW": "最後衝刺日"
+          },
+          "use": {
+            "en": "Use leftovers only if the next reward line or rank jump is actually reachable.",
+            "zh-CN": "只有下一档奖励或名次真的够得着时，才把余量打出去。",
+            "zh-TW": "只有下一檔獎勵或名次真的夠得著時，才把餘量打出去。"
+          },
+          "hold": {
+            "en": "Keep cross-event premium stock if return on spend is weak.",
+            "zh-CN": "如果这轮回报弱，跨活动通用的高价值库存要继续留。",
+            "zh-TW": "如果這輪回報弱，跨活動通用的高價值庫存要繼續留。"
+          },
+          "avoid": {
+            "en": "Do not spend just because the cycle is ending.",
+            "zh-CN": "不要因为这轮要结束就硬花。",
+            "zh-TW": "不要因為這輪要結束就硬花。"
+          }
+        }
+      ]
+    }
+  ],
+  "todayHoardBoards": [
+    {
+      "key": "furnace",
+      "title": {
+        "en": "Furnace push",
+        "zh-CN": "熔炉冲级",
+        "zh-TW": "熔爐衝級"
+      },
+      "hold": {
+        "en": [
+          "Fire Crystals",
+          "Construction speedups",
+          "Embassy / camp-linked materials"
+        ],
+        "zh-CN": [
+          "火晶",
+          "建筑加速",
+          "大使馆 / 兵营相关资源"
+        ],
+        "zh-TW": [
+          "火晶",
+          "建築加速",
+          "大使館 / 兵營相關資源"
+        ]
+      },
+      "spend": {
+        "en": "Spend only on upgrades that shorten the furnace route.",
+        "zh-CN": "只把资源花在能缩短熔炉路线的升级上。",
+        "zh-TW": "只把資源花在能縮短熔爐路線的升級上。"
+      },
+      "check": {
+        "en": "Check supporting buildings before pressing the next furnace jump.",
+        "zh-CN": "按下一个熔炉跳级前先检查前置建筑。",
+        "zh-TW": "按下一個熔爐跳級前先檢查前置建築。"
+      }
+    },
+    {
+      "key": "svs",
+      "title": {
+        "en": "SvS prep",
+        "zh-CN": "SvS 备战",
+        "zh-TW": "SvS 備戰"
+      },
+      "hold": {
+        "en": [
+          "Research speedups",
+          "Construction speedups",
+          "RFC for planned checkpoints"
+        ],
+        "zh-CN": [
+          "研究加速",
+          "建筑加速",
+          "给关键档位准备的精炼火晶"
+        ],
+        "zh-TW": [
+          "研究加速",
+          "建築加速",
+          "給關鍵檔位準備的精煉火晶"
+        ]
+      },
+      "spend": {
+        "en": "Spend only after the state score plan is clear.",
+        "zh-CN": "只有州内冲分计划明确后才开始花。",
+        "zh-TW": "只有州內衝分計畫明確後才開始花。"
+      },
+      "check": {
+        "en": "Check whether your alliance needs construction points, war items, or both.",
+        "zh-CN": "确认联盟现在更缺建筑分、战斗物资，还是两者都缺。",
+        "zh-TW": "確認聯盟現在更缺建築分、戰鬥物資，還是兩者都缺。"
+      }
+    },
+    {
+      "key": "koi",
+      "title": {
+        "en": "KOI cycle",
+        "zh-CN": "KOI 周期",
+        "zh-TW": "KOI 週期"
+      },
+      "hold": {
+        "en": [
+          "Hero shards",
+          "Chief growth items",
+          "Pet items that can match milestone days"
+        ],
+        "zh-CN": [
+          "英雄碎片",
+          "领主养成材料",
+          "能对上里程碑日程的宠物道具"
+        ],
+        "zh-TW": [
+          "英雄碎片",
+          "領主養成材料",
+          "能對上里程碑日程的寵物道具"
+        ]
+      },
+      "spend": {
+        "en": "Spend on your strongest scoring day, not evenly across the week.",
+        "zh-CN": "把资源集中花在你最强的计分日，不要一周平均摊。",
+        "zh-TW": "把資源集中花在你最強的計分日，不要一週平均攤。"
+      },
+      "check": {
+        "en": "Check whether the next milestone is worth opening premium boxes today.",
+        "zh-CN": "先看下一档奖励值不值得今天开高级箱。",
+        "zh-TW": "先看下一檔獎勵值不值得今天開高級箱。"
+      }
+    }
+  ],
+  "buildingChains": [
+    {
+      "key": "early",
+      "title": {
+        "en": "FC1-FC3 route",
+        "zh-CN": "FC1-FC3 路线",
+        "zh-TW": "FC1-FC3 路線"
+      },
+      "focus": {
+        "en": "Get furnace up without letting one troop camp and Embassy fall too far behind.",
+        "zh-CN": "推熔炉时，不要让一个主力兵营和大使馆掉队太多。",
+        "zh-TW": "推熔爐時，不要讓一個主力兵營和大使館掉隊太多。"
+      },
+      "steps": {
+        "en": [
+          "Furnace checkpoint",
+          "Embassy catch-up",
+          "One troop camp catch-up"
+        ],
+        "zh-CN": [
+          "熔炉过档",
+          "补大使馆",
+          "补一个主力兵营"
+        ],
+        "zh-TW": [
+          "熔爐過檔",
+          "補大使館",
+          "補一個主力兵營"
+        ]
+      }
+    },
+    {
+      "key": "mid",
+      "title": {
+        "en": "FC4-FC6 route",
+        "zh-CN": "FC4-FC6 路线",
+        "zh-TW": "FC4-FC6 路線"
+      },
+      "focus": {
+        "en": "Prepare the refined-crystal era before you click into it.",
+        "zh-CN": "进入精炼火晶阶段前，先把周转节奏准备好。",
+        "zh-TW": "進入精煉火晶階段前，先把週轉節奏準備好。"
+      },
+      "steps": {
+        "en": [
+          "Furnace target",
+          "Embassy + camp support",
+          "Refined stock check"
+        ],
+        "zh-CN": [
+          "熔炉目标档",
+          "大使馆 + 兵营前置",
+          "精炼库存检查"
+        ],
+        "zh-TW": [
+          "熔爐目標檔",
+          "大使館 + 兵營前置",
+          "精煉庫存檢查"
+        ]
+      }
+    },
+    {
+      "key": "late",
+      "title": {
+        "en": "FC7-FC10 route",
+        "zh-CN": "FC7-FC10 路线",
+        "zh-TW": "FC7-FC10 路線"
+      },
+      "focus": {
+        "en": "Late FC routes punish wasted refined crystals and unsupported jumps.",
+        "zh-CN": "后段 FC 最怕精炼火晶乱花，以及跳级时前置没跟上。",
+        "zh-TW": "後段 FC 最怕精煉火晶亂花，以及跳級時前置沒跟上。"
+      },
+      "steps": {
+        "en": [
+          "Refined stock lock",
+          "Furnace jump",
+          "Embassy / camp sync",
+          "Hold reserve for event scoring"
+        ],
+        "zh-CN": [
+          "锁定精炼库存",
+          "熔炉跳档",
+          "同步大使馆 / 兵营",
+          "保留活动冲分余量"
+        ],
+        "zh-TW": [
+          "鎖定精煉庫存",
+          "熔爐跳檔",
+          "同步大使館 / 兵營",
+          "保留活動衝分餘量"
+        ]
+      }
+    }
+  ],
+  "stateTimeline": {
+    "methods": {
+      "en": [
+        "Approximation method 1: use VIP login days if you joined near state launch and never broke the streak.",
+        "Approximation method 2: use Monument milestone dates such as Kindling Embers / Beast Hunting and count back to launch.",
+        "Approximation method 3: use the first Sunfire president date and add roughly 54-55 days back to state start."
+      ],
+      "zh-CN": [
+        "估算方法 1：如果你几乎从开服就在本州并且 VIP 连登没断，可以直接用 VIP 登录天数。",
+        "估算方法 2：看 Monument 里的 Kindling Embers / Beast Hunting 等节点日期，再倒推开服时间。",
+        "估算方法 3：看第一次 Sunfire 总统日期，再大致倒推 54-55 天回到州服起点。"
+      ],
+      "zh-TW": [
+        "估算方法 1：如果你幾乎從開服就在本州並且 VIP 連登沒斷，可以直接用 VIP 登錄天數。",
+        "估算方法 2：看 Monument 裡的 Kindling Embers / Beast Hunting 等節點日期，再倒推開服時間。",
+        "估算方法 3：看第一次 Sunfire 總統日期，再大致倒推 54-55 天回到州服起點。"
+      ]
+    },
+    "milestones": [
+      {
+        "day": 40,
+        "title": {
+          "en": "Gen 2 heroes + resource exchange",
+          "zh-CN": "二代英雄 + 资源交换",
+          "zh-TW": "二代英雄 + 資源交換"
+        },
+        "detail": {
+          "en": "Most public timelines place Gen 2 around day 40. Start saving relevant shards and growth items before then.",
+          "zh-CN": "公开时间线普遍把二代英雄放在 40 天左右，提前留英雄碎片和养成材料。",
+          "zh-TW": "公開時間線普遍把二代英雄放在 40 天左右，提前留英雄碎片和養成材料。"
+        }
+      },
+      {
+        "day": 54,
+        "title": {
+          "en": "Sunfire / castle battle window",
+          "zh-CN": "Sunfire / 城堡战窗口",
+          "zh-TW": "Sunfire / 城堡戰窗口"
+        },
+        "detail": {
+          "en": "Castle control and presidency timelines start around the mid-50s on many states.",
+          "zh-CN": "很多州服会在 50 多天进入城堡与总统相关节奏。",
+          "zh-TW": "很多州服會在 50 多天進入城堡與總統相關節奏。"
+        }
+      },
+      {
+        "day": 60,
+        "title": {
+          "en": "Fire Crystal Age unlock",
+          "zh-CN": "火晶时代开启",
+          "zh-TW": "火晶時代開啟"
+        },
+        "detail": {
+          "en": "Public guides commonly place Fire Crystal Age around day 60 once the relevant monument path completes.",
+          "zh-CN": "公开攻略通常把火晶时代放在约 60 天，并与 Monument 路线完成相关。",
+          "zh-TW": "公開攻略通常把火晶時代放在約 60 天，並與 Monument 路線完成相關。"
+        }
+      },
+      {
+        "day": 80,
+        "title": {
+          "en": "First SvS / State of Power era",
+          "zh-CN": "首次 SvS / State of Power 阶段",
+          "zh-TW": "首次 SvS / State of Power 階段"
+        },
+        "detail": {
+          "en": "Many community timelines place the first SvS / State of Power around day 80, though exact scheduling can slide.",
+          "zh-CN": "很多社区时间线把首次 SvS / State of Power 放在 80 天左右，但实际会有浮动。",
+          "zh-TW": "很多社群時間線把首次 SvS / State of Power 放在 80 天左右，但實際會有浮動。"
+        }
+      },
+      {
+        "day": 90,
+        "title": {
+          "en": "Next pets update",
+          "zh-CN": "下一批宠物更新",
+          "zh-TW": "下一批寵物更新"
+        },
+        "detail": {
+          "en": "Around the 90-day zone, older states commonly report the next pets wave.",
+          "zh-CN": "约 90 天附近，老州服普遍会进入下一批宠物更新。",
+          "zh-TW": "約 90 天附近，老州服普遍會進入下一批寵物更新。"
+        }
+      },
+      {
+        "day": 120,
+        "title": {
+          "en": "Gen 3 heroes",
+          "zh-CN": "三代英雄",
+          "zh-TW": "三代英雄"
+        },
+        "detail": {
+          "en": "Community timelines repeatedly point to Gen 3 arriving around day 120.",
+          "zh-CN": "社区时间线普遍把三代英雄放在 120 天左右。",
+          "zh-TW": "社群時間線普遍把三代英雄放在 120 天左右。"
+        }
+      },
+      {
+        "day": 150,
+        "title": {
+          "en": "FC4-5 + Crystal Laboratory",
+          "zh-CN": "FC4-5 + 水晶实验室",
+          "zh-TW": "FC4-5 + 水晶實驗室"
+        },
+        "detail": {
+          "en": "Several timeline tools show Crystal Laboratory and later FC infrastructure around day 150.",
+          "zh-CN": "多家时间线工具都把水晶实验室和后段 FC 基建放在 150 天附近。",
+          "zh-TW": "多家時間線工具都把水晶實驗室和後段 FC 基建放在 150 天附近。"
+        }
+      },
+      {
+        "day": 180,
+        "title": {
+          "en": "Chief legendary gear era",
+          "zh-CN": "领主传奇装备阶段",
+          "zh-TW": "領主傳奇裝備階段"
+        },
+        "detail": {
+          "en": "Some public tools place legendary chief gear around the day-180 neighborhood.",
+          "zh-CN": "一些公开工具把传奇领主装备放在 180 天附近。",
+          "zh-TW": "一些公開工具把傳奇領主裝備放在 180 天附近。"
+        }
+      },
+      {
+        "day": 195,
+        "title": {
+          "en": "Gen 4 heroes",
+          "zh-CN": "四代英雄",
+          "zh-TW": "四代英雄"
+        },
+        "detail": {
+          "en": "Gen 4 is commonly listed in the 195-200 day zone.",
+          "zh-CN": "四代英雄通常出现在 195-200 天区间。",
+          "zh-TW": "四代英雄通常出現在 195-200 天區間。"
+        }
+      },
+      {
+        "day": 220,
+        "title": {
+          "en": "War Academy",
+          "zh-CN": "战争学院",
+          "zh-TW": "戰爭學院"
+        },
+        "detail": {
+          "en": "Multiple community timelines place War Academy roughly around day 220-230.",
+          "zh-CN": "多个社区时间线把战争学院放在大约 220-230 天。",
+          "zh-TW": "多個社群時間線把戰爭學院放在大約 220-230 天。"
+        }
+      }
+    ]
+  },
+  "strategyModes": {
+    "f2p": {
+      "title": {
+        "en": "F2P preservation mode",
+        "zh-CN": "F2P 保守囤货模式",
+        "zh-TW": "F2P 保守囤貨模式"
+      },
+      "rule": {
+        "en": "Only spend when a milestone is guaranteed or the resource also advances your main furnace path.",
+        "zh-CN": "只有奖励档稳拿，或资源同时推进主熔炉路线时才花。",
+        "zh-TW": "只有獎勵檔穩拿，或資源同時推進主熔爐路線時才花。"
+      },
+      "save": {
+        "en": [
+          "Fire Crystals / RFC",
+          "General speedups",
+          "Hero shards until KOI or SvS value is clear"
+        ],
+        "zh-CN": [
+          "火晶 / 精炼火晶",
+          "通用加速",
+          "英雄碎片等到 KOI 或 SvS 价值明确"
+        ],
+        "zh-TW": [
+          "火晶 / 精煉火晶",
+          "通用加速",
+          "英雄碎片等到 KOI 或 SvS 價值明確"
+        ]
+      },
+      "spend": {
+        "en": "Spend small enough to unlock milestone rewards, then stop.",
+        "zh-CN": "只花到能拿里程碑奖励的档位，然后停手。",
+        "zh-TW": "只花到能拿里程碑獎勵的檔位，然後停手。"
+      },
+      "danger": {
+        "en": "Ranking bait. Do not chase a leaderboard unless the gap is tiny.",
+        "zh-CN": "最怕被排行榜诱导。差距不小就不要追名次。",
+        "zh-TW": "最怕被排行榜誘導。差距不小就不要追名次。"
+      }
+    },
+    "low": {
+      "title": {
+        "en": "Low-spend efficiency mode",
+        "zh-CN": "低氪效率模式",
+        "zh-TW": "低課效率模式"
+      },
+      "rule": {
+        "en": "Convert spending into fewer but stronger event windows: SvS, KOI, and furnace checkpoints.",
+        "zh-CN": "把投入集中到少数高价值窗口：SvS、KOI、熔炉关键档。",
+        "zh-TW": "把投入集中到少數高價值窗口：SvS、KOI、熔爐關鍵檔。"
+      },
+      "save": {
+        "en": [
+          "RFC for planned checkpoints",
+          "Chief gear/charm materials",
+          "Hero widgets for matching events"
+        ],
+        "zh-CN": [
+          "给关键档位准备的精炼火晶",
+          "领主装备 / 护符材料",
+          "对口活动用的英雄专属"
+        ],
+        "zh-TW": [
+          "給關鍵檔位準備的精煉火晶",
+          "領主裝備 / 護符材料",
+          "對口活動用的英雄專屬"
+        ]
+      },
+      "spend": {
+        "en": "Spend when at least two systems overlap: event points + permanent account progress.",
+        "zh-CN": "至少两个系统重叠时再花：活动积分 + 永久账号成长。",
+        "zh-TW": "至少兩個系統重疊時再花：活動積分 + 永久帳號成長。"
+      },
+      "danger": {
+        "en": "Impulse bundles that do not match this week’s scoring table.",
+        "zh-CN": "最怕买了和本周积分表不对口的礼包。",
+        "zh-TW": "最怕買了和本週積分表不對口的禮包。"
+      }
+    },
+    "push": {
+      "title": {
+        "en": "Ranking push mode",
+        "zh-CN": "冲榜爆发模式",
+        "zh-TW": "衝榜爆發模式"
+      },
+      "rule": {
+        "en": "Only push when the rank jump is visible and your alliance/state plan supports it.",
+        "zh-CN": "只有名次跳点清晰，并且联盟/州服计划支持时才冲。",
+        "zh-TW": "只有名次跳點清晰，並且聯盟/州服計畫支持時才衝。"
+      },
+      "save": {
+        "en": [
+          "Everything that matches the target day",
+          "Healing/speedups for final swing",
+          "Reserve stock for last-hour movement"
+        ],
+        "zh-CN": [
+          "所有对口目标日的资源",
+          "最后分差用的治疗 / 加速",
+          "最后一小时变动的余量"
+        ],
+        "zh-TW": [
+          "所有對口目標日的資源",
+          "最後分差用的治療 / 加速",
+          "最後一小時變動的餘量"
+        ]
+      },
+      "spend": {
+        "en": "Spend in bursts, not trickles. Check rank movement before each burst.",
+        "zh-CN": "要爆发式投入，不要一点点漏。每波前先看名次变化。",
+        "zh-TW": "要爆發式投入，不要一點點漏。每波前先看名次變化。"
+      },
+      "danger": {
+        "en": "Running out before the final hour while competitors still hold stock.",
+        "zh-CN": "最怕最后一小时前先打空，别人还留着库存。",
+        "zh-TW": "最怕最後一小時前先打空，別人還留著庫存。"
+      }
+    }
+  },
+  "resourceDataLab": {
+    "notes": {
+      "en": "Furnace rows and building FC/RFC costs are source-backed. Route tax, wait time, and savings advice are calculations based on those rows. Gear and charm rows are sourced from WhiteoutData. War Academy shard pacing uses wiki exchange rates, while exact research-node costs still need player screenshots or a licensed data feed.",
+      "zh-CN": "熔炉行数据与建筑 FC/RFC 成本有来源支撑；隐藏前置税、等待时间、攒资源建议是基于这些行的计算。装备与护符行来自 WhiteoutData。战争学院碎片节奏使用 Wiki 兑换比例，具体研究节点成本仍需要玩家截图或可授权数据源补全。",
+      "zh-TW": "熔爐行資料與建築 FC/RFC 成本有來源支撐；隱藏前置稅、等待時間、存資源建議是基於這些行的計算。裝備與護符行來自 WhiteoutData。戰爭學院碎片節奏使用 Wiki 兌換比例，具體研究節點成本仍需要玩家截圖或可授權資料源補全。"
+    },
+    "sourcePolicy": {
+      "en": "Badges mean: source-backed = visible public table; modelled = computed from source-backed rows; needs report = useful player demand but exact row data is not yet reliable enough.",
+      "zh-CN": "标记含义：来源支撑 = 公开表可核对；模型推算 = 用来源支撑行计算；需要回报 = 玩家很需要，但精确行数据还不足够可靠。",
+      "zh-TW": "標記含義：來源支撐 = 公開表可核對；模型推算 = 用來源支撐行計算；需要回報 = 玩家很需要，但精確行資料還不足夠可靠。"
+    },
+    "furnaceRows": [
+      {
+        "level": "F30",
+        "order": 0,
+        "meatM": 0,
+        "woodM": 0,
+        "coalM": 0,
+        "ironM": 0,
+        "fireCrystals": 0,
+        "refinedFireCrystals": 0,
+        "buildDays": 0,
+        "prereq": "Base Furnace Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace"
+        ]
+      },
+      {
+        "level": "30-1",
+        "order": 1,
+        "meatM": 67,
+        "woodM": 67,
+        "coalM": 13,
+        "ironM": 3.3,
+        "fireCrystals": 132,
+        "refinedFireCrystals": 0,
+        "buildDays": 7,
+        "prereq": "Furnace Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "30-2",
+        "order": 2,
+        "meatM": 67,
+        "woodM": 67,
+        "coalM": 13,
+        "ironM": 3.3,
+        "fireCrystals": 132,
+        "refinedFireCrystals": 0,
+        "buildDays": 7,
+        "prereq": "Furnace Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "30-3",
+        "order": 3,
+        "meatM": 67,
+        "woodM": 67,
+        "coalM": 13,
+        "ironM": 3.3,
+        "fireCrystals": 132,
+        "refinedFireCrystals": 0,
+        "buildDays": 7,
+        "prereq": "Furnace Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "30-4",
+        "order": 4,
+        "meatM": 67,
+        "woodM": 67,
+        "coalM": 13,
+        "ironM": 3.3,
+        "fireCrystals": 132,
+        "refinedFireCrystals": 0,
+        "buildDays": 7,
+        "prereq": "Furnace Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC1",
+        "order": 5,
+        "meatM": 67,
+        "woodM": 67,
+        "coalM": 13,
+        "ironM": 3.3,
+        "fireCrystals": 132,
+        "refinedFireCrystals": 0,
+        "buildDays": 7,
+        "prereq": "Embassy Lv.30 + Research Center Lv.30",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC1-1",
+        "order": 6,
+        "meatM": 72,
+        "woodM": 72,
+        "coalM": 14,
+        "ironM": 3.6,
+        "fireCrystals": 158,
+        "refinedFireCrystals": 0,
+        "buildDays": 9,
+        "prereq": "Embassy FC1 + Lancer Camp FC1",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC1-2",
+        "order": 7,
+        "meatM": 72,
+        "woodM": 72,
+        "coalM": 14,
+        "ironM": 3.6,
+        "fireCrystals": 158,
+        "refinedFireCrystals": 0,
+        "buildDays": 9,
+        "prereq": "Embassy FC1 + Lancer Camp FC1",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC1-3",
+        "order": 8,
+        "meatM": 72,
+        "woodM": 72,
+        "coalM": 14,
+        "ironM": 3.6,
+        "fireCrystals": 158,
+        "refinedFireCrystals": 0,
+        "buildDays": 9,
+        "prereq": "Embassy FC1 + Lancer Camp FC1",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC1-4",
+        "order": 9,
+        "meatM": 72,
+        "woodM": 72,
+        "coalM": 14,
+        "ironM": 3.6,
+        "fireCrystals": 158,
+        "refinedFireCrystals": 0,
+        "buildDays": 9,
+        "prereq": "Embassy FC1 + Lancer Camp FC1",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC2",
+        "order": 10,
+        "meatM": 72,
+        "woodM": 72,
+        "coalM": 14,
+        "ironM": 3.6,
+        "fireCrystals": 158,
+        "refinedFireCrystals": 0,
+        "buildDays": 9,
+        "prereq": "Embassy FC1 + Lancer Camp FC1",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC2-1",
+        "order": 11,
+        "meatM": 79,
+        "woodM": 79,
+        "coalM": 15,
+        "ironM": 3.9,
+        "fireCrystals": 238,
+        "refinedFireCrystals": 0,
+        "buildDays": 11,
+        "prereq": "Embassy FC2 + Infantry Camp FC2",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC2-2",
+        "order": 12,
+        "meatM": 79,
+        "woodM": 79,
+        "coalM": 15,
+        "ironM": 3.9,
+        "fireCrystals": 238,
+        "refinedFireCrystals": 0,
+        "buildDays": 11,
+        "prereq": "Embassy FC2 + Infantry Camp FC2",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC2-3",
+        "order": 13,
+        "meatM": 79,
+        "woodM": 79,
+        "coalM": 15,
+        "ironM": 3.9,
+        "fireCrystals": 238,
+        "refinedFireCrystals": 0,
+        "buildDays": 11,
+        "prereq": "Embassy FC2 + Infantry Camp FC2",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC2-4",
+        "order": 14,
+        "meatM": 79,
+        "woodM": 79,
+        "coalM": 15,
+        "ironM": 3.9,
+        "fireCrystals": 238,
+        "refinedFireCrystals": 0,
+        "buildDays": 11,
+        "prereq": "Embassy FC2 + Infantry Camp FC2",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC3",
+        "order": 15,
+        "meatM": 79,
+        "woodM": 79,
+        "coalM": 15,
+        "ironM": 3.9,
+        "fireCrystals": 238,
+        "refinedFireCrystals": 0,
+        "buildDays": 11,
+        "prereq": "Embassy FC2 + Infantry Camp FC2",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC3-1",
+        "order": 16,
+        "meatM": 82,
+        "woodM": 82,
+        "coalM": 16,
+        "ironM": 4.1,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 0,
+        "buildDays": 12,
+        "prereq": "Embassy FC3 + Marksman Camp FC3",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC3-2",
+        "order": 17,
+        "meatM": 82,
+        "woodM": 82,
+        "coalM": 16,
+        "ironM": 4.1,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 0,
+        "buildDays": 12,
+        "prereq": "Embassy FC3 + Marksman Camp FC3",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC3-3",
+        "order": 18,
+        "meatM": 82,
+        "woodM": 82,
+        "coalM": 16,
+        "ironM": 4.1,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 0,
+        "buildDays": 12,
+        "prereq": "Embassy FC3 + Marksman Camp FC3",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC3-4",
+        "order": 19,
+        "meatM": 82,
+        "woodM": 82,
+        "coalM": 16,
+        "ironM": 4.1,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 0,
+        "buildDays": 12,
+        "prereq": "Embassy FC3 + Marksman Camp FC3",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC4",
+        "order": 20,
+        "meatM": 82,
+        "woodM": 82,
+        "coalM": 16,
+        "ironM": 4.1,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 0,
+        "buildDays": 12,
+        "prereq": "Embassy FC3 + Marksman Camp FC3",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC4-1",
+        "order": 21,
+        "meatM": 84,
+        "woodM": 84,
+        "coalM": 16,
+        "ironM": 4.2,
+        "fireCrystals": 335,
+        "refinedFireCrystals": 0,
+        "buildDays": 14,
+        "prereq": "Embassy FC4 + Lancer Camp FC4",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC4-2",
+        "order": 22,
+        "meatM": 84,
+        "woodM": 84,
+        "coalM": 16,
+        "ironM": 4.2,
+        "fireCrystals": 335,
+        "refinedFireCrystals": 0,
+        "buildDays": 14,
+        "prereq": "Embassy FC4 + Lancer Camp FC4",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC4-3",
+        "order": 23,
+        "meatM": 84,
+        "woodM": 84,
+        "coalM": 16,
+        "ironM": 4.2,
+        "fireCrystals": 335,
+        "refinedFireCrystals": 0,
+        "buildDays": 14,
+        "prereq": "Embassy FC4 + Lancer Camp FC4",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC4-4",
+        "order": 24,
+        "meatM": 84,
+        "woodM": 84,
+        "coalM": 16,
+        "ironM": 4.2,
+        "fireCrystals": 335,
+        "refinedFireCrystals": 0,
+        "buildDays": 14,
+        "prereq": "Embassy FC4 + Lancer Camp FC4",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC5",
+        "order": 25,
+        "meatM": 84,
+        "woodM": 84,
+        "coalM": 16,
+        "ironM": 4.2,
+        "fireCrystals": 335,
+        "refinedFireCrystals": 0,
+        "buildDays": 14,
+        "prereq": "Embassy FC4 + Lancer Camp FC4",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC5-1",
+        "order": 26,
+        "meatM": 96,
+        "woodM": 96,
+        "coalM": 19,
+        "ironM": 4.8,
+        "fireCrystals": 200,
+        "refinedFireCrystals": 10,
+        "buildDays": 15,
+        "prereq": "Embassy FC5 + Infantry Camp FC5",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC5-2",
+        "order": 27,
+        "meatM": 96,
+        "woodM": 96,
+        "coalM": 19,
+        "ironM": 4.8,
+        "fireCrystals": 200,
+        "refinedFireCrystals": 10,
+        "buildDays": 15,
+        "prereq": "Embassy FC5 + Infantry Camp FC5",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC5-3",
+        "order": 28,
+        "meatM": 96,
+        "woodM": 96,
+        "coalM": 19,
+        "ironM": 4.8,
+        "fireCrystals": 200,
+        "refinedFireCrystals": 10,
+        "buildDays": 15,
+        "prereq": "Embassy FC5 + Infantry Camp FC5",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC5-4",
+        "order": 29,
+        "meatM": 96,
+        "woodM": 96,
+        "coalM": 19,
+        "ironM": 4.8,
+        "fireCrystals": 200,
+        "refinedFireCrystals": 10,
+        "buildDays": 15,
+        "prereq": "Embassy FC5 + Infantry Camp FC5",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC6",
+        "order": 30,
+        "meatM": 96,
+        "woodM": 96,
+        "coalM": 19,
+        "ironM": 4.8,
+        "fireCrystals": 100,
+        "refinedFireCrystals": 20,
+        "buildDays": 15,
+        "prereq": "Embassy FC5 + Infantry Camp FC5",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC6-1",
+        "order": 31,
+        "meatM": 100,
+        "woodM": 100,
+        "coalM": 21,
+        "ironM": 5.4,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 15,
+        "buildDays": 18,
+        "prereq": "Embassy FC6 + Marksman Camp FC6",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC6-2",
+        "order": 32,
+        "meatM": 100,
+        "woodM": 100,
+        "coalM": 21,
+        "ironM": 5.4,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 15,
+        "buildDays": 18,
+        "prereq": "Embassy FC6 + Marksman Camp FC6",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC6-3",
+        "order": 33,
+        "meatM": 100,
+        "woodM": 100,
+        "coalM": 21,
+        "ironM": 5.4,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 15,
+        "buildDays": 18,
+        "prereq": "Embassy FC6 + Marksman Camp FC6",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC6-4",
+        "order": 34,
+        "meatM": 100,
+        "woodM": 100,
+        "coalM": 21,
+        "ironM": 5.4,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 15,
+        "buildDays": 18,
+        "prereq": "Embassy FC6 + Marksman Camp FC6",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC7",
+        "order": 35,
+        "meatM": 100,
+        "woodM": 100,
+        "coalM": 21,
+        "ironM": 5.4,
+        "fireCrystals": 120,
+        "refinedFireCrystals": 30,
+        "buildDays": 18,
+        "prereq": "Embassy FC6 + Marksman Camp FC6",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC7-1",
+        "order": 36,
+        "meatM": 130,
+        "woodM": 130,
+        "coalM": 26,
+        "ironM": 6.6,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 20,
+        "buildDays": 20,
+        "prereq": "Embassy FC7 + Lancer Camp FC7",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC7-2",
+        "order": 37,
+        "meatM": 130,
+        "woodM": 130,
+        "coalM": 26,
+        "ironM": 6.6,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 20,
+        "buildDays": 20,
+        "prereq": "Embassy FC7 + Lancer Camp FC7",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC7-3",
+        "order": 38,
+        "meatM": 130,
+        "woodM": 130,
+        "coalM": 26,
+        "ironM": 6.6,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 20,
+        "buildDays": 20,
+        "prereq": "Embassy FC7 + Lancer Camp FC7",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC7-4",
+        "order": 39,
+        "meatM": 130,
+        "woodM": 130,
+        "coalM": 26,
+        "ironM": 6.6,
+        "fireCrystals": 240,
+        "refinedFireCrystals": 20,
+        "buildDays": 20,
+        "prereq": "Embassy FC7 + Lancer Camp FC7",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC8",
+        "order": 40,
+        "meatM": 130,
+        "woodM": 130,
+        "coalM": 26,
+        "ironM": 6.6,
+        "fireCrystals": 120,
+        "refinedFireCrystals": 40,
+        "buildDays": 20,
+        "prereq": "Embassy FC7 + Lancer Camp FC7",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC8-1",
+        "order": 41,
+        "meatM": 140,
+        "woodM": 140,
+        "coalM": 29,
+        "ironM": 7.2,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 30,
+        "buildDays": 13,
+        "prereq": "Embassy FC8 + Infantry Camp FC8",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC8-2",
+        "order": 42,
+        "meatM": 140,
+        "woodM": 140,
+        "coalM": 29,
+        "ironM": 7.2,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 30,
+        "buildDays": 13,
+        "prereq": "Embassy FC8 + Infantry Camp FC8",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC8-3",
+        "order": 43,
+        "meatM": 140,
+        "woodM": 140,
+        "coalM": 29,
+        "ironM": 7.2,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 30,
+        "buildDays": 13,
+        "prereq": "Embassy FC8 + Infantry Camp FC8",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC8-4",
+        "order": 44,
+        "meatM": 140,
+        "woodM": 140,
+        "coalM": 29,
+        "ironM": 7.2,
+        "fireCrystals": 280,
+        "refinedFireCrystals": 30,
+        "buildDays": 13,
+        "prereq": "Embassy FC8 + Infantry Camp FC8",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC9",
+        "order": 45,
+        "meatM": 140,
+        "woodM": 140,
+        "coalM": 29,
+        "ironM": 7.2,
+        "fireCrystals": 140,
+        "refinedFireCrystals": 60,
+        "buildDays": 13,
+        "prereq": "Embassy FC8 + Infantry Camp FC8",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC9-1",
+        "order": 46,
+        "meatM": 160,
+        "woodM": 160,
+        "coalM": 33,
+        "ironM": 8.4,
+        "fireCrystals": 350,
+        "refinedFireCrystals": 70,
+        "buildDays": 20,
+        "prereq": "Embassy FC9 + Marksman Camp FC9",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC9-2",
+        "order": 47,
+        "meatM": 160,
+        "woodM": 160,
+        "coalM": 33,
+        "ironM": 8.4,
+        "fireCrystals": 350,
+        "refinedFireCrystals": 70,
+        "buildDays": 20,
+        "prereq": "Embassy FC9 + Marksman Camp FC9",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC9-3",
+        "order": 48,
+        "meatM": 160,
+        "woodM": 160,
+        "coalM": 33,
+        "ironM": 8.4,
+        "fireCrystals": 350,
+        "refinedFireCrystals": 70,
+        "buildDays": 20,
+        "prereq": "Embassy FC9 + Marksman Camp FC9",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC9-4",
+        "order": 49,
+        "meatM": 160,
+        "woodM": 160,
+        "coalM": 33,
+        "ironM": 8.4,
+        "fireCrystals": 350,
+        "refinedFireCrystals": 70,
+        "buildDays": 20,
+        "prereq": "Embassy FC9 + Marksman Camp FC9",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      },
+      {
+        "level": "FC10",
+        "order": 50,
+        "meatM": 160,
+        "woodM": 160,
+        "coalM": 33,
+        "ironM": 8.4,
+        "fireCrystals": 175,
+        "refinedFireCrystals": 140,
+        "buildDays": 20,
+        "prereq": "Embassy FC9 + Marksman Camp FC9",
+        "confidence": "source-backed",
+        "sourceRefs": [
+          "Whiteout Survival Wiki Fire Crystal Furnace",
+          "Whiteout Survival Handbook FC1-FC10"
+        ]
+      }
+    ],
+    "buildingCrystalCosts": {
+      "source": "WhiteoutData Fire Crystal building requirements",
+      "confidence": "source-backed-costs",
+      "major": [
+        {
+          "level": "FC1",
+          "order": 1,
+          "furnace": {
+            "fc": 132,
+            "rfc": 0
+          },
+          "embassy": {
+            "fc": 33,
+            "rfc": 0
+          },
+          "commandCenter": {
+            "fc": 26,
+            "rfc": 0
+          },
+          "infirmary": {
+            "fc": 26,
+            "rfc": 0
+          },
+          "camp": {
+            "fc": 59,
+            "rfc": 0
+          }
+        },
+        {
+          "level": "FC2",
+          "order": 2,
+          "furnace": {
+            "fc": 158,
+            "rfc": 0
+          },
+          "embassy": {
+            "fc": 39,
+            "rfc": 0
+          },
+          "commandCenter": {
+            "fc": 31,
+            "rfc": 0
+          },
+          "infirmary": {
+            "fc": 31,
+            "rfc": 0
+          },
+          "camp": {
+            "fc": 71,
+            "rfc": 0
+          }
+        },
+        {
+          "level": "FC3",
+          "order": 3,
+          "furnace": {
+            "fc": 238,
+            "rfc": 0
+          },
+          "embassy": {
+            "fc": 59,
+            "rfc": 0
+          },
+          "commandCenter": {
+            "fc": 47,
+            "rfc": 0
+          },
+          "infirmary": {
+            "fc": 47,
+            "rfc": 0
+          },
+          "camp": {
+            "fc": 107,
+            "rfc": 0
+          }
+        },
+        {
+          "level": "FC4",
+          "order": 4,
+          "furnace": {
+            "fc": 280,
+            "rfc": 0
+          },
+          "embassy": {
+            "fc": 70,
+            "rfc": 0
+          },
+          "commandCenter": {
+            "fc": 56,
+            "rfc": 0
+          },
+          "infirmary": {
+            "fc": 56,
+            "rfc": 0
+          },
+          "camp": {
+            "fc": 126,
+            "rfc": 0
+          }
+        },
+        {
+          "level": "FC5",
+          "order": 5,
+          "furnace": {
+            "fc": 335,
+            "rfc": 0
+          },
+          "embassy": {
+            "fc": 83,
+            "rfc": 0
+          },
+          "commandCenter": {
+            "fc": 67,
+            "rfc": 0
+          },
+          "infirmary": {
+            "fc": 67,
+            "rfc": 0
+          },
+          "camp": {
+            "fc": 150,
+            "rfc": 0
+          }
+        }
+      ],
+      "late": [
+        {
+          "level": "FC5-1",
+          "order": 6,
+          "furnace": {
+            "fc": 200,
+            "rfc": 10
+          },
+          "embassy": {
+            "fc": 50,
+            "rfc": 2
+          },
+          "commandCenter": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "infirmary": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "camp": {
+            "fc": 90,
+            "rfc": 4
+          }
+        },
+        {
+          "level": "FC5-2",
+          "order": 7,
+          "furnace": {
+            "fc": 200,
+            "rfc": 10
+          },
+          "embassy": {
+            "fc": 50,
+            "rfc": 2
+          },
+          "commandCenter": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "infirmary": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "camp": {
+            "fc": 90,
+            "rfc": 4
+          }
+        },
+        {
+          "level": "FC5-3",
+          "order": 8,
+          "furnace": {
+            "fc": 200,
+            "rfc": 10
+          },
+          "embassy": {
+            "fc": 50,
+            "rfc": 2
+          },
+          "commandCenter": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "infirmary": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "camp": {
+            "fc": 90,
+            "rfc": 4
+          }
+        },
+        {
+          "level": "FC5-4",
+          "order": 9,
+          "furnace": {
+            "fc": 200,
+            "rfc": 10
+          },
+          "embassy": {
+            "fc": 50,
+            "rfc": 2
+          },
+          "commandCenter": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "infirmary": {
+            "fc": 40,
+            "rfc": 2
+          },
+          "camp": {
+            "fc": 90,
+            "rfc": 4
+          }
+        },
+        {
+          "level": "FC6",
+          "order": 10,
+          "furnace": {
+            "fc": 100,
+            "rfc": 20
+          },
+          "embassy": {
+            "fc": 25,
+            "rfc": 5
+          },
+          "commandCenter": {
+            "fc": 20,
+            "rfc": 5
+          },
+          "infirmary": {
+            "fc": 20,
+            "rfc": 5
+          },
+          "camp": {
+            "fc": 45,
+            "rfc": 9
+          }
+        },
+        {
+          "level": "FC6-1",
+          "order": 11,
+          "furnace": {
+            "fc": 240,
+            "rfc": 15
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 3
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 6
+          }
+        },
+        {
+          "level": "FC6-2",
+          "order": 12,
+          "furnace": {
+            "fc": 240,
+            "rfc": 15
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 3
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 6
+          }
+        },
+        {
+          "level": "FC6-3",
+          "order": 13,
+          "furnace": {
+            "fc": 240,
+            "rfc": 15
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 3
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 6
+          }
+        },
+        {
+          "level": "FC6-4",
+          "order": 14,
+          "furnace": {
+            "fc": 240,
+            "rfc": 15
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 3
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 3
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 6
+          }
+        },
+        {
+          "level": "FC7",
+          "order": 15,
+          "furnace": {
+            "fc": 120,
+            "rfc": 30
+          },
+          "embassy": {
+            "fc": 30,
+            "rfc": 7
+          },
+          "commandCenter": {
+            "fc": 24,
+            "rfc": 7
+          },
+          "infirmary": {
+            "fc": 24,
+            "rfc": 7
+          },
+          "camp": {
+            "fc": 54,
+            "rfc": 13
+          }
+        },
+        {
+          "level": "FC7-1",
+          "order": 16,
+          "furnace": {
+            "fc": 240,
+            "rfc": 20
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 5
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 9
+          }
+        },
+        {
+          "level": "FC7-2",
+          "order": 17,
+          "furnace": {
+            "fc": 240,
+            "rfc": 20
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 5
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 9
+          }
+        },
+        {
+          "level": "FC7-3",
+          "order": 18,
+          "furnace": {
+            "fc": 240,
+            "rfc": 20
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 5
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 9
+          }
+        },
+        {
+          "level": "FC7-4",
+          "order": 19,
+          "furnace": {
+            "fc": 240,
+            "rfc": 20
+          },
+          "embassy": {
+            "fc": 60,
+            "rfc": 5
+          },
+          "commandCenter": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "infirmary": {
+            "fc": 48,
+            "rfc": 4
+          },
+          "camp": {
+            "fc": 108,
+            "rfc": 9
+          }
+        },
+        {
+          "level": "FC8",
+          "order": 20,
+          "furnace": {
+            "fc": 120,
+            "rfc": 40
+          },
+          "embassy": {
+            "fc": 30,
+            "rfc": 10
+          },
+          "commandCenter": {
+            "fc": 24,
+            "rfc": 8
+          },
+          "infirmary": {
+            "fc": 24,
+            "rfc": 8
+          },
+          "camp": {
+            "fc": 54,
+            "rfc": 18
+          }
+        },
+        {
+          "level": "FC8-1",
+          "order": 21,
+          "furnace": {
+            "fc": 280,
+            "rfc": 30
+          },
+          "embassy": {
+            "fc": 70,
+            "rfc": 7
+          },
+          "commandCenter": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "infirmary": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "camp": {
+            "fc": 126,
+            "rfc": 13
+          }
+        },
+        {
+          "level": "FC8-2",
+          "order": 22,
+          "furnace": {
+            "fc": 280,
+            "rfc": 30
+          },
+          "embassy": {
+            "fc": 70,
+            "rfc": 7
+          },
+          "commandCenter": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "infirmary": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "camp": {
+            "fc": 126,
+            "rfc": 13
+          }
+        },
+        {
+          "level": "FC8-3",
+          "order": 23,
+          "furnace": {
+            "fc": 280,
+            "rfc": 30
+          },
+          "embassy": {
+            "fc": 70,
+            "rfc": 7
+          },
+          "commandCenter": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "infirmary": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "camp": {
+            "fc": 126,
+            "rfc": 13
+          }
+        },
+        {
+          "level": "FC8-4",
+          "order": 24,
+          "furnace": {
+            "fc": 280,
+            "rfc": 30
+          },
+          "embassy": {
+            "fc": 70,
+            "rfc": 7
+          },
+          "commandCenter": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "infirmary": {
+            "fc": 56,
+            "rfc": 6
+          },
+          "camp": {
+            "fc": 126,
+            "rfc": 13
+          }
+        },
+        {
+          "level": "FC9",
+          "order": 25,
+          "furnace": {
+            "fc": 140,
+            "rfc": 60
+          },
+          "embassy": {
+            "fc": 35,
+            "rfc": 15
+          },
+          "commandCenter": {
+            "fc": 28,
+            "rfc": 12
+          },
+          "infirmary": {
+            "fc": 28,
+            "rfc": 12
+          },
+          "camp": {
+            "fc": 63,
+            "rfc": 27
+          }
+        },
+        {
+          "level": "FC9-1",
+          "order": 26,
+          "furnace": {
+            "fc": 350,
+            "rfc": 70
+          },
+          "embassy": {
+            "fc": 87,
+            "rfc": 17
+          },
+          "commandCenter": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "infirmary": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "camp": {
+            "fc": 157,
+            "rfc": 31
+          }
+        },
+        {
+          "level": "FC9-2",
+          "order": 27,
+          "furnace": {
+            "fc": 350,
+            "rfc": 70
+          },
+          "embassy": {
+            "fc": 87,
+            "rfc": 17
+          },
+          "commandCenter": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "infirmary": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "camp": {
+            "fc": 157,
+            "rfc": 31
+          }
+        },
+        {
+          "level": "FC9-3",
+          "order": 28,
+          "furnace": {
+            "fc": 350,
+            "rfc": 70
+          },
+          "embassy": {
+            "fc": 87,
+            "rfc": 17
+          },
+          "commandCenter": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "infirmary": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "camp": {
+            "fc": 157,
+            "rfc": 31
+          }
+        },
+        {
+          "level": "FC9-4",
+          "order": 29,
+          "furnace": {
+            "fc": 350,
+            "rfc": 70
+          },
+          "embassy": {
+            "fc": 87,
+            "rfc": 17
+          },
+          "commandCenter": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "infirmary": {
+            "fc": 70,
+            "rfc": 14
+          },
+          "camp": {
+            "fc": 157,
+            "rfc": 31
+          }
+        },
+        {
+          "level": "FC10",
+          "order": 30,
+          "furnace": {
+            "fc": 175,
+            "rfc": 140
+          },
+          "embassy": {
+            "fc": 43,
+            "rfc": 35
+          },
+          "commandCenter": {
+            "fc": 35,
+            "rfc": 28
+          },
+          "infirmary": {
+            "fc": 35,
+            "rfc": 28
+          },
+          "camp": {
+            "fc": 78,
+            "rfc": 63
+          }
+        }
+      ]
+    },
+    "prerequisiteRules": [
+      {
+        "triggerLevel": "FC1-1",
+        "embassy": 1,
+        "campType": "Lancer Camp",
+        "campKey": "lancer",
+        "campLevel": 1
+      },
+      {
+        "triggerLevel": "FC2-1",
+        "embassy": 2,
+        "campType": "Infantry Camp",
+        "campKey": "infantry",
+        "campLevel": 2
+      },
+      {
+        "triggerLevel": "FC3-1",
+        "embassy": 3,
+        "campType": "Marksman Camp",
+        "campKey": "marksman",
+        "campLevel": 3
+      },
+      {
+        "triggerLevel": "FC4-1",
+        "embassy": 4,
+        "campType": "Lancer Camp",
+        "campKey": "lancer",
+        "campLevel": 4
+      },
+      {
+        "triggerLevel": "FC5-1",
+        "embassy": 5,
+        "campType": "Infantry Camp",
+        "campKey": "infantry",
+        "campLevel": 5
+      },
+      {
+        "triggerLevel": "FC6-1",
+        "embassy": 6,
+        "campType": "Marksman Camp",
+        "campKey": "marksman",
+        "campLevel": 6
+      },
+      {
+        "triggerLevel": "FC7-1",
+        "embassy": 7,
+        "campType": "Lancer Camp",
+        "campKey": "lancer",
+        "campLevel": 7
+      },
+      {
+        "triggerLevel": "FC8-1",
+        "embassy": 8,
+        "campType": "Infantry Camp",
+        "campKey": "infantry",
+        "campLevel": 8
+      },
+      {
+        "triggerLevel": "FC9-1",
+        "embassy": 9,
+        "campType": "Marksman Camp",
+        "campKey": "marksman",
+        "campLevel": 9
+      }
+    ],
+    "refinementPlans": [
+      {
+        "key": "L1",
+        "refines": 7,
+        "fcCost": 70,
+        "expectedRfc": 10.2,
+        "costPerRfc": 6.9,
+        "bestFor": {
+          "en": "Extreme FC shortage / daily discount only",
+          "zh-CN": "火晶极缺 / 只吃每日半价",
+          "zh-TW": "火晶極缺 / 只吃每日半價"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L2",
+        "refines": 20,
+        "fcCost": 330,
+        "expectedRfc": 29,
+        "costPerRfc": 11.38,
+        "bestFor": {
+          "en": "Low reserve entry plan",
+          "zh-CN": "低库存入门方案",
+          "zh-TW": "低庫存入門方案"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L3",
+        "refines": 26,
+        "fcCost": 540,
+        "expectedRfc": 41.9,
+        "costPerRfc": 12.89,
+        "bestFor": {
+          "en": "Best F2P weekly balance",
+          "zh-CN": "F2P 周常平衡优选",
+          "zh-TW": "F2P 週常平衡優選"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L4",
+        "refines": 40,
+        "fcCost": 1240,
+        "expectedRfc": 72,
+        "costPerRfc": 17.22,
+        "bestFor": {
+          "en": "Standard mid-game plan",
+          "zh-CN": "中期标准方案",
+          "zh-TW": "中期標準方案"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L5",
+        "refines": 46,
+        "fcCost": 1690,
+        "expectedRfc": 91.1,
+        "costPerRfc": 18.55,
+        "bestFor": {
+          "en": "Best before cost passes 20 FC each",
+          "zh-CN": "单个成本超过 20 火晶前的上限",
+          "zh-TW": "單個成本超過 20 火晶前的上限"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L6",
+        "refines": 60,
+        "fcCost": 3090,
+        "expectedRfc": 135.6,
+        "costPerRfc": 22.79,
+        "bestFor": {
+          "en": "Rushing important upgrades only",
+          "zh-CN": "只适合冲关键升级",
+          "zh-TW": "只適合衝關鍵升級"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L7",
+        "refines": 66,
+        "fcCost": 3780,
+        "expectedRfc": 156.2,
+        "costPerRfc": 24.19,
+        "bestFor": {
+          "en": "High-spend stopping point",
+          "zh-CN": "高氪止损点",
+          "zh-TW": "高課止損點"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L8",
+        "refines": 80,
+        "fcCost": 5600,
+        "expectedRfc": 204.4,
+        "costPerRfc": 27.4,
+        "bestFor": {
+          "en": "Poor value; extreme chase only",
+          "zh-CN": "性价比差，仅极限追进度",
+          "zh-TW": "性價比差，僅極限追進度"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L9",
+        "refines": 86,
+        "fcCost": 6470,
+        "expectedRfc": 226.7,
+        "costPerRfc": 28.54,
+        "bestFor": {
+          "en": "Emergency only",
+          "zh-CN": "紧急情况才考虑",
+          "zh-TW": "緊急情況才考慮"
+        },
+        "confidence": "modelled-from-community-source"
+      },
+      {
+        "key": "L10",
+        "refines": 100,
+        "fcCost": 8710,
+        "expectedRfc": 278.6,
+        "costPerRfc": 31.26,
+        "bestFor": {
+          "en": "Maximum output, zero efficiency",
+          "zh-CN": "最大产出，但效率极低",
+          "zh-TW": "最大產出，但效率極低"
+        },
+        "confidence": "modelled-from-community-source"
+      }
+    ],
+    "chiefGearRows": [
+      {
+        "key": "uncommon-0",
+        "order": 1,
+        "label": "Uncommon-0",
+        "tier": "Uncommon",
+        "stars": 0,
+        "hardenedAlloy": 1500,
+        "polishingSolution": 15,
+        "designPlans": 0,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "uncommon-1",
+        "order": 2,
+        "label": "Uncommon-1",
+        "tier": "Uncommon",
+        "stars": 1,
+        "hardenedAlloy": 3800,
+        "polishingSolution": 40,
+        "designPlans": 0,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "rare-0",
+        "order": 3,
+        "label": "Rare-0",
+        "tier": "Rare",
+        "stars": 0,
+        "hardenedAlloy": 7000,
+        "polishingSolution": 70,
+        "designPlans": 0,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "rare-1",
+        "order": 4,
+        "label": "Rare-1",
+        "tier": "Rare",
+        "stars": 1,
+        "hardenedAlloy": 9700,
+        "polishingSolution": 95,
+        "designPlans": 0,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "rare-2",
+        "order": 5,
+        "label": "Rare-2",
+        "tier": "Rare",
+        "stars": 2,
+        "hardenedAlloy": 0,
+        "polishingSolution": 0,
+        "designPlans": 45,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "rare-3",
+        "order": 6,
+        "label": "Rare-3",
+        "tier": "Rare",
+        "stars": 3,
+        "hardenedAlloy": 0,
+        "polishingSolution": 0,
+        "designPlans": 50,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-0",
+        "order": 7,
+        "label": "Epic-0",
+        "tier": "Epic",
+        "stars": 0,
+        "hardenedAlloy": 0,
+        "polishingSolution": 0,
+        "designPlans": 60,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-1",
+        "order": 8,
+        "label": "Epic-1",
+        "tier": "Epic",
+        "stars": 1,
+        "hardenedAlloy": 0,
+        "polishingSolution": 0,
+        "designPlans": 70,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-2",
+        "order": 9,
+        "label": "Epic-2",
+        "tier": "Epic",
+        "stars": 2,
+        "hardenedAlloy": 6500,
+        "polishingSolution": 65,
+        "designPlans": 40,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-3",
+        "order": 10,
+        "label": "Epic-3",
+        "tier": "Epic",
+        "stars": 3,
+        "hardenedAlloy": 8000,
+        "polishingSolution": 80,
+        "designPlans": 50,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-t1-0",
+        "order": 11,
+        "label": "Epic T1-0",
+        "tier": "Epic T1",
+        "stars": 0,
+        "hardenedAlloy": 10000,
+        "polishingSolution": 95,
+        "designPlans": 60,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-t1-1",
+        "order": 12,
+        "label": "Epic T1-1",
+        "tier": "Epic T1",
+        "stars": 1,
+        "hardenedAlloy": 11000,
+        "polishingSolution": 110,
+        "designPlans": 70,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-t1-2",
+        "order": 13,
+        "label": "Epic T1-2",
+        "tier": "Epic T1",
+        "stars": 2,
+        "hardenedAlloy": 13000,
+        "polishingSolution": 130,
+        "designPlans": 85,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "epic-t1-3",
+        "order": 14,
+        "label": "Epic T1-3",
+        "tier": "Epic T1",
+        "stars": 3,
+        "hardenedAlloy": 15000,
+        "polishingSolution": 160,
+        "designPlans": 100,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-0",
+        "order": 15,
+        "label": "Legendary-0",
+        "tier": "Legendary",
+        "stars": 0,
+        "hardenedAlloy": 22000,
+        "polishingSolution": 220,
+        "designPlans": 40,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-1",
+        "order": 16,
+        "label": "Legendary-1",
+        "tier": "Legendary",
+        "stars": 1,
+        "hardenedAlloy": 23000,
+        "polishingSolution": 230,
+        "designPlans": 40,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-2",
+        "order": 17,
+        "label": "Legendary-2",
+        "tier": "Legendary",
+        "stars": 2,
+        "hardenedAlloy": 25000,
+        "polishingSolution": 250,
+        "designPlans": 45,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-3",
+        "order": 18,
+        "label": "Legendary-3",
+        "tier": "Legendary",
+        "stars": 3,
+        "hardenedAlloy": 26000,
+        "polishingSolution": 260,
+        "designPlans": 45,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t1-0",
+        "order": 19,
+        "label": "Legendary T1-0",
+        "tier": "Legendary T1",
+        "stars": 0,
+        "hardenedAlloy": 28000,
+        "polishingSolution": 280,
+        "designPlans": 45,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t1-1",
+        "order": 20,
+        "label": "Legendary T1-1",
+        "tier": "Legendary T1",
+        "stars": 1,
+        "hardenedAlloy": 30000,
+        "polishingSolution": 300,
+        "designPlans": 55,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t1-2",
+        "order": 21,
+        "label": "Legendary T1-2",
+        "tier": "Legendary T1",
+        "stars": 2,
+        "hardenedAlloy": 32000,
+        "polishingSolution": 320,
+        "designPlans": 55,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t1-3",
+        "order": 22,
+        "label": "Legendary T1-3",
+        "tier": "Legendary T1",
+        "stars": 3,
+        "hardenedAlloy": 35000,
+        "polishingSolution": 340,
+        "designPlans": 55,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t2-0",
+        "order": 23,
+        "label": "Legendary T2-0",
+        "tier": "Legendary T2",
+        "stars": 0,
+        "hardenedAlloy": 38000,
+        "polishingSolution": 360,
+        "designPlans": 55,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t2-1",
+        "order": 24,
+        "label": "Legendary T2-1",
+        "tier": "Legendary T2",
+        "stars": 1,
+        "hardenedAlloy": 43000,
+        "polishingSolution": 430,
+        "designPlans": 75,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t2-2",
+        "order": 25,
+        "label": "Legendary T2-2",
+        "tier": "Legendary T2",
+        "stars": 2,
+        "hardenedAlloy": 45000,
+        "polishingSolution": 460,
+        "designPlans": 80,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "legendary-t2-3",
+        "order": 26,
+        "label": "Legendary T2-3",
+        "tier": "Legendary T2",
+        "stars": 3,
+        "hardenedAlloy": 48000,
+        "polishingSolution": 500,
+        "designPlans": 85,
+        "lunarAmber": 0,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-0",
+        "order": 27,
+        "label": "Mythic-0",
+        "tier": "Mythic",
+        "stars": 0,
+        "hardenedAlloy": 50000,
+        "polishingSolution": 530,
+        "designPlans": 85,
+        "lunarAmber": 10,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-1",
+        "order": 28,
+        "label": "Mythic-1",
+        "tier": "Mythic",
+        "stars": 1,
+        "hardenedAlloy": 52000,
+        "polishingSolution": 560,
+        "designPlans": 90,
+        "lunarAmber": 10,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-2",
+        "order": 29,
+        "label": "Mythic-2",
+        "tier": "Mythic",
+        "stars": 2,
+        "hardenedAlloy": 54000,
+        "polishingSolution": 590,
+        "designPlans": 95,
+        "lunarAmber": 10,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-3",
+        "order": 30,
+        "label": "Mythic-3",
+        "tier": "Mythic",
+        "stars": 3,
+        "hardenedAlloy": 56000,
+        "polishingSolution": 620,
+        "designPlans": 100,
+        "lunarAmber": 10,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t1-0",
+        "order": 31,
+        "label": "Mythic T1-0",
+        "tier": "Mythic T1",
+        "stars": 0,
+        "hardenedAlloy": 59000,
+        "polishingSolution": 670,
+        "designPlans": 110,
+        "lunarAmber": 15,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t1-1",
+        "order": 32,
+        "label": "Mythic T1-1",
+        "tier": "Mythic T1",
+        "stars": 1,
+        "hardenedAlloy": 61000,
+        "polishingSolution": 700,
+        "designPlans": 115,
+        "lunarAmber": 15,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t1-2",
+        "order": 33,
+        "label": "Mythic T1-2",
+        "tier": "Mythic T1",
+        "stars": 2,
+        "hardenedAlloy": 63000,
+        "polishingSolution": 730,
+        "designPlans": 120,
+        "lunarAmber": 15,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t1-3",
+        "order": 34,
+        "label": "Mythic T1-3",
+        "tier": "Mythic T1",
+        "stars": 3,
+        "hardenedAlloy": 65000,
+        "polishingSolution": 760,
+        "designPlans": 125,
+        "lunarAmber": 15,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t2-0",
+        "order": 35,
+        "label": "Mythic T2-0",
+        "tier": "Mythic T2",
+        "stars": 0,
+        "hardenedAlloy": 68000,
+        "polishingSolution": 810,
+        "designPlans": 135,
+        "lunarAmber": 20,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t2-1",
+        "order": 36,
+        "label": "Mythic T2-1",
+        "tier": "Mythic T2",
+        "stars": 1,
+        "hardenedAlloy": 70000,
+        "polishingSolution": 840,
+        "designPlans": 140,
+        "lunarAmber": 20,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t2-2",
+        "order": 37,
+        "label": "Mythic T2-2",
+        "tier": "Mythic T2",
+        "stars": 2,
+        "hardenedAlloy": 72000,
+        "polishingSolution": 870,
+        "designPlans": 145,
+        "lunarAmber": 20,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t2-3",
+        "order": 38,
+        "label": "Mythic T2-3",
+        "tier": "Mythic T2",
+        "stars": 3,
+        "hardenedAlloy": 74000,
+        "polishingSolution": 900,
+        "designPlans": 150,
+        "lunarAmber": 20,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t3-0",
+        "order": 39,
+        "label": "Mythic T3-0",
+        "tier": "Mythic T3",
+        "stars": 0,
+        "hardenedAlloy": 77000,
+        "polishingSolution": 950,
+        "designPlans": 160,
+        "lunarAmber": 25,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t3-1",
+        "order": 40,
+        "label": "Mythic T3-1",
+        "tier": "Mythic T3",
+        "stars": 1,
+        "hardenedAlloy": 80000,
+        "polishingSolution": 990,
+        "designPlans": 165,
+        "lunarAmber": 25,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t3-2",
+        "order": 41,
+        "label": "Mythic T3-2",
+        "tier": "Mythic T3",
+        "stars": 2,
+        "hardenedAlloy": 83000,
+        "polishingSolution": 1030,
+        "designPlans": 170,
+        "lunarAmber": 25,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t3-3",
+        "order": 42,
+        "label": "Mythic T3-3",
+        "tier": "Mythic T3",
+        "stars": 3,
+        "hardenedAlloy": 86000,
+        "polishingSolution": 1070,
+        "designPlans": 180,
+        "lunarAmber": 25,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t4-0",
+        "order": 43,
+        "label": "Mythic T4-0",
+        "tier": "Mythic T4",
+        "stars": 0,
+        "hardenedAlloy": 120000,
+        "polishingSolution": 1500,
+        "designPlans": 250,
+        "lunarAmber": 40,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t4-1",
+        "order": 44,
+        "label": "Mythic T4-1",
+        "tier": "Mythic T4",
+        "stars": 1,
+        "hardenedAlloy": 140000,
+        "polishingSolution": 1650,
+        "designPlans": 275,
+        "lunarAmber": 40,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t4-2",
+        "order": 45,
+        "label": "Mythic T4-2",
+        "tier": "Mythic T4",
+        "stars": 2,
+        "hardenedAlloy": 160000,
+        "polishingSolution": 1800,
+        "designPlans": 300,
+        "lunarAmber": 40,
+        "confidence": "source-backed"
+      },
+      {
+        "key": "mythic-t4-3",
+        "order": 46,
+        "label": "Mythic T4-3",
+        "tier": "Mythic T4",
+        "stars": 3,
+        "hardenedAlloy": 180000,
+        "polishingSolution": 1950,
+        "designPlans": 325,
+        "lunarAmber": 40,
+        "confidence": "source-backed"
+      }
+    ],
+    "chiefCharmRows": [
+      {
+        "level": 1,
+        "order": 1,
+        "charmGuides": 5,
+        "charmDesigns": 5,
+        "jewelSecrets": 0,
+        "power": 205700,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 2,
+        "order": 2,
+        "charmGuides": 40,
+        "charmDesigns": 15,
+        "jewelSecrets": 0,
+        "power": 288000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 3,
+        "order": 3,
+        "charmGuides": 60,
+        "charmDesigns": 40,
+        "jewelSecrets": 0,
+        "power": 370000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 4,
+        "order": 4,
+        "charmGuides": 80,
+        "charmDesigns": 100,
+        "jewelSecrets": 0,
+        "power": 452000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 5,
+        "order": 5,
+        "charmGuides": 100,
+        "charmDesigns": 200,
+        "jewelSecrets": 0,
+        "power": 576000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 6,
+        "order": 6,
+        "charmGuides": 120,
+        "charmDesigns": 300,
+        "jewelSecrets": 0,
+        "power": 700000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 7,
+        "order": 7,
+        "charmGuides": 140,
+        "charmDesigns": 400,
+        "jewelSecrets": 0,
+        "power": 824000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 8,
+        "order": 8,
+        "charmGuides": 200,
+        "charmDesigns": 400,
+        "jewelSecrets": 0,
+        "power": 948000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 9,
+        "order": 9,
+        "charmGuides": 300,
+        "charmDesigns": 400,
+        "jewelSecrets": 0,
+        "power": 1072000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 10,
+        "order": 10,
+        "charmGuides": 420,
+        "charmDesigns": 420,
+        "jewelSecrets": 0,
+        "power": 1196000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 11,
+        "order": 11,
+        "charmGuides": 560,
+        "charmDesigns": 420,
+        "jewelSecrets": 0,
+        "power": 1320000,
+        "confidence": "source-backed"
+      },
+      {
+        "level": 12,
+        "order": 12,
+        "charmGuides": 580,
+        "charmDesigns": 450,
+        "jewelSecrets": 15,
+        "power": null,
+        "confidence": "source-backed-costs-power-missing"
+      },
+      {
+        "level": 13,
+        "order": 13,
+        "charmGuides": 580,
+        "charmDesigns": 450,
+        "jewelSecrets": 30,
+        "power": null,
+        "confidence": "source-backed-costs-power-missing"
+      },
+      {
+        "level": 14,
+        "order": 14,
+        "charmGuides": 600,
+        "charmDesigns": 500,
+        "jewelSecrets": 45,
+        "power": null,
+        "confidence": "source-backed-costs-power-missing"
+      },
+      {
+        "level": 15,
+        "order": 15,
+        "charmGuides": 600,
+        "charmDesigns": 500,
+        "jewelSecrets": 70,
+        "power": null,
+        "confidence": "source-backed-costs-power-missing"
+      },
+      {
+        "level": 16,
+        "order": 16,
+        "charmGuides": 650,
+        "charmDesigns": 550,
+        "jewelSecrets": 100,
+        "power": null,
+        "confidence": "source-backed-costs-power-missing"
+      }
+    ],
+    "warAcademyShardRates": {
+      "steelToShard": {
+        "steel": 5000,
+        "shards": 1,
+        "dailyShardCap": 20,
+        "confidence": "source-backed"
+      },
+      "fireCrystalToShard": {
+        "fireCrystals": 10,
+        "shards": 13,
+        "dailyFireCrystalCap": 200,
+        "conservativeDailyShardCap": 260,
+        "highCapDailyShardCap": 2600,
+        "confidence": "source-conflict-on-daily-cap"
+      },
+      "note": {
+        "en": "Wiki text supports 5,000 steel = 1 shard and 10 Fire Crystals = 13 shards. The daily Fire Crystal cap is displayed conservatively; some third-party calculators model a higher cap, so this site shows the safer planning case first.",
+        "zh-CN": "Wiki 文本支持 5,000 钢材 = 1 碎片、10 火晶 = 13 碎片。火晶每日上限先按保守口径展示；部分第三方计算器使用更高上限，所以本站优先给安全规划口径。",
+        "zh-TW": "Wiki 文本支持 5,000 鋼材 = 1 碎片、10 火晶 = 13 碎片。火晶每日上限先按保守口徑展示；部分第三方計算器使用更高上限，所以本站優先給安全規劃口徑。"
+      }
+    },
+    "benchmarkedNeeds": [
+      {
+        "key": "autoPrereq",
+        "label": {
+          "en": "Auto prerequisite pricing",
+          "zh-CN": "自动补前置成本",
+          "zh-TW": "自動補前置成本"
+        },
+        "reason": {
+          "en": "Competing calculators highlight hidden prerequisites as a top pain point.",
+          "zh-CN": "竞品计算器把隐藏前置列为核心痛点。",
+          "zh-TW": "競品計算器把隱藏前置列為核心痛點。"
+        },
+        "status": {
+          "en": "Added for FC/RFC route tax",
+          "zh-CN": "已加入 FC/RFC 路线税",
+          "zh-TW": "已加入 FC/RFC 路線稅"
+        }
+      },
+      {
+        "key": "gearMaterials",
+        "label": {
+          "en": "Gear and charm material gaps",
+          "zh-CN": "装备与护符材料缺口",
+          "zh-TW": "裝備與護符材料缺口"
+        },
+        "reason": {
+          "en": "WhiteoutData and calculator portals both surface these as long-term planning tables.",
+          "zh-CN": "WhiteoutData 与计算器门户都把这类表作为长期规划入口。",
+          "zh-TW": "WhiteoutData 與計算器入口站都把這類表作為長期規劃入口。"
+        },
+        "status": {
+          "en": "Added source-backed range calculators",
+          "zh-CN": "已加入来源支撑区间计算器",
+          "zh-TW": "已加入來源支撐區間計算器"
+        }
+      },
+      {
+        "key": "warAcademy",
+        "label": {
+          "en": "War Academy shard pacing",
+          "zh-CN": "战争学院碎片节奏",
+          "zh-TW": "戰爭學院碎片節奏"
+        },
+        "reason": {
+          "en": "War Academy calculators are common because players run out of shards, steel, and speedups mid-event.",
+          "zh-CN": "战争学院计算器常见，是因为玩家经常在活动中途卡碎片、钢材、加速。",
+          "zh-TW": "戰爭學院計算器常見，是因為玩家經常在活動中途卡碎片、鋼材、加速。"
+        },
+        "status": {
+          "en": "Added shard converter; full research tree remains next data target",
+          "zh-CN": "已加入碎片换算；完整研究树是下一批数据目标",
+          "zh-TW": "已加入碎片換算；完整研究樹是下一批資料目標"
+        }
+      }
+    ],
+    "needCategories": [
+      {
+        "key": "furnace",
+        "label": {
+          "en": "Furnace FC1-FC10 full route",
+          "zh-CN": "熔炉 FC1-FC10 全路线",
+          "zh-TW": "熔爐 FC1-FC10 全路線"
+        },
+        "dataStatus": {
+          "en": "Source-backed cost, time, FC and RFC rows",
+          "zh-CN": "成本、时间、火晶、精炼火晶均有来源支撑",
+          "zh-TW": "成本、時間、火晶、精煉火晶均有來源支撐"
+        }
+      },
+      {
+        "key": "prereqTax",
+        "label": {
+          "en": "Embassy + troop-camp hidden tax",
+          "zh-CN": "大使馆 + 兵营隐藏税",
+          "zh-TW": "大使館 + 兵營隱藏稅"
+        },
+        "dataStatus": {
+          "en": "FC/RFC costs are sourced; aggregation is modelled from prerequisite chain",
+          "zh-CN": "FC/RFC 成本有来源；汇总路线按前置链推算",
+          "zh-TW": "FC/RFC 成本有來源；彙總路線按前置鏈推算"
+        }
+      },
+      {
+        "key": "refine",
+        "label": {
+          "en": "Crystal Laboratory refinement",
+          "zh-CN": "水晶实验室精炼",
+          "zh-TW": "水晶實驗室精煉"
+        },
+        "dataStatus": {
+          "en": "Community source plus efficiency model",
+          "zh-CN": "社区来源 + 效率模型",
+          "zh-TW": "社群來源 + 效率模型"
+        }
+      },
+      {
+        "key": "chiefGear",
+        "label": {
+          "en": "Chief Gear materials",
+          "zh-CN": "领主装备材料",
+          "zh-TW": "領主裝備材料"
+        },
+        "dataStatus": {
+          "en": "Source-backed alloy, solution, plan and amber rows",
+          "zh-CN": "合金、抛光液、图纸、琥珀行数据有来源支撑",
+          "zh-TW": "合金、拋光液、圖紙、琥珀行資料有來源支撐"
+        }
+      },
+      {
+        "key": "chiefCharm",
+        "label": {
+          "en": "Chief Charm materials",
+          "zh-CN": "领主护符材料",
+          "zh-TW": "領主護符材料"
+        },
+        "dataStatus": {
+          "en": "Source-backed levels 1-16; power missing for late rows at source",
+          "zh-CN": "1-16 级材料有来源；后段战力源站缺失",
+          "zh-TW": "1-16 級材料有來源；後段戰力源站缺失"
+        }
+      },
+      {
+        "key": "warAcademy",
+        "label": {
+          "en": "War Academy shard pacing",
+          "zh-CN": "战争学院碎片节奏",
+          "zh-TW": "戰爭學院碎片節奏"
+        },
+        "dataStatus": {
+          "en": "Exchange rates sourced; target research cost remains user-entered/modelled",
+          "zh-CN": "兑换比例有来源；研究目标成本仍需用户输入/模型估算",
+          "zh-TW": "兌換比例有來源；研究目標成本仍需使用者輸入/模型估算"
+        }
+      }
+    ],
+    "smartPresets": [
+      {
+        "key": "early-fc",
+        "target": "FC3",
+        "ownedFc": 300,
+        "ownedRfc": 0,
+        "dailyFc": 65,
+        "weeklyRfc": 0,
+        "gearTargetOrder": 11,
+        "gearPieces": 3,
+        "charmTargetOrder": 5,
+        "charmPieces": 6,
+        "academyShards": 120,
+        "label": {
+          "en": "New FC account",
+          "zh-CN": "新进 FC 账号",
+          "zh-TW": "新進 FC 帳號"
+        },
+        "useCase": {
+          "en": "Unlock FC rhythm, keep one troop camp and basic chief gear moving.",
+          "zh-CN": "先建立 FC 节奏，保证一个兵营和基础领主装备跟上。",
+          "zh-TW": "先建立 FC 節奏，保證一個兵營和基礎領主裝備跟上。"
+        }
+      },
+      {
+        "key": "fc5-hold",
+        "target": "FC5",
+        "ownedFc": 600,
+        "ownedRfc": 0,
+        "dailyFc": 80,
+        "weeklyRfc": 15,
+        "gearTargetOrder": 19,
+        "gearPieces": 6,
+        "charmTargetOrder": 8,
+        "charmPieces": 6,
+        "academyShards": 260,
+        "label": {
+          "en": "FC5 checkpoint",
+          "zh-CN": "FC5 节点",
+          "zh-TW": "FC5 節點"
+        },
+        "useCase": {
+          "en": "Last easy furnace checkpoint before refined crystal pressure starts.",
+          "zh-CN": "精炼火晶压力出现前的最后舒适节点。",
+          "zh-TW": "精煉火晶壓力出現前的最後舒適節點。"
+        }
+      },
+      {
+        "key": "rfc-entry",
+        "target": "FC6",
+        "ownedFc": 1200,
+        "ownedRfc": 20,
+        "dailyFc": 95,
+        "weeklyRfc": 35,
+        "gearTargetOrder": 23,
+        "gearPieces": 6,
+        "charmTargetOrder": 10,
+        "charmPieces": 12,
+        "academyShards": 520,
+        "label": {
+          "en": "RFC entry",
+          "zh-CN": "精炼火晶入门",
+          "zh-TW": "精煉火晶入門"
+        },
+        "useCase": {
+          "en": "Start balancing Fire Crystals, refined crystals, charms, and War Academy shards.",
+          "zh-CN": "开始同时平衡火晶、精炼火晶、护符和战争学院碎片。",
+          "zh-TW": "開始同時平衡火晶、精煉火晶、護符和戰爭學院碎片。"
+        }
+      },
+      {
+        "key": "svs-push",
+        "target": "FC8",
+        "ownedFc": 2000,
+        "ownedRfc": 120,
+        "dailyFc": 120,
+        "weeklyRfc": 70,
+        "gearTargetOrder": 31,
+        "gearPieces": 6,
+        "charmTargetOrder": 12,
+        "charmPieces": 18,
+        "academyShards": 900,
+        "label": {
+          "en": "SvS push prep",
+          "zh-CN": "SvS 冲榜准备",
+          "zh-TW": "SvS 衝榜準備"
+        },
+        "useCase": {
+          "en": "Prepare furnace, full chief gear set, charms, and shard stock for event scoring.",
+          "zh-CN": "为活动积分准备熔炉、全套领主装备、护符和碎片库存。",
+          "zh-TW": "為活動積分準備熔爐、全套領主裝備、護符和碎片庫存。"
+        }
+      }
+    ],
+    "resourceNeedMap": [
+      {
+        "key": "furnace",
+        "trigger": "always",
+        "label": {
+          "en": "Furnace + prerequisite buildings",
+          "zh-CN": "熔炉 + 前置建筑",
+          "zh-TW": "熔爐 + 前置建築"
+        },
+        "reason": {
+          "en": "Most FC plans fail on Embassy or required troop camp costs, not the furnace row alone.",
+          "zh-CN": "大多数 FC 规划不是只卡熔炉本体，而是卡大使馆或必要兵营。",
+          "zh-TW": "大多數 FC 規劃不是只卡熔爐本體，而是卡大使館或必要兵營。"
+        }
+      },
+      {
+        "key": "refined",
+        "trigger": "target>=FC6",
+        "label": {
+          "en": "Refined Fire Crystal pacing",
+          "zh-CN": "精炼火晶节奏",
+          "zh-TW": "精煉火晶節奏"
+        },
+        "reason": {
+          "en": "FC6+ starts forcing refined crystals, so weekly refinement becomes part of the route.",
+          "zh-CN": "FC6 之后开始强制精炼火晶，每周精炼节奏会影响路线。",
+          "zh-TW": "FC6 之後開始強制精煉火晶，每週精煉節奏會影響路線。"
+        }
+      },
+      {
+        "key": "gear",
+        "trigger": "target>=FC5",
+        "label": {
+          "en": "Chief Gear set catch-up",
+          "zh-CN": "领主装备补强",
+          "zh-TW": "領主裝備補強"
+        },
+        "reason": {
+          "en": "Furnace power without chief gear is easy to punish in Foundry, SvS, and Bear Trap score windows.",
+          "zh-CN": "只有熔炉没有领主装备，Foundry、SvS、Bear Trap 都容易吃亏。",
+          "zh-TW": "只有熔爐沒有領主裝備，Foundry、SvS、Bear Trap 都容易吃虧。"
+        }
+      },
+      {
+        "key": "charms",
+        "trigger": "target>=FC6",
+        "label": {
+          "en": "Chief Charm materials",
+          "zh-CN": "领主护符材料",
+          "zh-TW": "領主護符材料"
+        },
+        "reason": {
+          "en": "Charm Guides and Designs become a long-term bottleneck; plan six or eighteen pieces instead of one slot.",
+          "zh-CN": "护符指南和图纸会变成长线瓶颈，要按 6 件或 18 件规划，不要只看单槽。",
+          "zh-TW": "護符指南和圖紙會變成長線瓶頸，要按 6 件或 18 件規劃，不要只看單槽。"
+        }
+      },
+      {
+        "key": "academy",
+        "trigger": "target>=FC7",
+        "label": {
+          "en": "War Academy shard stock",
+          "zh-CN": "战争学院碎片库存",
+          "zh-TW": "戰爭學院碎片庫存"
+        },
+        "reason": {
+          "en": "Late accounts often need shard pacing alongside furnace pushes, especially around research-score events.",
+          "zh-CN": "后期账号常常要把碎片节奏和熔炉一起算，尤其是研究积分活动前。",
+          "zh-TW": "後期帳號常常要把碎片節奏和熔爐一起算，尤其是研究積分活動前。"
+        }
+      }
+    ]
+  }
+}</script>
+    <script src="app.js"></script>
+  </body>
+</html>
