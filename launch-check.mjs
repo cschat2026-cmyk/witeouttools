@@ -15,7 +15,7 @@ function walk(dir) {
 walk(root);
 
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
-const required = ["privacy.html", "contact.html", "disclaimer.html", "robots.txt", "sitemap.xml", "ads.txt"];
+const required = ["privacy.html", "contact.html", "disclaimer.html", "robots.txt", "sitemap.xml", "ads.txt", "CNAME"];
 const errors = [];
 
 for (const name of required) {

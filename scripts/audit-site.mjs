@@ -6,12 +6,40 @@ const read = (path) => readFileSync(join(root, path), "utf8");
 const html = read("index.html");
 const app = read("app.js");
 const css = read("styles.css");
+const cname = read("CNAME").trim();
+const robots = read("robots.txt");
+const sitemap = read("sitemap.xml");
+const privacy = read("privacy.html");
+const contact = read("contact.html");
+const disclaimer = read("disclaimer.html");
 const content = JSON.parse(read("data/content.json"));
 
 const errors = [];
 const requireText = (source, text, label) => {
   if (!source.includes(text)) errors.push(label);
 };
+
+if (cname !== "witheout20.top") errors.push("CNAME is not set to witheout20.top");
+for (const [name, source] of [
+  ["index.html", html],
+  ["privacy.html", privacy],
+  ["contact.html", contact],
+  ["disclaimer.html", disclaimer],
+  ["robots.txt", robots],
+  ["sitemap.xml", sitemap]
+]) {
+  if (source.includes("https://example.com")) errors.push(`${name} still contains example.com`);
+}
+
+for (const url of [
+  "https://witheout20.top/",
+  "https://witheout20.top/privacy.html",
+  "https://witheout20.top/contact.html",
+  "https://witheout20.top/disclaimer.html"
+]) {
+  requireText(sitemap, `<loc>${url}</loc>`, `Missing sitemap URL: ${url}`);
+}
+requireText(robots, "Sitemap: https://witheout20.top/sitemap.xml", "robots.txt sitemap URL is not set to witheout20.top");
 
 for (const id of [
   "stateAgeDays",
