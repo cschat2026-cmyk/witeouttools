@@ -6,7 +6,7 @@ const translations = {
     navTimer: "Event Timer",
     navPlanner: "Planner",
     navResource: "Resources",
-    navGuides: "Guides",
+    navGuides: "Spend Plan",
     searchLabel: "Search",
     searchPlaceholder: "Search tools, events, codes",
     heroEyebrow: "Updated player tools for Whiteout Survival",
@@ -14,13 +14,31 @@ const translations = {
     heroText: "A fast utility hub for recurring Whiteout Survival tasks: gift code checks, Frostfire Mine timing, Fire Crystal upgrade gaps, SvS prep, and alliance-ready checklists.",
     ctaCodes: "Check codes",
     ctaPlanner: "Open planner",
-    decisionLabel: "Project decision",
-    decisionTitle: "Recommended: Whiteout Survival",
     updatedLabel: "Last content refresh",
     toolCount: "core tools live",
     langReady: "language coverage",
     sourceMix: "Official + community + inference",
     sourceLabel: "source labels",
+    statusCodesLabel: "likely active codes now",
+    statusMemoryLabel: "saved helpers on this device",
+    statusFocusLabel: "next best check",
+    decisionEyebrow: "Player decision desk",
+    decisionTitle: "What should you do next?",
+    decisionText: "This section turns your saved ID, state age, planner gaps, event timer, and spend tables into one practical next-action board.",
+    dailyCockpitEyebrow: "Daily session",
+    dailyCockpitTitle: "Today’s login loop",
+    dailyCockpitText: "A stronger portal gives players a real daily pass: quick rewards, route checks, event timing, and one more useful follow-up before reset.",
+    dailyCockpitReady: "Done",
+    dailyCockpitStart: "Start now",
+    dailyCockpitCarry: "Continue",
+    dailyCockpitLater: "Save for later",
+    dailyCockpitProgress: "Daily progress",
+    dailyCockpitPrimary: "Best next click",
+    dailyCockpitSecondary: "Then do this",
+    dailyCockpitReason: "Why this matters",
+    dailyCockpitLoopTitle: "Today’s route",
+    dailyCockpitReset: "Reset helper",
+    dailyCockpitResetText: "This board resets each day, so players can use it as a real daily loop instead of a one-time checklist.",
     timelineEyebrow: "Retention feature",
     timelineTitle: "State Age / server timeline tracker",
     timelineText: "One of the strongest repeat-visit features in this category is a state-age tracker. Players come back to check what unlocks next and how many days remain.",
@@ -48,8 +66,9 @@ const translations = {
     kpiCodes: "codes tracked",
     kpiTimer: "mine timer",
     kpiPlanner: "crystal plan",
-    commandLabel: "Today command board",
-    commandTitle: "Do these before reset",
+    heroPreviewBadge: "Live tool preview",
+    heroActionTag: "Best next move",
+    heroActionLinks: "Jump straight in",
     commandCode: "Copy and test new gift codes",
     commandTimer: "Run Frostfire phase timer",
     commandPlanner: "Check Fire Crystal gap",
@@ -94,8 +113,48 @@ const translations = {
     sharePlannerLabel: "Fire Crystal gap",
     shareRefinedLabel: "Refined gap",
     shareTimerLabel: "Frostfire next window",
-    intelEyebrow: "Market intel",
-    intelTitle: "Why this project beats the alternatives",
+    missionEyebrow: "Best first steps",
+    missionTitle: "Start from your real player goal",
+    missionText: "These routes connect tools together, so one action leads to the next thing you should actually do.",
+    missionCodesTitle: "I want rewards right now",
+    missionCodesText: "Check working codes, keep your Player ID ready, and open the official redeem page without losing time.",
+    missionCodesChip: "Fastest repeat task",
+    missionCodesStep1Title: "Copy likely active codes",
+    missionCodesStep1Text: "Start with codes still labelled active or official, not old alliance reposts.",
+    missionCodesStep2Title: "Use saved Player ID",
+    missionCodesStep2Text: "Keep one or more IDs on this device so redemption stays a two-tap job.",
+    missionCodesStep3Title: "Redeem before reset",
+    missionCodesStep3Text: "Open the official page and test codes while they still have the best chance to work.",
+    missionCodesLink1: "Open codes board",
+    missionCodesLink1Note: "Copy and filter gift codes",
+    missionCodesLink2: "Open redeem access",
+    missionCodesLink2Note: "Official redemption page + steps",
+    missionRouteTitle: "I want the safest upgrade route",
+    missionRouteText: "Use state age, Fire Crystal gap, and deep resource math together before spending construction stock or refined crystals.",
+    missionRouteChip: "Most valuable long-term tool",
+    missionRouteStep1Title: "Check state-age timing",
+    missionRouteStep1Text: "See what unlocks next and whether your current furnace level is early, on time, or late.",
+    missionRouteStep2Title: "Apply the recommended route",
+    missionRouteStep2Text: "Send the suggested level path directly into the planner instead of guessing your next checkpoint.",
+    missionRouteStep3Title: "Confirm hidden resource blockers",
+    missionRouteStep3Text: "Use the resource lab to catch Embassy, troop camp, RFC, gear, and charm gaps before they punish you.",
+    missionRouteLink1: "Open timeline tracker",
+    missionRouteLink1Note: "Server age + unlock route",
+    missionRouteLink2: "Open resource lab",
+    missionRouteLink2Note: "Deep FC/RFC and side-system checks",
+    missionAllianceTitle: "I need something useful for alliance play",
+    missionAllianceText: "When you are coordinating other people, timing and clean reminders matter more than raw totals alone.",
+    missionAllianceChip: "Best for repeat visits",
+    missionAllianceStep1Title: "Run the Frostfire timer",
+    missionAllianceStep1Text: "Use phase prompts so you know when to gather, rotate, heal, and stop feeding.",
+    missionAllianceStep2Title: "Copy the alliance brief",
+    missionAllianceStep2Text: "Send a compact update with codes, crystal gap, and next timer cue into chat.",
+    missionAllianceStep3Title: "Check the day plan before large spends",
+    missionAllianceStep3Text: "For SvS, KOI, or prep windows, line up the spend day first so your members do not burn stock early.",
+    missionAllianceLink1: "Open event timer",
+    missionAllianceLink1Note: "30-minute Frostfire command board",
+    missionAllianceLink2: "Open alliance brief",
+    missionAllianceLink2Note: "Chat-ready summary for your team",
     opsEyebrow: "High-repeat tasks",
     opsTitle: "Player operations desk",
     opsText: "The fastest repeat tasks are here: open the official redemption page, keep your Player ID handy, and work through a daily board before reset.",
@@ -138,19 +197,16 @@ const translations = {
     sourceRuleText: "Official items are marked separately. Community-reported items should be verified in-game.",
     codesCardTitle: "Quick copy codes",
     codesCardText: "Tap a code to copy it. Use the status filter before posting to your alliance chat.",
+    codesSummaryLive: "Likely active now",
+    codesSummaryOfficial: "Official-tracked",
+    codesSummaryExpired: "Expired history",
+    codesSummaryAction: "Best first move",
     filterAll: "All",
     filterActive: "Likely active",
     filterCheck: "Needs check",
     filterExpired: "Expired reports",
     filterOfficial: "Official",
     bearEyebrow: "Community demand",
-    bearTitle: "Bear Trap prep helper",
-    bearText: "Players repeatedly ask how much training and power they should line up before Bear Trap. This quick helper turns your rough power gain into a clean prep note.",
-    bearPowerLabel: "Expected power gain",
-    bearTrainsLabel: "Planned troop batches",
-    bearEstimateLabel: "Estimated prep rating",
-    bearAdviceLabel: "Prep note",
-    copyBearTrapPlan: "Copy Bear Trap plan",
     timerEyebrow: "Return-visit utility",
     timerTitle: "Frostfire Mine 30-minute timer",
     timerText: "Start it when the event opens. The checklist changes by phase so players know when to gather, fight, heal, and bank points.",
@@ -193,6 +249,11 @@ const translations = {
     weeksLabel: "Estimated weeks",
     plannerMilestoneTitle: "Best next checkpoint",
     plannerSourceTitle: "Planning basis",
+    plannerExecutionTitle: "How to execute this route",
+    plannerExecutionNow: "Do now",
+    plannerExecutionWeek: "This week",
+    plannerExecutionEvent: "Before event",
+    plannerExecutionDone: "When ready",
     plannerRouteTitle: "Upgrade route",
     plannerSupportEyebrow: "Planning support",
     plannerSupportTitle: "What usually blocks resource plans",
@@ -204,6 +265,29 @@ const translations = {
     smartNeedTitle: "Likely next needs",
     smartNeedReason: "Why it matters",
     smartSynced: "Resource lab synced to this plan",
+    plannerLinkedTitle: "What to do next with this plan",
+    plannerLinkedText: "Do not stop at the totals. Carry this route into the deep resource check, state-age timing, and spend-day plan.",
+    plannerLinkedPrimary: "Do this first",
+    plannerLinkedSecondary: "Then do this",
+    plannerLinkedWatch: "Watch this now",
+    plannerLinkedReason: "Why this call",
+    plannerLinkedFast: "Fast carry-over",
+    plannerLinkedTimeline: "State-age checkpoint",
+    plannerLinkedSpend: "Spend window",
+    plannerLinkedRoute: "Main route",
+    plannerLinkedResource: "Resource linkage",
+    plannerPrepTitle: "Full upgrade prep pack",
+    plannerPrepText: "This is the practical bundle players usually ask for: what to hold, what to check first, and what reminder to send before the push.",
+    plannerPrepRange: "Route segment",
+    plannerPrepHold: "Hold these first",
+    plannerPrepCheck: "Check these before spending",
+    plannerPrepTemplate: "Copy reminder",
+    plannerPrepCopy: "Copy prep reminder",
+    plannerPrepEvent: "Best matching event",
+    plannerPrepPackReady: "Recommended prep pack ready",
+    resourceSyncPlanReady: "Synced from the planner above: stage range, owned FC/RFC, and income pace have already been carried here.",
+    resourceSyncManual: "This calculator also works on its own, but it becomes more useful when the planner fills the route context first.",
+    timelineQuickPicks: "Common checkpoints",
     plannerModeF2P: "F2P",
     plannerModeLow: "Low spender",
     plannerModePush: "Push",
@@ -365,7 +449,7 @@ const translations = {
     navTimer: "活动计时",
     navPlanner: "资源规划",
     navResource: "资源",
-    navGuides: "攻略",
+    navGuides: "消耗规划",
     searchLabel: "搜索",
     searchPlaceholder: "搜索工具、活动、兑换码",
     heroEyebrow: "Whiteout Survival 高频工具更新",
@@ -373,13 +457,31 @@ const translations = {
     heroText: "面向 Whiteout Survival 玩家反复打开的工具中心：兑换码检查、Frostfire Mine 计时、火晶升级缺口、SvS 准备和联盟活动清单。",
     ctaCodes: "检查兑换码",
     ctaPlanner: "打开规划器",
-    decisionLabel: "项目判断",
-    decisionTitle: "推荐：Whiteout Survival",
     updatedLabel: "内容更新时间",
     toolCount: "核心工具上线",
     langReady: "语言覆盖",
     sourceMix: "官方 + 社区 + 推理",
     sourceLabel: "来源标记",
+    statusCodesLabel: "当前大概率可用码",
+    statusMemoryLabel: "本设备已保存助手",
+    statusFocusLabel: "当前最该检查",
+    decisionEyebrow: "玩家决策台",
+    decisionTitle: "现在下一步该做什么？",
+    decisionText: "这里把 Player ID、州服天数、规划缺口、活动计时和消耗表联动起来，直接给出下一步动作。",
+    dailyCockpitEyebrow: "每日登录动线",
+    dailyCockpitTitle: "今天这轮该怎么做",
+    dailyCockpitText: "真正有留存的门户，不只是让玩家查一次，而是让玩家每天进来能顺手完成一轮：收奖励、看路线、盯活动、顺便补下一步。",
+    dailyCockpitReady: "已完成",
+    dailyCockpitStart: "现在开始",
+    dailyCockpitCarry: "继续做",
+    dailyCockpitLater: "留到后面",
+    dailyCockpitProgress: "今日进度",
+    dailyCockpitPrimary: "现在最该点",
+    dailyCockpitSecondary: "然后做这个",
+    dailyCockpitReason: "为什么值得做",
+    dailyCockpitLoopTitle: "今天这轮动线",
+    dailyCockpitReset: "每日重置逻辑",
+    dailyCockpitResetText: "这块会按天重置，玩家可以把它当成真正的每日使用动线，而不是一次性清单。",
     timelineEyebrow: "留存型功能",
     timelineTitle: "州服年龄 / 时间线追踪器",
     timelineText: "这类站点最能留人的功能之一，就是州服年龄追踪。用户会反复回来查下一个解锁点还差几天。",
@@ -407,8 +509,9 @@ const translations = {
     kpiCodes: "追踪兑换码",
     kpiTimer: "矿场计时",
     kpiPlanner: "火晶规划",
-    commandLabel: "今日指挥板",
-    commandTitle: "重置前先做这些",
+    heroPreviewBadge: "工具预览",
+    heroActionTag: "当前最优先",
+    heroActionLinks: "直接跳过去做",
     commandCode: "复制并测试新兑换码",
     commandTimer: "启动 Frostfire 阶段计时",
     commandPlanner: "检查火晶缺口",
@@ -421,16 +524,6 @@ const translations = {
     strategyRule: "操作规则",
     strategySave: "建议留这些",
     strategySpend: "只在这种情况花",
-    strategyDanger: "避免",
-    strategyEyebrow: "個人策略",
-    strategyTitle: "省資源 / 花資源策略模式",
-    strategyText: "玩家最常問的是該留給 SvS、該衝 KOI，還是現在就花。選擇玩法類型後，網站會把泛泛建議變成更具體的操作規則。",
-    strategyF2P: "F2P",
-    strategyLow: "低課",
-    strategyPush: "衝榜",
-    strategyRule: "操作規則",
-    strategySave: "建議留這些",
-    strategySpend: "只在這種情況花",
     strategyDanger: "避免",
     hubEyebrow: "玩家中心",
     hubTitle: "现在需要什么，直接打开",
@@ -448,8 +541,48 @@ const translations = {
     hubMetricPlanner: "火晶缺口",
     hubMetricTimeline: "下一解锁",
     hubActionOpen: "打开工具",
-    intelEyebrow: "市场判断",
-    intelTitle: "为什么这个项目比备选更值得做",
+    missionEyebrow: "推荐起手路线",
+    missionTitle: "按玩家真实目标开始用",
+    missionText: "这几条路线会把功能串起来，不是让你看模块，而是直接告诉你下一步该做什么。",
+    missionCodesTitle: "我现在就想拿奖励",
+    missionCodesText: "先查可用兑换码，再用保存好的 Player ID 直接去官方兑换页，别在群里来回翻链接。",
+    missionCodesChip: "最高频动作",
+    missionCodesStep1Title: "先复制大概率可用码",
+    missionCodesStep1Text: "优先看 active 或 official 标记，不要先测旧群消息里转来的码。",
+    missionCodesStep2Title: "直接用保存好的 Player ID",
+    missionCodesStep2Text: "把常用 ID 放在这台设备里，自己换码或帮盟友查都更快。",
+    missionCodesStep3Title: "重置前尽快去官方兑换",
+    missionCodesStep3Text: "直接打开官方页逐个测试，把还在生效的奖励先拿到手。",
+    missionCodesLink1: "打开兑换码板",
+    missionCodesLink1Note: "复制、筛选、快速检查",
+    missionCodesLink2: "打开官方兑换入口",
+    missionCodesLink2Note: "兑换页 + 操作步骤",
+    missionRouteTitle: "我想把升级路线算清楚",
+    missionRouteText: "把州服年龄、火晶缺口和深度资源核算串起来，避免花了加速才发现前置或精炼没跟上。",
+    missionRouteChip: "最值得反复打开的核心功能",
+    missionRouteStep1Title: "先看州服年龄节点",
+    missionRouteStep1Text: "确认下一个解锁点是什么，自己的熔炉进度到底是偏早、正常还是偏慢。",
+    missionRouteStep2Title: "把推荐路线一键套进规划器",
+    missionRouteStep2Text: "直接用推荐档位做规划，不要靠印象猜下一个该冲哪里。",
+    missionRouteStep3Title: "再核对隐藏卡点",
+    missionRouteStep3Text: "去资源资料台把大使馆、兵营、RFC、装备、护符这些一起核清楚。",
+    missionRouteLink1: "打开州服时间线",
+    missionRouteLink1Note: "州服天数 + 解锁节奏",
+    missionRouteLink2: "打开资源资料台",
+    missionRouteLink2Note: "火晶、精炼和联动系统深算",
+    missionAllianceTitle: "我需要更适合联盟的工具",
+    missionAllianceText: "一到联盟活动，真正有用的是时间提示、清晰提醒和可以直接发群的内容，而不是只给总量。",
+    missionAllianceChip: "最适合回访使用",
+    missionAllianceStep1Title: "先开 Frostfire 计时器",
+    missionAllianceStep1Text: "按阶段提示知道什么时候采、什么时候打、什么时候该停手保分。",
+    missionAllianceStep2Title: "复制联盟简报发群",
+    missionAllianceStep2Text: "把兑换码、火晶缺口和下一次活动提示打成一段可直接发的消息。",
+    missionAllianceStep3Title: "大额消耗前先看分日规划",
+    missionAllianceStep3Text: "SvS、KOI 或准备日，先排哪天花最赚，避免盟友提前烧库存。",
+    missionAllianceLink1: "打开活动计时器",
+    missionAllianceLink1Note: "30 分钟矿场指挥板",
+    missionAllianceLink2: "打开联盟简报",
+    missionAllianceLink2Note: "可直接发聊天频道",
     opsEyebrow: "高频任务",
     opsTitle: "玩家操作台",
     opsText: "把最容易反复打开的任务放在一起：官方兑换入口、Player ID 备忘、以及重置前任务板。",
@@ -492,19 +625,16 @@ const translations = {
     sourceRuleText: "官方信息单独标记；社区反馈码建议进游戏验证。",
     codesCardTitle: "快速复制兑换码",
     codesCardText: "点击即可复制。发到联盟频道前可以先按状态筛选。",
+    codesSummaryLive: "当前可用码",
+    codesSummaryOfficial: "官方追踪",
+    codesSummaryExpired: "过期记录",
+    codesSummaryAction: "最该先做",
     filterAll: "全部",
     filterActive: "大概率可用",
     filterCheck: "待验证",
     filterExpired: "已过期反馈",
     filterOfficial: "官方",
     bearEyebrow: "社区高频需求",
-    bearTitle: "Bear Trap 准备助手",
-    bearText: "玩家很常问 Bear Trap 前该准备多少训练和战力，这个小工具把你的预估提升转成可直接发群的准备说明。",
-    bearPowerLabel: "预计战力提升",
-    bearTrainsLabel: "计划训练批次",
-    bearEstimateLabel: "预计准备评级",
-    bearAdviceLabel: "准备说明",
-    copyBearTrapPlan: "复制 Bear Trap 计划",
     timerEyebrow: "回访型工具",
     timerTitle: "Frostfire Mine 30 分钟计时器",
     timerText: "活动开始时启动。清单会按阶段变化，提醒玩家什么时候采集、争夺、治疗和锁分。",
@@ -547,6 +677,11 @@ const translations = {
     weeksLabel: "预计周数",
     plannerMilestoneTitle: "下一阶段建议",
     plannerSourceTitle: "规划依据",
+    plannerExecutionTitle: "这条路线怎么执行",
+    plannerExecutionNow: "现在先做",
+    plannerExecutionWeek: "这周重点",
+    plannerExecutionEvent: "活动前",
+    plannerExecutionDone: "准备完成后",
     plannerRouteTitle: "升级路线",
     plannerSupportEyebrow: "规划补强",
     plannerSupportTitle: "资源规划最常卡在哪里",
@@ -558,6 +693,29 @@ const translations = {
     smartNeedTitle: "可能还需要准备",
     smartNeedReason: "为什么重要",
     smartSynced: "已联动到资源资料计算台",
+    plannerLinkedTitle: "这份规划下一步怎么做",
+    plannerLinkedText: "不要停在总数上，把当前路线继续带到深度资源核对、州服节奏和分日消耗里。",
+    plannerLinkedPrimary: "先做这个",
+    plannerLinkedSecondary: "接着做这个",
+    plannerLinkedWatch: "现在最该盯住",
+    plannerLinkedReason: "判断依据",
+    plannerLinkedFast: "一键带参数",
+    plannerLinkedTimeline: "州服节点",
+    plannerLinkedSpend: "消耗窗口",
+    plannerLinkedRoute: "主线路线",
+    plannerLinkedResource: "资源联动",
+    plannerPrepTitle: "整段升级准备包",
+    plannerPrepText: "这才是玩家真正常问的那一包东西：这段该囤什么、先查什么、活动前该怎么提醒自己或盟友。",
+    plannerPrepRange: "本段路线",
+    plannerPrepHold: "优先囤这些",
+    plannerPrepCheck: "动手前先查",
+    plannerPrepTemplate: "提醒模板",
+    plannerPrepCopy: "复制准备提醒",
+    plannerPrepEvent: "更适合对接的活动",
+    plannerPrepPackReady: "已生成推荐准备包",
+    resourceSyncPlanReady: "已根据上方规划自动联动到这里：阶段区间、已有 FC/RFC 和收入节奏都已带入。",
+    resourceSyncManual: "这里也能独立使用，但先在上方规划器填好路线，会更像真实决策工具而不是单独算数。",
+    timelineQuickPicks: "常见州服节点",
     plannerModeF2P: "零氪/F2P",
     plannerModeLow: "小氪",
     plannerModePush: "冲榜",
@@ -719,7 +877,7 @@ const translations = {
     navTimer: "活動計時",
     navPlanner: "資源規劃",
     navResource: "資源",
-    navGuides: "攻略",
+    navGuides: "消耗規劃",
     searchLabel: "搜尋",
     searchPlaceholder: "搜尋工具、活動、兌換碼",
     heroEyebrow: "Whiteout Survival 高頻工具更新",
@@ -727,13 +885,31 @@ const translations = {
     heroText: "面向 Whiteout Survival 玩家反覆打開的工具中心：兌換碼檢查、Frostfire Mine 計時、火晶升級缺口、SvS 準備與聯盟活動清單。",
     ctaCodes: "檢查兌換碼",
     ctaPlanner: "打開規劃器",
-    decisionLabel: "專案判斷",
-    decisionTitle: "推薦：Whiteout Survival",
     updatedLabel: "內容更新時間",
     toolCount: "核心工具上線",
     langReady: "語言覆蓋",
     sourceMix: "官方 + 社群 + 推理",
     sourceLabel: "來源標記",
+    statusCodesLabel: "目前大概率可用碼",
+    statusMemoryLabel: "本設備已保存助手",
+    statusFocusLabel: "目前最該檢查",
+    decisionEyebrow: "玩家決策台",
+    decisionTitle: "現在下一步該做什麼？",
+    decisionText: "這裡把 Player ID、州服天數、規劃缺口、活動計時和消耗表聯動起來，直接給出下一步動作。",
+    dailyCockpitEyebrow: "每日登入動線",
+    dailyCockpitTitle: "今天這輪該怎麼做",
+    dailyCockpitText: "真正有留存的門戶，不只是讓玩家查一次，而是讓玩家每天進來能順手完成一輪：收獎勵、看路線、盯活動、順便補下一步。",
+    dailyCockpitReady: "已完成",
+    dailyCockpitStart: "現在開始",
+    dailyCockpitCarry: "繼續做",
+    dailyCockpitLater: "留到後面",
+    dailyCockpitProgress: "今日進度",
+    dailyCockpitPrimary: "現在最該點",
+    dailyCockpitSecondary: "然後做這個",
+    dailyCockpitReason: "為什麼值得做",
+    dailyCockpitLoopTitle: "今天這輪動線",
+    dailyCockpitReset: "每日重置邏輯",
+    dailyCockpitResetText: "這塊會按天重置，玩家可以把它當成真正的每日使用動線，而不是一次性清單。",
     timelineEyebrow: "留存型功能",
     timelineTitle: "州服年齡 / 時間線追蹤器",
     timelineText: "這類站點最能留人的功能之一，就是州服年齡追蹤。使用者會反覆回來查下一個解鎖點還差幾天。",
@@ -761,8 +937,9 @@ const translations = {
     kpiCodes: "追蹤兌換碼",
     kpiTimer: "礦場計時",
     kpiPlanner: "火晶規劃",
-    commandLabel: "今日指揮板",
-    commandTitle: "重置前先做這些",
+    heroPreviewBadge: "工具預覽",
+    heroActionTag: "目前最優先",
+    heroActionLinks: "直接跳過去做",
     commandCode: "複製並測試新兌換碼",
     commandTimer: "啟動 Frostfire 階段計時",
     commandPlanner: "檢查火晶缺口",
@@ -782,8 +959,48 @@ const translations = {
     hubMetricPlanner: "火晶缺口",
     hubMetricTimeline: "下一解鎖",
     hubActionOpen: "打開工具",
-    intelEyebrow: "市場判斷",
-    intelTitle: "為什麼這個專案比備選更值得做",
+    missionEyebrow: "推薦起手路線",
+    missionTitle: "按玩家真實目標開始用",
+    missionText: "這幾條路線會把功能串起來，不是讓你看模組，而是直接告訴你下一步該做什麼。",
+    missionCodesTitle: "我現在就想拿獎勵",
+    missionCodesText: "先查可用兌換碼，再用保存好的 Player ID 直接去官方兌換頁，別在群裡來回翻連結。",
+    missionCodesChip: "最高頻動作",
+    missionCodesStep1Title: "先複製大概率可用碼",
+    missionCodesStep1Text: "優先看 active 或 official 標記，不要先測舊群消息裡轉來的碼。",
+    missionCodesStep2Title: "直接用保存好的 Player ID",
+    missionCodesStep2Text: "把常用 ID 放在這台設備裡，自己換碼或幫盟友查都更快。",
+    missionCodesStep3Title: "重置前盡快去官方兌換",
+    missionCodesStep3Text: "直接打開官方頁逐個測試，把還在生效的獎勵先拿到手。",
+    missionCodesLink1: "打開兌換碼板",
+    missionCodesLink1Note: "複製、篩選、快速檢查",
+    missionCodesLink2: "打開官方兌換入口",
+    missionCodesLink2Note: "兌換頁 + 操作步驟",
+    missionRouteTitle: "我想把升級路線算清楚",
+    missionRouteText: "把州服年齡、火晶缺口和深度資源核算串起來，避免花了加速才發現前置或精煉沒跟上。",
+    missionRouteChip: "最值得反覆打開的核心功能",
+    missionRouteStep1Title: "先看州服年齡節點",
+    missionRouteStep1Text: "確認下一個解鎖點是什麼，自己的熔爐進度到底是偏早、正常還是偏慢。",
+    missionRouteStep2Title: "把推薦路線一鍵套進規劃器",
+    missionRouteStep2Text: "直接用推薦檔位做規劃，不要靠印象猜下一個該衝哪裡。",
+    missionRouteStep3Title: "再核對隱藏卡點",
+    missionRouteStep3Text: "去資源資料台把大使館、兵營、RFC、裝備、護符這些一起核清楚。",
+    missionRouteLink1: "打開州服時間線",
+    missionRouteLink1Note: "州服天數 + 解鎖節奏",
+    missionRouteLink2: "打開資源資料台",
+    missionRouteLink2Note: "火晶、精煉和聯動系統深算",
+    missionAllianceTitle: "我需要更適合聯盟的工具",
+    missionAllianceText: "一到聯盟活動，真正有用的是時間提示、清晰提醒和可以直接發群的內容，而不是只給總量。",
+    missionAllianceChip: "最適合回訪使用",
+    missionAllianceStep1Title: "先開 Frostfire 計時器",
+    missionAllianceStep1Text: "按階段提示知道什麼時候採、什麼時候打、什麼時候該停手保分。",
+    missionAllianceStep2Title: "複製聯盟簡報發群",
+    missionAllianceStep2Text: "把兌換碼、火晶缺口和下一次活動提示打成一段可直接發的消息。",
+    missionAllianceStep3Title: "大額消耗前先看分日規劃",
+    missionAllianceStep3Text: "SvS、KOI 或準備日，先排哪天花最賺，避免盟友提前燒庫存。",
+    missionAllianceLink1: "打開活動計時器",
+    missionAllianceLink1Note: "30 分鐘礦場指揮板",
+    missionAllianceLink2: "打開聯盟簡報",
+    missionAllianceLink2Note: "可直接發聊天頻道",
     opsEyebrow: "高頻任務",
     opsTitle: "玩家操作台",
     opsText: "把最容易反覆打開的任務放在一起：官方兌換入口、Player ID 備忘、以及重置前任務板。",
@@ -826,19 +1043,16 @@ const translations = {
     sourceRuleText: "官方資訊單獨標記；社群回報碼建議進遊戲驗證。",
     codesCardTitle: "快速複製兌換碼",
     codesCardText: "點擊即可複製。發到聯盟頻道前可以先按狀態篩選。",
+    codesSummaryLive: "目前可用碼",
+    codesSummaryOfficial: "官方追蹤",
+    codesSummaryExpired: "過期記錄",
+    codesSummaryAction: "最該先做",
     filterAll: "全部",
     filterActive: "大概率可用",
     filterCheck: "待驗證",
     filterExpired: "已過期回報",
     filterOfficial: "官方",
     bearEyebrow: "社群高頻需求",
-    bearTitle: "Bear Trap 準備助手",
-    bearText: "玩家很常問 Bear Trap 前該準備多少訓練和戰力，這個小工具把你的預估提升轉成可直接發群的準備說明。",
-    bearPowerLabel: "預計戰力提升",
-    bearTrainsLabel: "計畫訓練批次",
-    bearEstimateLabel: "預計準備評級",
-    bearAdviceLabel: "準備說明",
-    copyBearTrapPlan: "複製 Bear Trap 計畫",
     timerEyebrow: "回訪型工具",
     timerTitle: "Frostfire Mine 30 分鐘計時器",
     timerText: "活動開始時啟動。清單會按階段變化，提醒玩家什麼時候採集、爭奪、治療和鎖分。",
@@ -881,6 +1095,11 @@ const translations = {
     weeksLabel: "預計週數",
     plannerMilestoneTitle: "下一階段建議",
     plannerSourceTitle: "規劃依據",
+    plannerExecutionTitle: "這條路線怎麼執行",
+    plannerExecutionNow: "現在先做",
+    plannerExecutionWeek: "這週重點",
+    plannerExecutionEvent: "活動前",
+    plannerExecutionDone: "準備完成後",
     plannerRouteTitle: "升級路線",
     plannerSupportEyebrow: "規劃補強",
     plannerSupportTitle: "資源規劃最常卡在哪裡",
@@ -892,6 +1111,29 @@ const translations = {
     smartNeedTitle: "可能還需要準備",
     smartNeedReason: "為什麼重要",
     smartSynced: "已聯動到資源資料計算台",
+    plannerLinkedTitle: "這份規劃下一步怎麼做",
+    plannerLinkedText: "不要停在總數上，把目前路線繼續帶到深度資源核對、州服節奏和分日消耗裡。",
+    plannerLinkedPrimary: "先做這個",
+    plannerLinkedSecondary: "接著做這個",
+    plannerLinkedWatch: "現在最該盯住",
+    plannerLinkedReason: "判斷依據",
+    plannerLinkedFast: "一鍵帶參數",
+    plannerLinkedTimeline: "州服節點",
+    plannerLinkedSpend: "消耗窗口",
+    plannerLinkedRoute: "主線路線",
+    plannerLinkedResource: "資源聯動",
+    plannerPrepTitle: "整段升級準備包",
+    plannerPrepText: "這才是玩家真正常問的那一包東西：這段該囤什麼、先查什麼、活動前該怎麼提醒自己或盟友。",
+    plannerPrepRange: "本段路線",
+    plannerPrepHold: "優先囤這些",
+    plannerPrepCheck: "動手前先查",
+    plannerPrepTemplate: "提醒模板",
+    plannerPrepCopy: "複製準備提醒",
+    plannerPrepEvent: "更適合對接的活動",
+    plannerPrepPackReady: "已生成推薦準備包",
+    resourceSyncPlanReady: "已根據上方規劃自動聯動到這裡：階段區間、已有 FC/RFC 和收入節奏都已帶入。",
+    resourceSyncManual: "這裡也能獨立使用，但先在上方規劃器填好路線，會更像真實決策工具而不是單獨算數。",
+    timelineQuickPicks: "常見州服節點",
     plannerModeF2P: "零課/F2P",
     plannerModeLow: "小課",
     plannerModePush: "衝榜",
@@ -1072,6 +1314,8 @@ const state = {
   restoredMemory: false,
   timerSeconds: 1800,
   timerId: null,
+  lastTimerCue: "",
+  lastTimerPhase: "ready",
   activeRegion: localStorage.getItem("wos-region") || "Global"
 };
 
@@ -1089,6 +1333,15 @@ const ADSENSE_CONFIG = {
     guides: ""
   }
 };
+
+function getLiveCodes() {
+  if (!state.content?.codes) return [];
+  const today = new Date().toISOString().slice(0, 10);
+  return state.content.codes.map((item) => ({
+    ...item,
+    status: item.expiresAt && item.expiresAt < today ? "expired" : item.status
+  }));
+}
 
 function detectLang() {
   const saved = localStorage.getItem("wos-lang");
@@ -1185,12 +1438,9 @@ function bindControls() {
   document.querySelectorAll("[data-planner-mode]").forEach((button) => {
     button.addEventListener("click", () => setPlannerMode(button.dataset.plannerMode));
   });
-  document.querySelectorAll("[data-strategy]").forEach((button) => {
-    button.addEventListener("click", () => setStrategyMode(button.dataset.strategy));
-  });
   document.querySelector("#siteSearch").addEventListener("input", runSearch);
   bindMemoryInputs();
-  ["currentLevel", "targetLevel", "currentCrystals", "currentRefined", "dailyCrystals", "weeklyRefined", "daysUntilEvent", "speedupHours", "bearTrapPower", "bearTrapBatches"].forEach((id) => {
+  ["currentLevel", "targetLevel", "currentCrystals", "currentRefined", "dailyCrystals", "weeklyRefined", "daysUntilEvent", "speedupHours"].forEach((id) => {
     document.querySelector(`#${id}`)?.addEventListener("input", calculatePlanner);
   });
   ["furnaceStart", "furnaceTarget", "ownedFc", "ownedRfc", "dailyFcIncome", "weeklyRfcIncome", "includePrereqTax", "gearStart", "gearTarget", "gearPieces", "charmStart", "charmTarget", "charmPieces", "targetShards", "ownedShards", "dailyShardMode"].forEach((id) => {
@@ -1199,18 +1449,16 @@ function bindControls() {
     node.addEventListener(node.type === "checkbox" || node.tagName === "SELECT" ? "change" : "input", renderResourceDataLab);
   });
   document.querySelector("#stateAgeDays")?.addEventListener("input", () => {
-    renderStateTimeline();
-    renderHubCards();
+    rerenderStateAgeLinkedViews();
   });
   document.querySelector("#stateAgeCurrentLevel")?.addEventListener("change", (event) => {
     localStorage.setItem("wos-state-age-current-order", event.target.value);
     writeUserMemory("stateAgeCurrentLevel", event.target.value);
-    renderStateTimeline();
+    rerenderStateAgeLinkedViews();
   });
   document.querySelector("#applyStateAgePlan")?.addEventListener("click", applyStateAgePlan);
   document.querySelector("#savePlanner")?.addEventListener("click", savePlanner);
   document.querySelector("#syncResourceLab")?.addEventListener("click", () => syncResourceLabToPlanner({ scroll: true }));
-  document.querySelector("#copyBearTrapPlan")?.addEventListener("click", () => copyText(buildBearTrapPlan()));
   document.querySelector("#copyShareBrief")?.addEventListener("click", () => copyText(buildShareBrief()));
   document.querySelector("#copyRedeemGuide")?.addEventListener("click", () => copyText(t("redeemGuide")));
   document.querySelector("#savePlayerId")?.addEventListener("click", savePlayerId);
@@ -1253,8 +1501,6 @@ const MEMORY_FIELDS = [
   "targetShards",
   "ownedShards",
   "dailyShardMode",
-  "bearTrapPower",
-  "bearTrapBatches",
   "playerIdInput"
 ];
 
@@ -1290,7 +1536,6 @@ function restoreUserMemory() {
   const memory = getUserMemory();
   if (memory.stateAgeCurrentLevel !== undefined) localStorage.setItem("wos-state-age-current-order", String(memory.stateAgeCurrentLevel));
   if (memory.plannerMode) localStorage.setItem("wos-planner-mode", String(memory.plannerMode));
-  if (memory.strategyMode) localStorage.setItem("wos-strategy-mode", String(memory.strategyMode));
   if (memory.activeRegion) {
     state.activeRegion = String(memory.activeRegion);
     localStorage.setItem("wos-region", state.activeRegion);
@@ -1351,7 +1596,6 @@ function renderAll() {
     node.placeholder = t(node.dataset.i18nPlaceholder);
   });
   document.querySelector("#regionNotes").placeholder = t("regionNotesPlaceholder");
-  renderMarket();
   renderCodes();
   renderSourceLog();
   renderPlayerId();
@@ -1362,292 +1606,30 @@ function renderAll() {
   syncStateAgeLevelOptions();
   calculatePlanner({ skipResourceSync: true });
   renderSmartPlanner();
+  renderPlannerExecutionPanel();
+  renderPlannerLinkedPanel();
+  renderPlannerPrepPack();
   renderResourceDataLab();
-  renderBearTrapPlan();
-  renderGuides();
   renderPlannerSupport();
   renderSpendMap();
   renderEventDayPlans();
-  renderTodayHoardBoards();
-  renderBuildingChains();
   renderStateTimeline();
+  renderStateAgeQuickChips();
   renderTimer();
-  renderStrategyBoard();
   renderHubCards();
+  renderMissionGrid();
   renderOpsBriefing();
+  renderDailyCockpit();
   renderShareBrief();
   renderHeroSnapshot();
+  renderHeroActionRail();
+  renderDecisionBoard();
+  renderStatusStrip();
   renderAdSlots();
   updateMemoryStatus();
   setRegion(state.activeRegion);
   document.querySelector("#lastUpdated").textContent = new Date(state.content.updatedAt).toLocaleDateString(state.lang);
   runSearch();
-}
-
-
-
-function getStrategyMode() {
-  return localStorage.getItem("wos-strategy-mode") || "f2p";
-}
-
-function setStrategyMode(mode) {
-  localStorage.setItem("wos-strategy-mode", mode);
-  writeUserMemory("strategyMode", mode);
-  renderStrategyBoard();
-}
-
-function renderStrategyBoard() {
-  const root = document.querySelector("#strategyBoard");
-  if (!root || !state.content?.strategyModes) return;
-
-  const mode = getStrategyMode();
-  const data = state.content.strategyModes[mode] || state.content.strategyModes.f2p;
-  const currentLevel = document.querySelector("#currentLevel")?.value || "FC4";
-  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
-  const missingFc = readMetricValue("#missingCrystals");
-  const missingRfc = readMetricValue("#missingRefined");
-  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
-  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
-  const daysText = document.querySelector("#daysNeeded")?.textContent || "0";
-  const weeksText = document.querySelector("#weeksNeeded")?.textContent || "0";
-  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
-  const eventDays = Number(document.querySelector("#daysUntilEvent")?.value || getPlannerModeConfig().eventWindowDays);
-  const targetMajor = getTargetMajorLevel();
-  const currentOrder = getFurnaceOrderByLevel(currentLevel);
-
-  const spendMap = state.content.eventSpendMap || [];
-  const dayPlans = state.content.eventDayPlans || [];
-  let eventKey = "koi";
-  if (mode === "push") eventKey = "svs";
-  else if (targetMajor >= 6) eventKey = "svs";
-  else if (mode === "low" && readiness === t("eventReadyGood")) eventKey = "svs";
-
-  const spendItem = spendMap.find((item) => item.key === eventKey) || spendMap[0] || null;
-  const dayPlan = dayPlans.find((item) => item.key === eventKey) || dayPlans[0] || null;
-  const spendTitle = localText(spendItem?.title) || t("spendMapTitle");
-  const spendWhen = localText(spendItem?.when) || "";
-  const spendBestFor = localText(spendItem?.bestFor) || "";
-  const spendSave = spendItem?.save?.[state.lang] || spendItem?.save?.en || [];
-  const dayTitle = localText(dayPlan?.title) || t("dayPlanTitle");
-
-  const presets = state.content.resourceDataLab?.smartPresets || [];
-  let preset = null;
-  if (currentOrder <= getFurnaceOrderByLevel("FC3")) preset = presets.find((item) => item.key === "early-fc") || presets[0] || null;
-  else if (mode === "push") preset = presets.find((item) => item.key === "svs-push") || presets.at(-1) || null;
-  else if (targetMajor >= 6 || mode === "low") preset = presets.find((item) => item.key === "rfc-entry") || presets[Math.min(2, Math.max(0, presets.length - 1))] || null;
-  else preset = presets.find((item) => item.key === "fc5-hold") || presets[Math.min(1, Math.max(0, presets.length - 1))] || null;
-
-  let callTitle = "";
-  let callNote = "";
-  let callHref = "#spend-map";
-  let callLabel = triText("Open spend map", "打开活动消耗地图", "打開活動消耗地圖");
-
-  if (missingRfc > 0) {
-    callTitle = triText("Build an RFC-first route before any burst spend.", "先把精炼火晶路线补齐，再谈爆发消耗。", "先把精煉火晶路線補齊，再談爆發消耗。");
-    callNote = triText(
-      "You are still short " + missingRfc.toLocaleString(state.lang) + " RFC for " + targetLevel + ". Use the deep calculator before converting more FC or speedups.",
-      "你到 " + targetLevel + " 还差 " + missingRfc.toLocaleString(state.lang) + " 精炼火晶。先去深度计算，再决定要不要继续转火晶或烧加速。",
-      "你到 " + targetLevel + " 還差 " + missingRfc.toLocaleString(state.lang) + " 精煉火晶。先去深度計算，再決定要不要繼續轉火晶或燒加速。"
-    );
-    callHref = "#resource-lab";
-    callLabel = triText("Open resource lab", "打开资料计算台", "打開資料計算台");
-  } else if (missingFc > 0) {
-    callTitle = triText("Close the Fire Crystal gap before chasing this window.", "先把火晶缺口补齐，再考虑这个活动窗口。", "先把火晶缺口補齊，再考慮這個活動窗口。");
-    callNote = triText(
-      "You still need " + missingFc.toLocaleString(state.lang) + " FC, so the next best click is the planner, not the spend table.",
-      "你还差 " + missingFc.toLocaleString(state.lang) + " 火晶，下一步更该看规划器，不是先去花库存。",
-      "你還差 " + missingFc.toLocaleString(state.lang) + " 火晶，下一步更該看規劃器，不是先去花庫存。"
-    );
-    callHref = "#planner";
-    callLabel = triText("Open planner", "打开规划器", "打開規劃器");
-  } else if (readiness === t("eventReadyRisk")) {
-    callTitle = triText("Hold stock and line up the spend day first.", "先稳住库存，把真正要花的那一天排清楚。", "先穩住庫存，把真正要花的那一天排清楚。");
-    callNote = triText(
-      "You are close, but not comfortably inside the " + eventDays + "-day window yet. Use the day plan before the first big batch.",
-      "你已经接近了，但还没舒服地卡进 " + eventDays + " 天窗口。第一波大额投入前，先看分日规划。",
-      "你已經接近了，但還沒舒服地卡進 " + eventDays + " 天窗口。第一波大額投入前，先看分日規劃。"
-    );
-    callHref = "#day-plan";
-    callLabel = triText("Open day plan", "打开分日规划", "打開分日規劃");
-  } else if (mode === "push") {
-    callTitle = triText("Switch into burst planning, not drip spending.", "进入爆发式规划，不要一点点漏着花。", "進入爆發式規劃，不要一點點漏著花。");
-    callNote = triText(
-      "Your route looks funded. Use the day board and keep the next cue (" + nextWindow + ") in view before each burst.",
-      "你的路线看起来已经能撑住了。现在要配合分日板，并在每一波投入前盯着下一条提示：" + nextWindow + "。",
-      "你的路線看起來已經能撐住了。現在要配合分日板，並在每一波投入前盯著下一條提示：" + nextWindow + "。"
-    );
-    callHref = "#day-plan";
-    callLabel = triText("Open day plan", "打开分日规划", "打開分日規劃");
-  } else if (mode === "low") {
-    callTitle = triText("Match stock to the cleanest high-value window.", "把库存对到最干净的高价值窗口再花。", "把庫存對到最乾淨的高價值窗口再花。");
-    callNote = triText(
-      "This mode wins by spending on overlap: event points plus permanent account growth.",
-      "这个模式靠的是重叠收益：活动积分和永久成长一起拿。",
-      "這個模式靠的是重疊收益：活動積分和永久成長一起拿。"
-    );
-  } else {
-    callTitle = triText("Lock the safest save target before spending anything big.", "先锁定最稳的囤货目标，再谈大额消耗。", "先鎖定最穩的囤貨目標，再談大額消耗。");
-    callNote = triText(
-      "For F2P, the mistake is not under-spending. It is spending before the milestone or event target is truly clear.",
-      "对 F2P 来说，最怕的不是花少了，而是在里程碑或活动目标没真正清晰前就先花了。",
-      "對 F2P 來說，最怕的不是花少了，而是在里程碑或活動目標沒真正清晰前就先花了。"
-    );
-  }
-
-  const summaryNote = missingFc > 0 || missingRfc > 0
-    ? triText(
-        "Route pace: about " + daysText + " days" + (missingRfc > 0 ? " and " + weeksText + " weeks" : "") + ". Use this mode to decide which stock stays protected while you close the gap.",
-        "路线节奏：大约还要 " + daysText + " 天" + (missingRfc > 0 ? "，以及 " + weeksText + " 周" : "") + "。先用这套模式判断哪些库存必须保护住，再去补缺口。",
-        "路線節奏：大約還要 " + daysText + " 天" + (missingRfc > 0 ? "，以及 " + weeksText + " 週" : "") + "。先用這套模式判斷哪些庫存必須保護住，再去補缺口。"
-      )
-    : triText(
-        "Core route looks funded. This mode now matters more for timing and score conversion than for raw totals.",
-        "核心路线看起来基本备齐了。现在更重要的是花在对的时间，而不是再盯着总量。",
-        "核心路線看起來基本備齊了。現在更重要的是花在對的時間，而不是再盯著總量。"
-      );
-
-  const spendGate = missingRfc > 0
-    ? triText(
-        "RFC is still the hard gate. Treat this as a save week until the refined route is funded.",
-        "精炼火晶还是硬卡点。在精炼路线补齐前，这周更像是囤货周。",
-        "精煉火晶還是硬卡點。在精煉路線補齊前，這週更像是囤貨週。"
-      )
-    : missingFc > 0
-      ? triText(
-          "Fire Crystals are still short. Only spend where the milestone is guaranteed and the route keeps moving.",
-          "火晶还在缺。只在稳拿里程碑、而且不会卡主路线时才花。",
-          "火晶還在缺。只在穩拿里程碑，而且不會卡主路線時才花。"
-        )
-      : readiness === t("eventReadyRisk")
-        ? triText(
-            "You are close, but not safely inside the event window yet. Hold stock, then use the day plan to line up the first batch.",
-            "你已经接近，但还没安全卡进活动窗口。先稳住库存，再用分日规划排第一波。",
-            "你已經接近，但還沒安全卡進活動窗口。先穩住庫存，再用分日規劃排第一波。"
-          )
-        : triText(
-            "Best used with the spend map first, then follow the day plan instead of tapping items at random.",
-            "最好先按活动消耗地图选窗口，再照分日规划走，不要随机点掉资源。",
-            "最好先按活動消耗地圖選窗口，再照分日規劃走，不要隨機點掉資源。"
-          );
-
-  const checks = [
-    triText("Check the day plan before the first big batch.", "第一波大额投入前，先看分日规划。", "第一波大額投入前，先看分日規劃。"),
-    blocker === t("blockerReady")
-      ? triText(
-          "Even if the route is ready, keep side spending smaller than the main target jump.",
-          "就算主路线看起来就绪了，支线消耗也别盖过这次主目标。",
-          "就算主路線看起來就緒了，支線消耗也別蓋過這次主目標。"
-        )
-      : triText(
-          "If " + blocker + " still blocks " + targetLevel + ", do not burn matching stock on side systems.",
-          "如果 " + blocker + " 还卡着 " + targetLevel + "，同类库存就不要先花到支线。",
-          "如果 " + blocker + " 還卡著 " + targetLevel + "，同類庫存就不要先花到支線。"
-        ),
-    mode === "push"
-      ? triText(
-          "Keep one last swing of heals or speedups for final rank movement.",
-          "最后一段治疗或加速要留一手给尾盘名次变化。",
-          "最後一段治療或加速要留一手給尾盤名次變化。"
-        )
-      : mode === "low"
-        ? triText(
-            "Only spend when event points and permanent account growth overlap.",
-            "只有活动积分和永久成长重叠时才值得花。",
-            "只有活動積分和永久成長重疊時才值得花。"
-          )
-        : triText(
-            "If the milestone is not locked, default back to saving.",
-            "里程碑没锁住，就默认回到囤货。",
-            "里程碑沒鎖住，就預設回到囤貨。"
-          )
-  ];
-
-  const quickLinks = [
-    {
-      href: "#planner",
-      label: triText("Gap planner", "缺口规划", "缺口規劃"),
-      note: missingFc > 0 || missingRfc > 0
-        ? missingFc.toLocaleString(state.lang) + " FC" + (missingRfc ? " / " + missingRfc.toLocaleString(state.lang) + " RFC" : "")
-        : currentLevel + " -> " + targetLevel
-    },
-    {
-      href: "#spend-map",
-      label: triText("Best event target", "最佳活动目标", "最佳活動目標"),
-      note: spendTitle
-    },
-    {
-      href: "#day-plan",
-      label: triText("Spend by day", "分日打法", "分日打法"),
-      note: dayTitle
-    },
-    mode === "push"
-      ? {
-          href: "#timer",
-          label: triText("Timer cue", "计时提示", "計時提示"),
-          note: nextWindow
-        }
-      : {
-          href: "#resource-lab",
-          label: triText("Deep resource check", "深度资源核对", "深度資源核對"),
-          note: blocker
-        }
-  ];
-
-  document.querySelectorAll("[data-strategy]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.strategy === mode);
-  });
-
-  root.innerHTML = [
-    "<div class=\"strategy-primary-grid\">",
-    "<article class=\"strategy-card primary\">",
-    "<span>" + t("strategyRule") + "</span>",
-    "<strong>" + data.title[state.lang] + "</strong>",
-    "<p>" + data.rule[state.lang] + "</p>",
-    "<div class=\"strategy-status-row\">",
-    "<span class=\"strategy-status-chip\">" + currentLevel + " -> " + targetLevel + "</span>",
-    "<span class=\"strategy-status-chip\">" + t("mainBlockerLabel") + ": " + blocker + "</span>",
-    "<span class=\"strategy-status-chip\">" + t("eventReadyLabel") + ": " + readiness + "</span>",
-    "</div>",
-    "<p class=\"strategy-summary-note\">" + summaryNote + "</p>",
-    "</article>",
-    "<article class=\"strategy-card strategy-action-card\">",
-    "<span>" + triText("Current call", "当前判断", "目前判斷") + "</span>",
-    "<strong>" + callTitle + "</strong>",
-    "<p>" + callNote + "</p>",
-    "<div class=\"strategy-actions\">",
-    "<a class=\"button primary\" href=\"" + callHref + "\">" + callLabel + "</a>",
-    preset ? "<button class=\"button secondary\" type=\"button\" data-strategy-preset=\"" + preset.key + "\">" + triText("Apply recommended preset", "套用推荐预设", "套用推薦預設") + "</button>" : "",
-    "</div>",
-    preset ? "<div class=\"strategy-preset-meta\"><strong>" + triText("Recommended setup", "推荐预设", "推薦預設") + " · " + localText(preset.label) + "</strong><small>" + localText(preset.useCase) + "</small></div>" : "",
-    "<div class=\"strategy-link-grid\">",
-    quickLinks.map((item) => "<a class=\"strategy-link\" href=\"" + item.href + "\"><strong>" + item.label + "</strong><small>" + item.note + "</small></a>").join(""),
-    "</div>",
-    "</article>",
-    "</div>",
-    "<div class=\"strategy-secondary-grid\">",
-    "<article class=\"strategy-card\">",
-    "<span>" + triText("Best stock target", "最佳囤货目标", "最佳囤貨目標") + "</span>",
-    "<strong>" + spendTitle + "</strong>",
-    "<p>" + spendWhen + "</p>",
-    "<div class=\"spend-chip-group\">" + spendSave.slice(0, 4).map((item) => "<span class=\"spend-chip\">" + item + "</span>").join("") + "</div>",
-    "<p class=\"strategy-footnote\">" + spendBestFor + "</p>",
-    "</article>",
-    "<article class=\"strategy-card\">",
-    "<span>" + t("strategySpend") + "</span>",
-    "<p>" + data.spend[state.lang] + "</p>",
-    "<p class=\"priority strategy-note\">" + spendGate + "</p>",
-    "</article>",
-    "<article class=\"strategy-card danger\">",
-    "<span>" + t("strategyDanger") + "</span>",
-    "<p>" + data.danger[state.lang] + "</p>",
-    "<ul class=\"strategy-checklist\">" + checks.map((item) => "<li>" + item + "</li>").join("") + "</ul>",
-    "</article>",
-    "</div>"
-  ].join("");
-
-  document.querySelectorAll("[data-strategy-preset]").forEach((button) => {
-    button.addEventListener("click", () => applySmartPreset(button.dataset.strategyPreset));
-  });
 }
 
 function getLocalDateKey(date = new Date()) {
@@ -1666,6 +1648,7 @@ function setDailyTaskDone(index, done) {
   if (done) localStorage.setItem(key, "1");
   else localStorage.removeItem(key);
   renderOpsBriefing();
+  renderDailyCockpit();
 }
 
 function isDailyTaskDone(index) {
@@ -1715,7 +1698,7 @@ function renderHubCards() {
   const root = document.querySelector("#hubGrid");
   if (!root || !state.content) return;
 
-  const activeCodes = state.content.codes.filter((item) => item.status === "active").length;
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
   const crystalGap = document.querySelector("#missingCrystals")?.textContent || "0";
   const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
   const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
@@ -1742,11 +1725,116 @@ function renderHubCards() {
   `).join("");
 }
 
+function renderMissionGrid() {
+  const root = document.querySelector("#missionGrid");
+  if (!root || !state.content) return;
+
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
+  const missingFc = readMetricValue("#missingCrystals");
+  const missingRfc = readMetricValue("#missingRefined");
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const targetLevel = document.querySelector("#targetLevel")?.value || "FC5";
+  const playerIds = getSavedPlayerIds();
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const nextUnlock = state.content.stateTimeline?.milestones?.find((item) => item.day > age);
+  const nextUnlockLabel = nextUnlock ? localText(nextUnlock.title) + " · " + Math.max(0, nextUnlock.day - age) + "d" : triText("Current milestone reached", "当前档位已到", "目前檔位已到");
+
+  const cards = [
+    {
+      primary: true,
+      kicker: t("missionCodesChip"),
+      title: t("missionCodesTitle"),
+      text: t("missionCodesText"),
+      meta: [
+        `${activeCodes} ${t("hubMetricCodes")}`,
+        playerIds.length ? `${playerIds.length} ID` : triText("No saved ID yet", "还没保存 ID", "還沒保存 ID")
+      ],
+      steps: [
+        { title: t("missionCodesStep1Title"), text: t("missionCodesStep1Text") },
+        { title: t("missionCodesStep2Title"), text: t("missionCodesStep2Text") },
+        { title: t("missionCodesStep3Title"), text: t("missionCodesStep3Text") }
+      ],
+      links: [
+        { href: "#codes", label: t("missionCodesLink1"), note: t("missionCodesLink1Note") },
+        { href: "https://wos-giftcode.centurygame.com/", label: t("missionCodesLink2"), note: t("missionCodesLink2Note"), external: true }
+      ]
+    },
+    {
+      kicker: t("missionRouteChip"),
+      title: t("missionRouteTitle"),
+      text: t("missionRouteText"),
+      meta: [
+        targetLevel,
+        missingFc > 0 || missingRfc > 0
+          ? `${missingFc.toLocaleString(state.lang)} FC${missingRfc ? " / " + missingRfc.toLocaleString(state.lang) + " RFC" : ""}`
+          : triText("Route funded", "主路线已备齐", "主路線已備齊")
+      ],
+      steps: [
+        { title: t("missionRouteStep1Title"), text: t("missionRouteStep1Text") },
+        { title: t("missionRouteStep2Title"), text: t("missionRouteStep2Text") },
+        { title: t("missionRouteStep3Title"), text: t("missionRouteStep3Text") }
+      ],
+      links: [
+        { href: "#timeline", label: t("missionRouteLink1"), note: nextUnlockLabel },
+        { href: "#resource-lab", label: t("missionRouteLink2"), note: t("missionRouteLink2Note") }
+      ]
+    },
+    {
+      kicker: t("missionAllianceChip"),
+      title: t("missionAllianceTitle"),
+      text: t("missionAllianceText"),
+      meta: [
+        nextWindow,
+        triText("Share-ready", "可直接发群", "可直接發群")
+      ],
+      steps: [
+        { title: t("missionAllianceStep1Title"), text: t("missionAllianceStep1Text") },
+        { title: t("missionAllianceStep2Title"), text: t("missionAllianceStep2Text") },
+        { title: t("missionAllianceStep3Title"), text: t("missionAllianceStep3Text") }
+      ],
+      links: [
+        { href: "#timer", label: t("missionAllianceLink1"), note: nextWindow },
+        { href: "#share", label: t("missionAllianceLink2"), note: t("missionAllianceLink2Note") }
+      ]
+    }
+  ];
+
+  root.innerHTML = cards.map((card) => `
+    <article class="mission-card ${card.primary ? "primary" : ""}">
+      <span class="mission-kicker">${card.kicker}</span>
+      <h3>${card.title}</h3>
+      <p>${card.text}</p>
+      <div class="mission-meta">
+        ${card.meta.map((item) => `<span class="mission-chip">${item}</span>`).join("")}
+      </div>
+      <div class="mission-steps">
+        ${card.steps.map((step, index) => `
+          <div class="mission-step">
+            <span class="mission-step-index">${String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <strong>${step.title}</strong>
+              <small>${step.text}</small>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+      <div class="mission-links">
+        ${card.links.map((link) => `
+          <a href="${link.href}" ${link.external ? 'target="_blank" rel="noreferrer"' : ""}>
+            <strong>${link.label}</strong>
+            <small>${link.note}</small>
+          </a>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
+}
+
 function renderHeroSnapshot() {
   const root = document.querySelector("#heroLiveSnapshot");
   if (!root || !state.content) return;
 
-  const activeCodes = state.content.codes.filter((item) => item.status === "active").length;
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
   const missing = document.querySelector("#missingCrystals")?.textContent || "0";
   const refined = document.querySelector("#missingRefined")?.textContent || "0";
   const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
@@ -1771,6 +1859,617 @@ function renderHeroSnapshot() {
       </article>
     </div>
   `;
+
+  const kpiCodes = document.querySelector("#heroKpiCodes");
+  const kpiTimer = document.querySelector("#heroKpiTimer");
+  const kpiPlanner = document.querySelector("#heroKpiPlanner");
+  if (kpiCodes) kpiCodes.textContent = activeCodes.toLocaleString(state.lang);
+  if (kpiTimer) kpiTimer.textContent = nextWindow.includes(":") ? nextWindow : "30m";
+  if (kpiPlanner) kpiPlanner.textContent = refined !== "0" ? `${missing} / ${refined}` : missing;
+}
+
+function renderHeroActionRail() {
+  const root = document.querySelector("#heroActionRail");
+  if (!root || !state.content) return;
+
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
+  const targetLevel = document.querySelector("#targetLevel")?.value || "FC5";
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const daysNeeded = document.querySelector("#daysNeeded")?.textContent || "0";
+  let title = "";
+  let note = "";
+  let focus = "";
+  let links = [];
+
+  if (refinedGap > 0) {
+    title = triText("Your next real blocker is refined Fire Crystals.", "你下一步真正的硬卡点是精炼火晶。", "你下一步真正的硬卡點是精煉火晶。");
+    note = triText(
+      `You still need ${refinedGap.toLocaleString(state.lang)} RFC to reach ${targetLevel}. Deep-check the route before spending more FC or speedups.`,
+      `到 ${targetLevel} 还差 ${refinedGap.toLocaleString(state.lang)} 精炼火晶。先做深度核算，再决定要不要继续烧火晶和加速。`,
+      `到 ${targetLevel} 還差 ${refinedGap.toLocaleString(state.lang)} 精煉火晶。先做深度核算，再決定要不要繼續燒火晶和加速。`
+    );
+    focus = triText("RFC-first route", "精炼优先路线", "精煉優先路線");
+    links = [
+      { href: "#resource-lab", label: triText("Open resource lab", "打开资源资料台", "打開資源資料台"), note: triText("Check RFC tax, prereqs, and side systems", "核对 RFC、前置税和联动系统", "核對 RFC、前置稅和聯動系統") },
+      { href: "#planner", label: triText("Back to planner", "回到规划器", "回到規劃器"), note: `${currentLevel} -> ${targetLevel}` }
+    ];
+  } else if (crystalGap > 0) {
+    title = triText("Do not spend blind before the Fire Crystal gap is clean.", "火晶缺口没补平前，先别盲花资源。", "火晶缺口沒補平前，先別盲花資源。");
+    note = triText(
+      `You still need ${crystalGap.toLocaleString(state.lang)} FC and about ${daysNeeded} days for the current route.`,
+      `当前路线还差 ${crystalGap.toLocaleString(state.lang)} 火晶，按现在节奏大约还要 ${daysNeeded} 天。`,
+      `目前路線還差 ${crystalGap.toLocaleString(state.lang)} 火晶，按現在節奏大約還要 ${daysNeeded} 天。`
+    );
+    focus = triText("Close the FC gap", "先补火晶缺口", "先補火晶缺口");
+    links = [
+      { href: "#planner", label: triText("Open planner", "打开规划器", "打開規劃器"), note: triText("Adjust target, income, and event window", "调整目标、日收和活动窗口", "調整目標、日收和活動窗口") },
+      { href: "#timeline", label: triText("Check state age", "看州服时间线", "看州服時間線"), note: triText("Make sure this jump matches your server age", "确认这次升级和州服节奏匹配", "確認這次升級和州服節奏匹配") }
+    ];
+  } else if (activeCodes > 0) {
+    title = triText("Your route looks funded, so grab the quick rewards first.", "主路线看起来能撑住，先把快拿的奖励收掉。", "主路線看起來能撐住，先把快拿的獎勵收掉。");
+    note = triText(
+      `${activeCodes} likely active codes are still worth checking before reset, then keep ${nextWindow} in view for event timing.`,
+      `现在还有 ${activeCodes} 个大概率可用兑换码值得先检查，再顺手盯住 ${nextWindow} 的活动提示。`,
+      `現在還有 ${activeCodes} 個大概率可用兌換碼值得先檢查，再順手盯住 ${nextWindow} 的活動提示。`
+    );
+    focus = triText("Quick reward sweep", "先收一轮奖励", "先收一輪獎勵");
+    links = [
+      { href: "#codes", label: triText("Open codes board", "打开兑换码板", "打開兌換碼板"), note: `${activeCodes} ${t("hubMetricCodes")}` },
+      { href: "#timer", label: triText("Open event timer", "打开活动计时", "打開活動計時"), note: nextWindow }
+    ];
+  } else {
+    title = triText("Use the timer and day plan to turn prep into cleaner event points.", "用计时器和分日规划，把准备转成更干净的活动收益。", "用計時器和分日規劃，把準備轉成更乾淨的活動收益。");
+    note = triText(
+      "The site is most useful when you chain event timing, spend-day order, and alliance reminders together.",
+      "这个站最有价值的地方，不是看单个模块，而是把活动时间、消耗顺序和联盟提醒串起来用。",
+      "這個站最有價值的地方，不是看單個模組，而是把活動時間、消耗順序和聯盟提醒串起來用。"
+    );
+    focus = triText("Chain the tools together", "把工具串起来用", "把工具串起來用");
+    links = [
+      { href: "#day-plan", label: triText("Open day plan", "打开分日规划", "打開分日規劃"), note: triText("Know what to spend first", "先看每一天先花什么", "先看每一天先花什麼") },
+      { href: "#share", label: triText("Open alliance brief", "打开联盟简报", "打開聯盟簡報"), note: triText("Send one clean reminder to chat", "发一段能直接进群的提醒", "發一段能直接進群的提醒") }
+    ];
+  }
+
+  root.innerHTML = `
+    <article class="hero-action-call">
+      <div class="hero-action-head">
+        <span>${t("heroActionTag")}</span>
+        <span class="hero-action-pill">${focus}</span>
+      </div>
+      <strong>${title}</strong>
+      <p>${note}</p>
+      <div class="hero-action-links" aria-label="${t("heroActionLinks")}">
+        ${links.map((item) => `
+          <a href="${item.href}">
+            <strong>${item.label}</strong>
+            <small>${item.note}</small>
+          </a>
+        `).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderStatusStrip() {
+  const codesNode = document.querySelector("#statusCodesValue");
+  const memoryNode = document.querySelector("#statusMemoryValue");
+  const focusNode = document.querySelector("#statusFocusValue");
+  if (!codesNode || !memoryNode || !focusNode || !state.content) return;
+
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
+  const memory = getUserMemory();
+  const savedCount = [
+    memory.currentLevel,
+    memory.stateAgeDays,
+    memory.playerIdInput,
+    localStorage.getItem("wos-player-id")
+  ].filter(Boolean).length;
+  const refinedGap = readMetricValue("#missingRefined");
+  const crystalGap = readMetricValue("#missingCrystals");
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+
+  codesNode.textContent = activeCodes.toLocaleString(state.lang);
+  memoryNode.textContent = savedCount.toLocaleString(state.lang);
+  focusNode.textContent = refinedGap > 0
+    ? triText("RFC route", "精炼路线", "精煉路線")
+    : crystalGap > 0
+      ? triText("FC gap", "火晶缺口", "火晶缺口")
+      : nextWindow;
+}
+
+function buildDecisionModel() {
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active");
+  const playerIds = getSavedPlayerIds();
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const daysNeeded = document.querySelector("#daysNeeded")?.textContent || "0";
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const nextUnlock = state.content?.stateTimeline?.milestones?.find((item) => item.day > age);
+  const nextUnlockText = nextUnlock
+    ? localText(nextUnlock.title) + " · " + Math.max(0, nextUnlock.day - age).toLocaleString(state.lang) + "d"
+    : triText("All tracked unlocks reached", "已到达当前追踪节点", "已到達目前追蹤節點");
+  const pack = getPlannerPackContext();
+  const spendSave = pack.spend?.save?.[state.lang] || pack.spend?.save?.en || [];
+  const spendAvoid = localText(pack.spend?.avoid) || "";
+  const dayOne = pack.dayPlan?.days?.[0];
+  const hasRunningTimer = nextWindow && nextWindow !== t("phaseReady") && nextWindow !== t("nextWindowDone");
+
+  let verdict = "";
+  let title = "";
+  let note = "";
+  let primary = { href: "#codes", label: t("ctaCodes") };
+  let secondary = { href: "#planner", label: t("ctaPlanner") };
+
+  if (refinedGap > 0) {
+    verdict = triText("Hard blocker", "硬卡点", "硬卡點");
+    title = triText("Stop random spending: RFC is blocking the route.", "先别乱花，精炼火晶正在卡住主线。", "先別亂花，精煉火晶正在卡住主線。");
+    note = triText(
+      "You still need " + refinedGap.toLocaleString(state.lang) + " RFC for " + targetLevel + ". Open the resource lab, count prerequisite tax, then decide which event window is worth spending into.",
+      "到 " + targetLevel + " 还差 " + refinedGap.toLocaleString(state.lang) + " 精炼火晶。先开资源台，把前置税算进去，再决定哪个活动窗口值得花。",
+      "到 " + targetLevel + " 還差 " + refinedGap.toLocaleString(state.lang) + " 精煉火晶。先開資源台，把前置稅算進去，再決定哪個活動窗口值得花。"
+    );
+    primary = { href: "#resource-lab", label: t("plannerLinkedResource") };
+    secondary = { href: "#day-plan", label: t("plannerLinkedSpend") };
+  } else if (crystalGap > 0) {
+    verdict = triText("Save first", "先补缺口", "先補缺口");
+    title = triText("Fire Crystals are still short, so the next click should be planning.", "火晶还没补平，下一步应该继续核路线。", "火晶還沒補平，下一步應該繼續核路線。");
+    note = triText(
+      "Current route: " + currentLevel + " -> " + targetLevel + ", still missing " + crystalGap.toLocaleString(state.lang) + " FC and about " + daysNeeded + " days.",
+      "当前路线 " + currentLevel + " -> " + targetLevel + "，还差 " + crystalGap.toLocaleString(state.lang) + " 火晶，大约 " + daysNeeded + " 天。",
+      "目前路線 " + currentLevel + " -> " + targetLevel + "，還差 " + crystalGap.toLocaleString(state.lang) + " 火晶，大約 " + daysNeeded + " 天。"
+    );
+    primary = { href: "#planner", label: t("ctaPlanner") };
+    secondary = { href: "#timeline", label: t("timelineTitle") };
+  } else if (hasRunningTimer) {
+    verdict = triText("Event active", "活动进行中", "活動進行中");
+    title = triText("Use the timer board now, then send one clean alliance note.", "现在先看计时指挥板，再发一条清楚的联盟提醒。", "現在先看計時指揮板，再發一條清楚的聯盟提醒。");
+    note = triText(
+      "Your route looks funded. The useful action is timing: " + nextWindow + ".",
+      "主路线看起来能撑住，现在真正有用的是时间判断：" + nextWindow + "。",
+      "主路線看起來能撐住，現在真正有用的是時間判斷：" + nextWindow + "。"
+    );
+    primary = { href: "#timer", label: t("navTimer") };
+    secondary = { href: "#share", label: t("copyShareBrief") };
+  } else if (activeCodes.length > 0 && playerIds.length === 0) {
+    verdict = triText("Fast reward", "先拿奖励", "先拿獎勵");
+    title = triText("Save your Player ID first, then redeem active codes.", "先保存 Player ID，再去换大概率可用码。", "先保存 Player ID，再去換大概率可用碼。");
+    note = triText(
+      activeCodes.length + " likely active code is available, but no Player ID is saved on this device yet.",
+      "现在有 " + activeCodes.length + " 个大概率可用码，但这台设备还没保存 Player ID。",
+      "現在有 " + activeCodes.length + " 個大概率可用碼，但這台設備還沒保存 Player ID。"
+    );
+    primary = { href: "#codes", label: t("ctaCodes") };
+    secondary = { href: "#ops", label: t("opsSaveId") };
+  } else {
+    verdict = triText("Spend carefully", "谨慎开花", "謹慎開花");
+    title = triText("The route is close enough to plan spend order, not just totals.", "主线接近就绪，接下来要排消耗顺序，不是只看总量。", "主線接近就緒，接下來要排消耗順序，不是只看總量。");
+    note = triText(
+      "Use the event spend map before any large batch, then copy the prep reminder if you need alliance coordination.",
+      "任何大额投入前先看活动消耗地图，需要协作时再复制准备提醒。",
+      "任何大額投入前先看活動消耗地圖，需要協作時再複製準備提醒。"
+    );
+    primary = { href: "#spend-map", label: t("spendMapTitle") };
+    secondary = { href: "#share", label: t("copyShareBrief") };
+  }
+
+  const tasks = [
+    {
+      title: triText("Protect stock", "保护库存", "保護庫存"),
+      value: spendSave.slice(0, 3).join(" / ") || triText("FC, RFC, speedups", "火晶 / 精炼 / 加速", "火晶 / 精煉 / 加速"),
+      note: triText("Taken from the matching event spend table.", "来自当前最匹配的活动消耗表。", "來自目前最匹配的活動消耗表。")
+    },
+    {
+      title: triText("Avoid this", "现在别做", "現在別做"),
+      value: spendAvoid || triText("Do not spend outside a scoring window.", "不要脱离积分窗口乱花。", "不要脫離積分窗口亂花。"),
+      note: triText("This is where players usually waste saved resources.", "玩家最容易在这里浪费库存。", "玩家最容易在這裡浪費庫存。")
+    },
+    {
+      title: triText("Next unlock", "下一解锁", "下一解鎖"),
+      value: nextUnlockText,
+      note: triText("Server age should decide whether the target is realistic.", "州服节奏会影响这个目标是否现实。", "州服節奏會影響這個目標是否現實。")
+    }
+  ];
+
+  const checklist = [
+    blocker === t("blockerReady")
+      ? triText("Main route has no obvious blocker. Check event timing before spending.", "主线暂时没有明显卡点，动手前先看活动时机。", "主線暫時沒有明顯卡點，動手前先看活動時機。")
+      : triText("Current blocker: ", "当前卡点：", "目前卡點：") + blocker,
+    readiness === t("eventReadyGood")
+      ? triText("Event window looks usable. Spend in planned batches, not one tap at a time.", "活动窗口可用，按批次投入，不要随手点。", "活動窗口可用，按批次投入，不要隨手點。")
+      : triText("If the milestone is not guaranteed, default back to saving.", "里程碑不稳，就默认继续囤。", "里程碑不穩，就預設繼續囤。"),
+    dayOne
+      ? localText(dayOne.day) + ": " + localText(dayOne.use)
+      : triText("Copy the alliance brief after updating codes and planner inputs.", "更新兑换码和规划输入后，再复制联盟简报。", "更新兌換碼和規劃輸入後，再複製聯盟簡報。")
+  ];
+
+  return { verdict, title, note, primary, secondary, tasks, checklist };
+}
+
+function renderDecisionBoard() {
+  const root = document.querySelector("#decisionBoard");
+  if (!root || !state.content) return;
+  const model = buildDecisionModel();
+  const plannerMode = getPlannerMode();
+  const stateAge = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const timerCue = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const modeLabel = plannerMode === "push"
+    ? t("plannerModePush")
+    : plannerMode === "low"
+      ? t("plannerModeLow")
+      : t("plannerModeF2P");
+  root.innerHTML = [
+    '<article class="decision-card decision-card-main searchable" data-search="' + [model.title, model.note, model.verdict].join(" ") + '">',
+    '<div class="decision-card-head"><span class="tag">' + model.verdict + '</span><strong>' + model.title + '</strong></div>',
+    '<p>' + model.note + '</p>',
+    '<div class="decision-topline"><span>' + modeLabel + '</span><span>Day ' + stateAge + '</span><span>' + timerCue + '</span></div>',
+    '<div class="decision-actions">',
+    '<a class="button primary" href="' + model.primary.href + '">' + model.primary.label + '</a>',
+    '<a class="button secondary" href="' + model.secondary.href + '">' + model.secondary.label + '</a>',
+    '</div>',
+    '</article>',
+    '<article class="decision-card decision-checklist searchable" data-search="' + model.checklist.join(" ") + '">',
+    '<span class="decision-label">' + triText("Before tapping resources", "动资源前先看", "動資源前先看") + '</span>',
+    '<ol>' + model.checklist.map((item) => '<li>' + item + '</li>').join("") + '</ol>',
+    '</article>',
+    '<div class="decision-mini-grid">',
+    model.tasks.map((task) => [
+      '<article class="decision-mini searchable" data-search="' + [task.title, task.value, task.note].join(" ") + '">',
+      '<span>' + task.title + '</span>',
+      '<strong>' + task.value + '</strong>',
+      '<small>' + task.note + '</small>',
+      '</article>'
+    ].join("")).join(""),
+    '</div>'
+  ].join("");
+}
+
+function getDailyLoopModel() {
+  const tasks = translations[state.lang].dailyTasks || [];
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
+  const playerIds = getSavedPlayerIds();
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const nextUnlock = state.content?.stateTimeline?.milestones?.find((item) => item.day > age);
+  const pack = getPlannerPackContext();
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const liveTimerCue = nextWindow && nextWindow !== t("phaseReady") && nextWindow !== t("nextWindowDone");
+  const nextUnlockText = nextUnlock
+    ? localText(nextUnlock.title) + " · " + Math.max(0, nextUnlock.day - age).toLocaleString(state.lang) + "d"
+    : triText("Tracked unlocks already reached", "当前追踪节点已到", "目前追蹤節點已到");
+  const completed = tasks.filter((_, index) => isDailyTaskDone(index)).length;
+  const progress = tasks.length ? Math.round((completed / tasks.length) * 100) : 0;
+
+  const steps = [
+    {
+      key: "codes",
+      title: tasks[0]?.title || t("codesTitle"),
+      note: activeCodes > 0
+        ? triText(`${activeCodes} likely active codes are still worth checking.`, `现在还有 ${activeCodes} 个大概率可用码值得看。`, `現在還有 ${activeCodes} 個大概率可用碼值得看。`)
+        : triText("No fresh active code signal, so verify official or recent reports only.", "当前没有明显新码信号，优先看官方或近期反馈。", "目前沒有明顯新碼訊號，優先看官方或近期回報。"),
+      action: "codes",
+      status: isDailyTaskDone(0) ? "ready" : activeCodes > 0 ? "start" : "later",
+      meta: activeCodes > 0 ? `${activeCodes} ${t("hubMetricCodes")}` : t("filterOfficial")
+    },
+    {
+      key: "planner",
+      title: tasks[2]?.title || t("plannerTitle"),
+      note: refinedGap > 0
+        ? triText(`You still have ${refinedGap.toLocaleString(state.lang)} RFC missing.`, `你还差 ${refinedGap.toLocaleString(state.lang)} 精炼火晶。`, `你還差 ${refinedGap.toLocaleString(state.lang)} 精煉火晶。`)
+        : crystalGap > 0
+          ? triText(`The current route still lacks ${crystalGap.toLocaleString(state.lang)} FC.`, `当前路线还差 ${crystalGap.toLocaleString(state.lang)} 火晶。`, `目前路線還差 ${crystalGap.toLocaleString(state.lang)} 火晶。`)
+          : triText("Main route is funded, so check spend order instead of raw totals.", "主路线差不多备齐了，更该看消耗顺序。", "主路線差不多備齊了，更該看消耗順序。"),
+      action: refinedGap > 0 || crystalGap > 0 ? "planner" : "spend-map",
+      status: isDailyTaskDone(2) ? "ready" : refinedGap > 0 || crystalGap > 0 ? "start" : "carry",
+      meta: refinedGap > 0 ? `${refinedGap.toLocaleString(state.lang)} RFC` : `${crystalGap.toLocaleString(state.lang)} FC`
+    },
+    {
+      key: "timer",
+      title: tasks[3]?.title || t("timerTitle"),
+      note: nextWindow && nextWindow !== t("phaseReady") && nextWindow !== t("nextWindowDone")
+        ? triText(`The live event cue is ${nextWindow}.`, `当前活动提示是 ${nextWindow}。`, `目前活動提示是 ${nextWindow}。`)
+        : triText("No live event cue right now, so treat this as prep for the next active window.", "当前没有实时活动提示，把它当成下一次活动的准备入口。", "目前沒有即時活動提示，把它當成下一次活動的準備入口。"),
+      action: "timer",
+      status: isDailyTaskDone(3) ? "ready" : nextWindow && nextWindow !== t("phaseReady") && nextWindow !== t("nextWindowDone") ? "start" : "later",
+      meta: nextWindow
+    },
+    {
+      key: "follow",
+      title: tasks[1]?.title || t("shareTitle"),
+      note: playerIds.length === 0
+        ? triText("Save a Player ID so tomorrow’s code pass becomes a two-tap job.", "先保存一个 Player ID，让明天查码更顺手。", "先保存一個 Player ID，讓明天查碼更順手。")
+        : triText(`Your next server checkpoint is ${nextUnlockText}.`, `你的下一个州服节点是 ${nextUnlockText}。`, `你的下一個州服節點是 ${nextUnlockText}。`),
+      action: playerIds.length === 0 ? "ops" : "share",
+      status: isDailyTaskDone(1) ? "ready" : playerIds.length === 0 ? "carry" : "later",
+      meta: playerIds.length === 0 ? t("opsNoSavedId") : nextUnlockText
+    }
+  ];
+
+  const primary = steps.find((step) => step.status === "start") || steps.find((step) => step.status === "carry") || steps[0];
+  const secondary = steps.find((step) => step.key !== primary.key && (step.status === "start" || step.status === "carry")) || steps.find((step) => step.key !== primary.key) || primary;
+  const reason = refinedGap > 0
+    ? triText("Today’s strongest retention hook is route pressure: players come back when the site tells them exactly what still blocks the next push.", "今天最强的留存点是路线压力：只要网站能说清楚还差什么，玩家就会回来。", "今天最強的留存點是路線壓力：只要網站能說清楚還差什麼，玩家就會回來。")
+    : activeCodes > 0
+      ? triText("Quick rewards plus saved IDs are still one of the best repeat-open habits in this category.", "快拿奖励加保存好的 ID，仍然是这类站点里最容易形成回访习惯的入口。", "快拿獎勵加保存好的 ID，仍然是這類站點裡最容易形成回訪習慣的入口。")
+      : triText("If rewards are quiet, route checks and event timing must carry the daily visit.", "如果奖励没动静，就要靠路线核对和活动节奏撑起今天的回访理由。", "如果獎勵沒動靜，就要靠路線核對和活動節奏撐起今天的回訪理由。");
+
+  const holdToday = pack.hold?.slice(0, 2).join(" / ") || triText("Fire Crystals / speedups", "火晶 / 加速", "火晶 / 加速");
+  let spendToday = "";
+  let spendTodayNote = "";
+  if (activeCodes > 0 && playerIds.length > 0) {
+    spendToday = triText("Redeem active codes first", "先把可用码领掉", "先把可用碼領掉");
+    spendTodayNote = triText("This is the fastest low-risk daily value on the site.", "这是今天风险最低、回报最快的一步。", "這是今天風險最低、回報最快的一步。");
+  } else if (liveTimerCue) {
+    spendToday = nextWindow;
+    spendTodayNote = triText("Spend heals, marches, and rally attention only in this live event window.", "治疗、队列和联盟注意力优先给这个活动窗口。", "治療、隊列和聯盟注意力優先給這個活動窗口。");
+  } else {
+    spendToday = localText(pack.dayPlan?.days?.[0]?.use) || triText("Use only planned score-window stock", "只动计划内的积分资源", "只動計劃內的積分資源");
+    spendTodayNote = localText(pack.dayPlan?.days?.[0]?.day) || triText("Follow the first event-day instruction instead of freestyle spending.", "按分日规划第一步来，不要临时乱花。", "按分日規劃第一步來，不要臨時亂花。");
+  }
+
+  const checkToday = playerIds.length === 0
+    ? triText("Save your Player ID", "先保存 Player ID", "先保存 Player ID")
+    : blocker !== t("blockerReady")
+      ? blocker
+      : nextUnlockText;
+  const checkTodayNote = playerIds.length === 0
+    ? triText("Removing tomorrow’s input friction is part of retention too.", "把明天的输入摩擦提前消掉，本身就是留存动作。", "把明天的輸入摩擦提前消掉，本身就是留存動作。")
+    : blocker !== t("blockerReady")
+      ? triText("This is the part most likely to waste stock if ignored.", "这往往是最容易浪费库存的地方。", "這往往是最容易浪費庫存的地方。")
+      : triText("This is the next server checkpoint worth planning toward.", "这是最值得提前规划的下一个州服节点。", "這是最值得提前規劃的下一個州服節點。");
+
+  return {
+    progress,
+    completed,
+    total: tasks.length,
+    primary,
+    secondary,
+    reason,
+    steps,
+    insights: [
+      {
+        label: t("hoardHold"),
+        value: holdToday,
+        note: pack.eventTitle || triText("Keep these safe until the matching event window.", "留给更匹配的活动窗口。", "留給更匹配的活動窗口。")
+      },
+      {
+        label: t("hoardSpend"),
+        value: spendToday,
+        note: spendTodayNote
+      },
+      {
+        label: t("hoardCheck"),
+        value: checkToday,
+        note: checkTodayNote
+      }
+    ]
+  };
+}
+
+function renderDailyCockpit() {
+  const root = document.querySelector("#dailyCockpitBoard");
+  if (!root || !state.content) return;
+  const model = getDailyLoopModel();
+  const statusLabel = (status) => {
+    if (status === "ready") return t("dailyCockpitReady");
+    if (status === "carry") return t("dailyCockpitCarry");
+    if (status === "later") return t("dailyCockpitLater");
+    return t("dailyCockpitStart");
+  };
+  root.innerHTML = [
+    '<article class="daily-cockpit-primary">',
+    '<div class="daily-cockpit-progress"><span>' + t("dailyCockpitProgress") + '</span><strong>' + model.completed + ' / ' + model.total + '</strong><small>' + model.progress + '%</small></div>',
+    '<div class="daily-cockpit-meter"><span style="width:' + model.progress + '%"></span></div>',
+    '<div class="daily-cockpit-main">',
+    '<div><span class="tag">' + t("dailyCockpitPrimary") + '</span><h3>' + model.primary.title + '</h3><p>' + model.primary.note + '</p></div>',
+    '<div class="daily-cockpit-main-action"><small>' + model.primary.meta + '</small><button class="button primary" type="button" data-daily-cockpit-step="' + model.primary.key + '">' + statusLabel(model.primary.status) + '</button></div>',
+    '</div>',
+    '<div class="daily-cockpit-secondary"><strong>' + t("dailyCockpitSecondary") + ':</strong><span>' + model.secondary.title + '</span></div>',
+    '<div class="daily-cockpit-reason"><strong>' + t("dailyCockpitReason") + ':</strong><span>' + model.reason + '</span></div>',
+    '</article>',
+    '<div class="daily-cockpit-steps">',
+    '<span class="daily-cockpit-list-title">' + t("dailyCockpitLoopTitle") + '</span>',
+    model.steps.map((step) => '<article class="daily-cockpit-step ' + step.status + '"><div class="daily-cockpit-step-copy"><span>' + statusLabel(step.status) + '</span><strong>' + step.title + '</strong><small>' + step.note + '</small></div><div class="daily-cockpit-step-cta"><small class="daily-cockpit-step-meta">' + step.meta + '</small><button class="button secondary" type="button" data-daily-cockpit-step="' + step.key + '">' + statusLabel(step.status) + '</button></div></article>').join(""),
+    '<article class="daily-cockpit-reset"><strong>' + t("dailyCockpitReset") + '</strong><small>' + t("dailyCockpitResetText") + '</small></article>',
+    '</div>',
+    '<div class="daily-cockpit-insights">' + model.insights.map((item) => '<article class="daily-cockpit-insight"><span>' + item.label + '</span><strong>' + item.value + '</strong><small>' + item.note + '</small></article>').join("") + '</div>'
+  ].join("");
+  bindDailyCockpitActions(model);
+}
+
+function runDailyCockpitStep(step) {
+  if (!step) return;
+  const taskIndex = {
+    codes: 0,
+    follow: 1,
+    planner: 2,
+    timer: 3
+  }[step.key];
+  if (step.key === "follow" && step.action === "share") {
+    copyText(buildShareBrief());
+    if (typeof taskIndex === "number") setDailyTaskDone(taskIndex, true);
+    return;
+  }
+  const target = document.querySelector("#" + step.action);
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (typeof taskIndex === "number" && (step.key === "codes" || step.key === "planner" || step.key === "timer")) {
+    setDailyTaskDone(taskIndex, true);
+  } else {
+    renderDailyCockpit();
+  }
+}
+
+function bindDailyCockpitActions(model) {
+  document.querySelectorAll("[data-daily-cockpit-step]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const step = model.steps.find((item) => item.key === button.dataset.dailyCockpitStep);
+      runDailyCockpitStep(step || model.primary);
+    });
+  });
+}
+
+function getResourceJourneyBand(targetMajor, refinedGap, readiness) {
+  if (refinedGap > 0 || targetMajor >= 6) return "late";
+  if (readiness === t("eventReadyGood") || targetMajor >= 4) return "mid";
+  return "early";
+}
+
+function getResourceJourneySummary() {
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const targetMajor = getTargetMajorLevel();
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const daysNeeded = Number(String(document.querySelector("#daysNeeded")?.textContent || "0").replace(/[^0-9.-]/g, "")) || 0;
+  const weeksNeeded = Number(String(document.querySelector("#weeksNeeded")?.textContent || "0").replace(/[^0-9.-]/g, "")) || 0;
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const nextUnlock = state.content?.stateTimeline?.milestones?.find((item) => item.day > age);
+  const pack = getPlannerPackContext();
+  const spendAvoid = localText(pack.spend?.avoid) || "";
+  const dayOne = pack.dayPlan?.days?.[0];
+  const routeRows = getPlannerLabRoute(currentLevel, targetLevel);
+  const rowCosts = routeRows.map((row) => ({
+    row,
+    total: Number(row.fireCrystals || 0) + Number(row.refinedFireCrystals || 0) * 12
+  }));
+  const steepest = rowCosts.slice().sort((a, b) => b.total - a.total)[0]?.row || routeRows.at(-1) || null;
+  const band = getResourceJourneyBand(targetMajor, refinedGap, readiness);
+
+  let phaseTitle = "";
+  let phaseNote = "";
+  let protect = [];
+  let unlockAction = "";
+
+  if (band === "early") {
+    phaseTitle = triText("Unlock route discipline", "开档路线纪律", "開檔路線紀律");
+    phaseNote = triText(
+      "Early FC routes fail when construction stock, Embassy follow-up, and server-age timing drift apart.",
+      "前期火晶路线最容易翻车的原因，是建筑库存、前置建筑和州服节奏没有一起看。",
+      "前期火晶路線最容易翻車的原因，是建築庫存、前置建築和州服節奏沒有一起看。"
+    );
+    protect = [
+      triText("Construction speedups for the unlock burst", "给开档爆发留建筑加速", "給開檔爆發留建築加速"),
+      triText("Fire Crystals for the next furnace row", "给下一档熔炉留火晶", "給下一檔熔爐留火晶"),
+      triText("Embassy and one troop camp follow-up stock", "给大使馆和一个兵营留跟进库存", "給大使館和一個兵營留跟進庫存")
+    ];
+    unlockAction = nextUnlock
+      ? triText("Use the current state-age window to prepare for " + localText(nextUnlock.title) + ".", "利用当前州服窗口，为 " + localText(nextUnlock.title) + " 做准备。", "利用目前州服窗口，為 " + localText(nextUnlock.title) + " 做準備。")
+      : triText("This route is already aligned with tracked unlocks.", "这条路线和当前追踪节点基本匹配。", "這條路線和目前追蹤節點基本匹配。");
+  } else if (band === "mid") {
+    phaseTitle = triText("Scoring overlap route", "活动重叠路线", "活動重疊路線");
+    phaseNote = triText(
+      "This range is about clean overlap: furnace growth, event points, and side-system catch-up should land in the same window.",
+      "这个阶段的价值在于重叠收益：熔炉成长、活动积分和支线补强最好卡在同一个窗口。",
+      "這個階段的價值在於重疊收益：熔爐成長、活動積分和支線補強最好卡在同一個窗口。"
+    );
+    protect = [
+      triText("Main furnace FC stock", "主线熔炉火晶库存", "主線熔爐火晶庫存"),
+      triText("Chief Gear catch-up materials", "领主装备补强材料", "領主裝備補強材料"),
+      triText("Research and construction speedups for scoring days", "给积分日留建研加速", "給積分日留建研加速")
+    ];
+    unlockAction = dayOne
+      ? localText(dayOne.day) + " · " + localText(dayOne.use)
+      : triText("Use the spend map before any large batch.", "大额投入前先打开消耗地图。", "大額投入前先打開消耗地圖。");
+  } else {
+    phaseTitle = triText("Late-game dual-lane route", "后期双资源路线", "後期雙資源路線");
+    phaseNote = triText(
+      "Late routes stop being pure furnace math. RFC, War Academy, charm catch-up, and support-building tax all compete for the same batch.",
+      "后期路线不再只是熔炉数学题。精炼火晶、战争学院、护符补强和前置建筑税会一起争同一批资源。",
+      "後期路線不再只是熔爐數學題。精煉火晶、戰爭學院、護符補強和前置建築稅會一起爭同一批資源。"
+    );
+    protect = [
+      triText("Refined Fire Crystals first", "优先保护精炼火晶", "優先保護精煉火晶"),
+      triText("Embassy and troop camp support tax", "预留大使馆和兵营税", "預留大使館和兵營稅"),
+      triText("War Academy, charm, and gear side stock", "给学院、护符和装备留联动库存", "給學院、護符和裝備留聯動庫存")
+    ];
+    unlockAction = triText(
+      "Do not open a spend window until RFC pace and support tax are both covered.",
+      "精炼节奏和前置税没备齐前，不要开大额消耗窗口。",
+      "精煉節奏和前置稅沒備齊前，不要開大額消耗窗口。"
+    );
+  }
+
+  return {
+    currentLevel,
+    targetLevel,
+    crystalGap,
+    refinedGap,
+    blocker,
+    readiness,
+    daysNeeded,
+    weeksNeeded,
+    age,
+    spendAvoid,
+    eventTitle: pack.eventTitle,
+    steepest,
+    phaseTitle,
+    phaseNote,
+    protect,
+    unlockAction
+  };
+}
+
+function renderResourceJourneyPanel() {
+  const root = document.querySelector("#resourceJourneyPanel");
+  if (!root || !state.content) return;
+  const summary = getResourceJourneySummary();
+  const gapText = summary.refinedGap > 0
+    ? summary.refinedGap.toLocaleString(state.lang) + " RFC · " + (summary.weeksNeeded ? summary.weeksNeeded.toLocaleString(state.lang) + " " + t("weeksLabel") : t("plannerLinkedReason"))
+    : summary.crystalGap > 0
+      ? summary.crystalGap.toLocaleString(state.lang) + " FC · " + formatDaysLabel(summary.daysNeeded)
+      : triText("Main route is funded", "主路线已基本备齐", "主路線已基本備齊");
+  const cards = [
+    {
+      label: triText("Route focus", "路线重点", "路線重點"),
+      title: summary.phaseTitle,
+      note: summary.phaseNote
+    },
+    {
+      label: triText("Most expensive row", "最贵升级段", "最貴升級段"),
+      title: summary.steepest
+        ? summary.steepest.level + " · " + Number(summary.steepest.fireCrystals || 0).toLocaleString(state.lang) + " FC" + (summary.steepest.refinedFireCrystals ? " / " + Number(summary.steepest.refinedFireCrystals).toLocaleString(state.lang) + " RFC" : "")
+        : triText("Route already covered", "当前路线已覆盖", "目前路線已覆蓋"),
+      note: summary.steepest
+        ? summary.steepest.prereq
+        : triText("No additional furnace row is selected right now.", "当前没有额外选中的熔炉升级段。", "目前沒有額外選中的熔爐升級段。")
+    },
+    {
+      label: triText("Protect before spend", "动手前先守", "動手前先守"),
+      title: summary.protect[0] || triText("Main route stock", "主路线库存", "主路線庫存"),
+      note: summary.protect.slice(1).join(" / ")
+    },
+    {
+      label: triText("Best event window", "更适合的窗口", "更適合的窗口"),
+      title: summary.eventTitle,
+      note: summary.unlockAction
+    }
+  ];
+  root.innerHTML = [
+    '<div class="resource-journey-head">',
+    '<div><span class="tag">' + triText("Linked route view", "联动路线视图", "聯動路線視圖") + '</span><h3>' + triText("What this route really asks from you", "这条路线真正要求你准备什么", "這條路線真正要求你準備什麼") + '</h3><p>' + triText("This turns the current furnace target into a practical route: the expensive segment, the protected stock, and the window where it is safest to spend.", "这里把当前熔炉目标翻成更实用的路线视图：哪一段最贵、哪类库存要保护、以及更适合在哪个窗口开花。", "這裡把目前熔爐目標翻成更實用的路線視圖：哪一段最貴、哪類庫存要保護，以及更適合在哪個窗口開花。") + '</p></div>',
+    '<div class="resource-journey-badges"><span>' + summary.currentLevel + ' → ' + summary.targetLevel + '</span><span>Day ' + summary.age + '</span><span>' + gapText + '</span></div>',
+    '</div>',
+    '<div class="resource-journey-grid">',
+    cards.map((card) => '<article class="resource-journey-card"><span>' + card.label + '</span><strong>' + card.title + '</strong><small>' + card.note + '</small></article>').join(""),
+    '</div>',
+    '<div class="resource-journey-footer">',
+    '<div class="resource-journey-watch"><strong>' + t("mainBlockerLabel") + ':</strong><span>' + summary.blocker + '</span></div>',
+    '<div class="resource-journey-watch"><strong>' + t("eventReadyLabel") + ':</strong><span>' + summary.readiness + '</span></div>',
+    '<div class="resource-journey-watch"><strong>' + triText("Avoid now", "现在别做", "現在別做") + ':</strong><span>' + (summary.spendAvoid || triText("Do not burn side stock without an event window.", "不要脱离活动窗口乱烧支线库存。", "不要脫離活動窗口亂燒支線庫存。")) + '</span></div>',
+    '</div>'
+  ].join("");
 }
 
 function hasAdsenseConfig() {
@@ -1808,27 +2507,29 @@ function renderAdSlots() {
   });
 }
 
-function renderMarket() {
-  const marketScores = document.querySelector("#marketScores");
-  marketScores.innerHTML = state.content.marketNotes.map((item) => `
-    <article class="score-row searchable" data-search="${item.game} ${item.why[state.lang]}">
-      <div>
-        <strong>${item.game}</strong>
-        <p>${item.why[state.lang]}</p>
-      </div>
-      <span class="score-pill">${item.score}</span>
-    </article>
-  `).join("");
-}
-
 function renderCodes() {
   const filter = document.querySelector("#codeFilter").value;
-  const today = new Date().toISOString().slice(0, 10);
-  const normalizedCodes = state.content.codes.map((item) => ({
-    ...item,
-    status: item.expiresAt && item.expiresAt < today ? "expired" : item.status
-  }));
-  const codes = normalizedCodes.filter((item) => filter === "all" || item.status === filter);
+  const normalizedCodes = getLiveCodes();
+  const activeCount = normalizedCodes.filter((item) => item.status === "active").length;
+  const officialCount = normalizedCodes.filter((item) => String(item.sourceLevel || "").includes("official")).length;
+  const expiredCount = normalizedCodes.filter((item) => item.status === "expired").length;
+  const summary = document.querySelector("#codesSummary");
+  const codes = normalizedCodes.filter((item) => {
+    if (filter === "all") return true;
+    if (filter === "official") return String(item.sourceLevel || "").includes("official");
+    return item.status === filter;
+  });
+  if (summary) {
+    const actionText = activeCount > 0
+      ? triText("Copy active or official codes first, then open the official redeem page.", "先复制 active 或 official 的码，再去官方兑换页。", "先複製 active 或 official 的碼，再去官方兌換頁。")
+      : triText("Check official-tracked or recent community reports before reposting old codes.", "先看官方追踪和最近社区反馈，不要转发旧码。", "先看官方追蹤和最近社群回報，不要轉發舊碼。");
+    summary.innerHTML = [
+      '<article class="code-summary-card"><span>' + t("codesSummaryLive") + '</span><strong>' + activeCount.toLocaleString(state.lang) + '</strong></article>',
+      '<article class="code-summary-card"><span>' + t("codesSummaryOfficial") + '</span><strong>' + officialCount.toLocaleString(state.lang) + '</strong></article>',
+      '<article class="code-summary-card"><span>' + t("codesSummaryExpired") + '</span><strong>' + expiredCount.toLocaleString(state.lang) + '</strong></article>',
+      '<article class="code-summary-card action"><span>' + t("codesSummaryAction") + '</span><strong>' + actionText + '</strong></article>'
+    ].join("");
+  }
   document.querySelector("#codesList").innerHTML = codes.map((item) => {
     const rewards = Array.isArray(item.rewards) ? item.rewards.join(" · ") : "";
     const meta = [
@@ -1974,6 +2675,8 @@ function syncResourceLabToPlanner(options = {}) {
   setValue("#ownedRfc", document.querySelector("#currentRefined")?.value || 0);
   setValue("#dailyFcIncome", document.querySelector("#dailyCrystals")?.value || 80);
   setValue("#weeklyRfcIncome", document.querySelector("#weeklyRefined")?.value || 35);
+  const note = document.querySelector("#resourceSyncNote");
+  if (note) note.textContent = t("resourceSyncPlanReady");
   persistCurrentMemory();
   if (!options.silent) renderResourceDataLab();
   if (options.scroll) document.querySelector("#resource-lab")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2001,6 +2704,320 @@ function renderSmartPlanner() {
   needRoot.innerHTML = needs.map((item) => {
     return '<article class="smart-need searchable" data-search="' + localText(item.label) + ' '+ localText(item.reason) +'"><strong>' + localText(item.label) + '</strong><span>' + localText(item.reason) + '</span></article>';
   }).join("");
+}
+
+function renderPlannerExecutionPanel() {
+  const root = document.querySelector("#plannerExecutionPanel");
+  if (!root || !state.content) return;
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
+  const daysNeeded = document.querySelector("#daysNeeded")?.textContent || "0";
+  const weeksNeeded = document.querySelector("#weeksNeeded")?.textContent || "0";
+  const nextUnlock = (state.content?.stateTimeline?.milestones || []).find((item) => item.day > Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58)));
+  const unlockText = nextUnlock ? localText(nextUnlock.title) : triText("Tracked unlocks reached", "追踪节点已到", "追蹤節點已到");
+
+  let nowText = "";
+  let weekText = "";
+  let eventText = "";
+  let doneText = "";
+
+  if (refinedGap > 0) {
+    nowText = triText("Switch to RFC-first math. Deep-check prerequisite tax and refinement pace before using more FC.", "先切到精炼优先路线。继续花火晶前，先核对前置税和精炼周节奏。", "先切到精煉優先路線。繼續花火晶前，先核對前置稅和精煉週節奏。");
+    weekText = triText("Protect all RFC-linked stock and keep side upgrades smaller than the furnace route.", "保护所有和精炼相关的库存，支线升级不要压过主线熔炉。", "保護所有和精煉相關的庫存，支線升級不要壓過主線熔爐。");
+    eventText = triText("Do not burst into a scoring day until the RFC route is fully funded.", "精炼路线没备齐前，不要提前在积分日爆发消耗。", "精煉路線沒備齊前，不要提前在積分日爆發消耗。");
+    doneText = triText("When RFC turns green, move the route into the spend map and alliance reminder.", "精炼缺口补平后，再把路线带到消耗地图和联盟提醒。", "精煉缺口補平後，再把路線帶到消耗地圖和聯盟提醒。");
+  } else if (crystalGap > 0) {
+    nowText = triText("Keep filling the FC gap and confirm the target still fits the next server-age unlock.", "继续补火晶缺口，并确认目标档位和下一个州服节点仍然匹配。", "繼續補火晶缺口，並確認目標檔位和下一個州服節點仍然匹配。");
+    weekText = triText("Use this week to protect construction stock, speedups, and the next furnace checkpoint.", "这周重点是保护建筑库存、加速和下一个熔炉节点。", "這週重點是保護建築庫存、加速和下一個熔爐節點。");
+    eventText = triText("If the gap is not guaranteed before the event, keep saving instead of forcing side progress.", "如果活动前补不平，就继续囤，不要硬推支线。", "如果活動前補不平，就繼續囤，不要硬推支線。");
+    doneText = triText("After the FC gap closes, re-open the event spend map before touching stock.", "火晶缺口补平后，先回活动消耗地图，再动库存。", "火晶缺口補平後，先回活動消耗地圖，再動庫存。");
+  } else if (readiness === t("eventReadyRisk")) {
+    nowText = triText("Main route is close, so start with day-order planning rather than random small spends.", "主路线接近完成，现在优先排分日顺序，而不是零碎乱花。", "主路線接近完成，現在優先排分日順序，而不是零碎亂花。");
+    weekText = triText("Use this week to line up overlap value: event points plus permanent progress.", "这周重点是对准重叠收益：活动积分和永久成长一起拿。", "這週重點是對準重疊收益：活動積分和永久成長一起拿。");
+    eventText = triText("Before the event starts, decide which batch is first and which stock stays protected.", "活动前先定好第一波投入和必须保住的库存。", "活動前先定好第一波投入和必須保住的庫存。");
+    doneText = triText("Once the milestone is locked, send one clean prep note to alliance chat.", "里程碑稳了以后，发一条清楚的准备提醒到联盟频道。", "里程碑穩了以後，發一條清楚的準備提醒到聯盟頻道。");
+  } else {
+    nowText = triText("Your main route looks funded. Focus on timing, not totals.", "主路线看起来已备齐，现在重点是时机，不是总量。", "主路線看起來已備齊，現在重點是時機，不是總量。");
+    weekText = triText("Keep stock matched to the cleanest event overlap and avoid vanity spending.", "本周保持库存对准最干净的活动重叠，不要为了好看乱花。", "本週保持庫存對準最乾淨的活動重疊，不要為了好看亂花。");
+    eventText = triText("Before the scoring day, re-check timer cue, spend map, and alliance brief together.", "积分日前把计时提示、消耗地图和联盟简报连着检查一遍。", "積分日前把計時提示、消耗地圖和聯盟簡報連著檢查一遍。");
+    doneText = triText("When the batch is finished, move straight into the next unlock window: " + unlockText + ".", "这一波做完后，直接转入下一个州服节点窗口：" + unlockText + "。", "這一波做完後，直接轉入下一個州服節點窗口：" + unlockText + "。");
+  }
+
+  root.innerHTML = [
+    '<div class="planner-execution-head">',
+    '<div><span class="tag">' + t("plannerExecutionTitle") + '</span><h3>' + currentLevel + ' → ' + targetLevel + '</h3><p>' + t("mainBlockerLabel") + ' · ' + blocker + ' / ' + t("eventReadyLabel") + ' · ' + readiness + '</p></div>',
+    '<div class="planner-execution-badges"><span>' + crystalGap.toLocaleString(state.lang) + ' FC</span><span>' + refinedGap.toLocaleString(state.lang) + ' RFC</span><span>' + daysNeeded + ' ' + t("daysLabel") + (weeksNeeded !== "0" && weeksNeeded !== "-" ? ' / ' + weeksNeeded + ' ' + t("weeksLabel") : '') + '</span></div>',
+    '</div>',
+    '<div class="planner-execution-grid">',
+    '<article class="planner-execution-card"><span>' + t("plannerExecutionNow") + '</span><strong>' + nowText + '</strong></article>',
+    '<article class="planner-execution-card"><span>' + t("plannerExecutionWeek") + '</span><strong>' + weekText + '</strong></article>',
+    '<article class="planner-execution-card"><span>' + t("plannerExecutionEvent") + '</span><strong>' + eventText + '</strong></article>',
+    '<article class="planner-execution-card done"><span>' + t("plannerExecutionDone") + '</span><strong>' + doneText + '</strong></article>',
+    '</div>'
+  ].join("");
+}
+
+function getPlannerLinkedActions() {
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const daysNeeded = document.querySelector("#daysNeeded")?.textContent || "0";
+  const weeksNeeded = document.querySelector("#weeksNeeded")?.textContent || "0";
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+  const nextUnlock = state.content?.stateTimeline?.milestones?.find((item) => item.day > age);
+  const nextUnlockText = nextUnlock
+    ? localText(nextUnlock.title) + " · " + Math.max(0, nextUnlock.day - age).toLocaleString(state.lang) + "d"
+    : triText("Current milestone already reached", "当前州服节点已到", "目前州服節點已到");
+
+  let primary = {
+    href: "#resource-lab",
+    label: t("plannerLinkedPrimary"),
+    title: t("plannerLinkedResource"),
+    note: triText("Deep-check FC/RFC tax, prereqs, and linked systems before spending.", "先深算 FC/RFC、前置税和联动系统，再决定怎么花。", "先深算 FC/RFC、前置稅和聯動系統，再決定怎麼花。")
+  };
+  let secondary = {
+    href: "#timeline",
+    label: t("plannerLinkedSecondary"),
+    title: t("plannerLinkedTimeline"),
+    note: nextUnlockText
+  };
+  let watch = {
+    title: t("plannerLinkedWatch"),
+    value: blocker,
+    note: t("plannerLinkedReason") + " · " + readiness
+  };
+
+  if (refinedGap > 0) {
+    primary.note = triText(
+      `You still need ${refinedGap.toLocaleString(state.lang)} RFC. Lock the refined route first, then check side systems.`,
+      `你还差 ${refinedGap.toLocaleString(state.lang)} 精炼火晶，先把精炼路线锁定，再看支线资源。`,
+      `你還差 ${refinedGap.toLocaleString(state.lang)} 精煉火晶，先把精煉路線鎖定，再看支線資源。`
+    );
+    secondary = {
+      href: "#day-plan",
+      label: t("plannerLinkedSecondary"),
+      title: t("plannerLinkedSpend"),
+      note: triText("Delay burst spending until the refined route is funded.", "精炼路线没补齐前，不要提前爆发消耗。", "精煉路線沒補齊前，不要提前爆發消耗。")
+    };
+    watch = {
+      title: t("plannerLinkedWatch"),
+      value: refinedGap.toLocaleString(state.lang) + " RFC",
+      note: t("plannerLinkedReason") + " · " + triText("Weekly refined output is the hard gate.", "每周精炼产出是硬门槛。", "每週精煉產出是硬門檻。")
+    };
+  } else if (crystalGap > 0) {
+    primary = {
+      href: "#timeline",
+      label: t("plannerLinkedPrimary"),
+      title: t("plannerLinkedTimeline"),
+      note: triText("Confirm this target matches your state-age window before burning stock.", "先确认目标档位和州服节奏匹配，再烧库存。", "先確認目標檔位和州服節奏匹配，再燒庫存。")
+    };
+    secondary = {
+      href: "#resource-lab",
+      label: t("plannerLinkedSecondary"),
+      title: t("plannerLinkedResource"),
+      note: triText("Check whether Embassy or troop camp tax is hiding under the route.", "核对是不是大使馆或兵营税把路线拖慢了。", "核對是不是大使館或兵營稅把路線拖慢了。")
+    };
+    watch = {
+      title: t("plannerLinkedWatch"),
+      value: crystalGap.toLocaleString(state.lang) + " FC",
+      note: t("plannerLinkedReason") + " · " + triText(daysNeeded + " days at your current pace.", "按当前节奏大约还要 " + daysNeeded + " 天。", "按目前節奏大約還要 " + daysNeeded + " 天。")
+    };
+  } else if (readiness === t("eventReadyRisk")) {
+    primary = {
+      href: "#day-plan",
+      label: t("plannerLinkedPrimary"),
+      title: t("plannerLinkedSpend"),
+      note: triText("The route is close enough to plan the spend order by day.", "主路线已经接近完成，现在更该安排哪一天怎么花。", "主路線已經接近完成，現在更該安排哪一天怎麼花。")
+    };
+    secondary = {
+      href: "#spend-map",
+      label: t("plannerLinkedSecondary"),
+      title: t("plannerLinkedFast"),
+      note: triText("Match stock to the cleanest overlap event instead of tapping randomly.", "把库存对到最合适的重叠活动，不要随手乱点。", "把庫存對到最合適的重疊活動，不要隨手亂點。")
+    };
+    watch = {
+      title: t("plannerLinkedWatch"),
+      value: readiness,
+      note: t("plannerLinkedReason") + " · " + triText(weeksNeeded !== "0" ? `${weeksNeeded} weeks RFC pace still matters.` : "Timing matters more than totals now.", weeksNeeded !== "0" ? `精炼周节奏约 ${weeksNeeded} 周。` : "现在时机比总量更关键。", weeksNeeded !== "0" ? `精煉週節奏約 ${weeksNeeded} 週。` : "現在時機比總量更關鍵。")
+    };
+  } else {
+    primary = {
+      href: "#spend-map",
+      label: t("plannerLinkedPrimary"),
+      title: t("plannerLinkedSpend"),
+      note: triText("The route looks funded. Pick the cleanest scoring window before large spending.", "主路线看起来已经备齐，下一步是先选最干净的积分窗口。", "主路線看起來已經備齊，下一步是先選最乾淨的積分窗口。")
+    };
+    secondary = {
+      href: "#share",
+      label: t("plannerLinkedSecondary"),
+      title: triText("Alliance reminder", "联盟提醒", "聯盟提醒"),
+      note: triText("Turn this plan into one clean note for alliance chat.", "把这份规划变成一段能直接发群的提醒。", "把這份規劃變成一段能直接發群的提醒。")
+    };
+    watch = {
+      title: t("plannerLinkedWatch"),
+      value: readiness,
+      note: t("plannerLinkedReason") + " · " + triText(`${currentLevel} -> ${targetLevel} is already covered.`, `${currentLevel} -> ${targetLevel} 的主线资源已基本备齐。`, `${currentLevel} -> ${targetLevel} 的主線資源已基本備齊。`)
+    };
+  }
+
+  return { primary, secondary, watch, nextUnlockText };
+}
+
+function getPlannerPackContext() {
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const targetMajor = getTargetMajorLevel();
+  const crystalGap = readMetricValue("#missingCrystals");
+  const refinedGap = readMetricValue("#missingRefined");
+  const blocker = document.querySelector("#mainBlocker")?.textContent || t("blockerReady");
+  const readiness = document.querySelector("#eventReadiness")?.textContent || t("eventReadySave");
+  const daysNeeded = document.querySelector("#daysNeeded")?.textContent || "0";
+  const weeksNeeded = document.querySelector("#weeksNeeded")?.textContent || "0";
+  const age = Math.max(1, Number(document.querySelector("#stateAgeDays")?.value || 58));
+
+  let eventKey = "koi";
+  if (targetMajor >= 6 || refinedGap > 0) eventKey = "svs";
+  else if (readiness === t("eventReadyGood")) eventKey = "svs";
+  else if (targetMajor >= 4) eventKey = "koi";
+  else eventKey = "armament";
+
+  const spend = (state.content?.eventSpendMap || []).find((item) => item.key === eventKey) || state.content?.eventSpendMap?.[0];
+  const dayPlan = (state.content?.eventDayPlans || []).find((item) => item.key === eventKey) || state.content?.eventDayPlans?.[0];
+
+  let hold = [];
+  let checks = [];
+  if (targetMajor <= 3) {
+    hold = [
+      triText("Fire Crystals for the next furnace row", "下一档熔炉要用的火晶", "下一檔熔爐要用的火晶"),
+      triText("Construction speedups for the unlock burst", "给开档爆发留的建筑加速", "給開檔爆發留的建築加速"),
+      triText("Embassy and one troop camp support stock", "大使馆和一个主力兵营的跟随资源", "大使館和一個主力兵營的跟隨資源")
+    ];
+    checks = [
+      triText("Confirm state age still matches an early FC route.", "确认州服节奏仍然适合走早期 FC 路线。", "確認州服節奏仍然適合走早期 FC 路線。"),
+      triText("Check Embassy and troop camp before the jump.", "跳档前先查大使馆和兵营。", "跳檔前先查大使館和兵營。"),
+      triText("Do not spend side materials before the furnace route is stable.", "熔炉主路线没稳前，不要先花支线材料。", "熔爐主路線沒穩前，不要先花支線材料。")
+    ];
+  } else if (targetMajor <= 5) {
+    hold = [
+      triText("Main furnace FC stock", "熔炉主路线火晶库存", "熔爐主路線火晶庫存"),
+      triText("Construction and research speedups for overlap scoring", "给重叠冲分留的建研加速", "給重疊衝分留的建研加速"),
+      triText("Chief Gear catch-up materials", "领主装备补强材料", "領主裝備補強材料")
+    ];
+    checks = [
+      triText("Check whether the FC jump fits your next SvS/KOI window.", "确认这次 FC 跳级是否能卡进下一次 SvS/KOI。", "確認這次 FC 跳級是否能卡進下一次 SvS/KOI。"),
+      triText("Use the resource lab to catch prerequisite tax.", "去资源台核对前置税。", "去資源台核對前置稅。"),
+      triText("Make sure side spending does not break the next furnace milestone.", "确认支线消耗不会打断下一档熔炉里程碑。", "確認支線消耗不會打斷下一檔熔爐里程碑。")
+    ];
+  } else {
+    hold = [
+      triText("Refined Fire Crystals", "精炼火晶库存", "精煉火晶庫存"),
+      triText("Embassy / troop camp support stock", "大使馆 / 兵营联动库存", "大使館 / 兵營聯動庫存"),
+      triText("Chief Charm, Gear, and War Academy stock", "护符、装备、战争学院联动材料", "護符、裝備、戰爭學院聯動材料")
+    ];
+    checks = [
+      triText("Weekly RFC pace decides whether this route is real.", "每周精炼节奏决定这条路线是不是现实目标。", "每週精煉節奏決定這條路線是不是現實目標。"),
+      triText("Count prerequisite FC/RFC tax before any conversion.", "任何转化或爆发前，先计入前置 FC/RFC 税。", "任何轉化或爆發前，先計入前置 FC/RFC 稅。"),
+      triText("Check if War Academy or charm spend will steal your next furnace jump.", "确认战争学院或护符消耗不会偷走下一次熔炉跳级资源。", "確認戰爭學院或護符消耗不會偷走下一次熔爐跳級資源。")
+    ];
+  }
+
+  const eventTitle = localText(spend?.title) || triText("Current event window", "当前活动窗口", "目前活動窗口");
+  const eventWhy = localText(spend?.when) || "";
+  const template = [
+    triText("Upgrade prep", "升级准备提醒", "升級準備提醒") + ": " + currentLevel + " -> " + targetLevel,
+    t("plannerPrepEvent") + ": " + eventTitle,
+    t("mainBlockerLabel") + ": " + blocker,
+    t("missingLabel") + ": " + crystalGap.toLocaleString(state.lang) + " FC" + (refinedGap ? " / " + refinedGap.toLocaleString(state.lang) + " RFC" : ""),
+    t("daysLabel") + ": " + daysNeeded + (weeksNeeded !== "0" && weeksNeeded !== "-" ? " / " + weeksNeeded + " " + t("weeksLabel") : ""),
+    t("plannerPrepHold") + ": " + hold.join(" / "),
+    t("plannerPrepCheck") + ": " + checks[0]
+  ].join("\n");
+
+  return {
+    currentLevel,
+    targetLevel,
+    age,
+    blocker,
+    readiness,
+    crystalGap,
+    refinedGap,
+    daysNeeded,
+    weeksNeeded,
+    hold,
+    checks,
+    spend,
+    dayPlan,
+    eventTitle,
+    eventWhy,
+    template
+  };
+}
+
+function renderPlannerLinkedPanel() {
+  const root = document.querySelector("#plannerLinkedPanel");
+  if (!root || !state.content) return;
+  const { primary, secondary, watch, nextUnlockText } = getPlannerLinkedActions();
+  root.innerHTML = [
+    '<div class="planner-linked-head">',
+    '<div><span class="tag">' + t("plannerLinkedFast") + '</span><h3>' + t("plannerLinkedTitle") + '</h3><p>' + t("plannerLinkedText") + '</p></div>',
+    '</div>',
+    '<div class="planner-linked-grid">',
+    '<article class="planner-linked-card primary"><span>' + primary.label + '</span><strong>' + primary.title + '</strong><p>' + primary.note + '</p><a class="button primary" href="' + primary.href + '">' + primary.title + '</a></article>',
+    '<article class="planner-linked-card"><span>' + secondary.label + '</span><strong>' + secondary.title + '</strong><p>' + secondary.note + '</p><a class="button secondary" href="' + secondary.href + '">' + secondary.title + '</a></article>',
+    '<article class="planner-linked-card watch"><span>' + watch.title + '</span><strong>' + watch.value + '</strong><p>' + watch.note + '</p><small>' + t("plannerLinkedTimeline") + " · " + nextUnlockText + '</small></article>',
+    '</div>'
+  ].join("");
+}
+
+function renderPlannerPrepPack() {
+  const root = document.querySelector("#plannerPrepPack");
+  if (!root || !state.content) return;
+  const pack = getPlannerPackContext();
+  const useLines = pack.dayPlan?.days?.slice(0, 2).map((item) => localText(item.day) + " · " + localText(item.use)).join("<br />") || "";
+  root.innerHTML = [
+    '<div class="planner-pack-head">',
+    '<div><span class="tag">' + t("plannerPrepPackReady") + '</span><h3>' + t("plannerPrepTitle") + '</h3><p>' + t("plannerPrepText") + '</p></div>',
+    '<button class="button secondary" type="button" id="copyPlannerPrep">' + t("plannerPrepCopy") + '</button>',
+    '</div>',
+    '<div class="planner-pack-grid">',
+    '<article class="planner-pack-card primary"><span>' + t("plannerPrepRange") + '</span><strong>' + pack.currentLevel + " -> " + pack.targetLevel + '</strong><p>' + t("plannerPrepEvent") + " · " + pack.eventTitle + '</p><small>' + pack.eventWhy + '</small></article>',
+    '<article class="planner-pack-card"><span>' + t("plannerPrepHold") + '</span><ul>' + pack.hold.map((item) => '<li>' + item + '</li>').join("") + '</ul></article>',
+    '<article class="planner-pack-card"><span>' + t("plannerPrepCheck") + '</span><ul>' + pack.checks.map((item) => '<li>' + item + '</li>').join("") + '</ul></article>',
+    '<article class="planner-pack-card"><span>' + t("plannerPrepTemplate") + '</span><p>' + pack.template.replace(/\n/g, "<br />") + '</p></article>',
+    useLines ? '<article class="planner-pack-card"><span>' + t("plannerLinkedSpend") + '</span><p>' + useLines + '</p></article>' : "",
+    '<article class="planner-pack-card action"><span>' + t("plannerLinkedRoute") + '</span><div class="planner-pack-actions"><a class="button primary" href="#resource-lab">' + t("plannerLinkedResource") + '</a><a class="button secondary" href="#day-plan">' + t("plannerLinkedSpend") + '</a><a class="button secondary" href="#timeline">' + t("plannerLinkedTimeline") + '</a></div></article>',
+    '</div>'
+  ].join("");
+  document.querySelector("#copyPlannerPrep")?.addEventListener("click", () => {
+    copyText(pack.template);
+    showToast(t("plannerPrepPackReady"));
+  });
+}
+
+function renderStateAgeQuickChips() {
+  const root = document.querySelector("#stateAgeQuickChips");
+  const milestones = state.content?.stateTimeline?.milestones || [];
+  if (!root || !milestones.length) return;
+  root.setAttribute("aria-label", t("timelineQuickPicks"));
+  root.innerHTML = milestones.slice(0, 8).map((item) => {
+    return '<button type="button" class="timeline-chip" data-state-age-chip="' + item.day + '"><strong>Day ' + item.day + '</strong><span>' + localText(item.title) + '</span></button>';
+  }).join("");
+  root.querySelectorAll("[data-state-age-chip]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const input = document.querySelector("#stateAgeDays");
+      if (input) input.value = button.dataset.stateAgeChip;
+      writeUserMemory("stateAgeDays", button.dataset.stateAgeChip);
+      rerenderStateAgeLinkedViews();
+      updateMemoryStatus();
+    });
+  });
 }
 
 function renderPlannerOptions() {
@@ -2089,18 +3106,25 @@ function calculatePlanner(options = {}) {
 
   if (!options.skipResourceSync) syncResourceLabToPlanner({ silent: true });
   renderSmartPlanner();
+  renderPlannerExecutionPanel();
+  renderPlannerLinkedPanel();
+  renderPlannerPrepPack();
+  renderResourceJourneyPanel();
   renderShareBrief();
-  renderBearTrapPlan();
   renderHeroSnapshot();
-  renderStrategyBoard();
+  renderHeroActionRail();
   renderHubCards();
+  renderMissionGrid();
   renderOpsBriefing();
+  renderDailyCockpit();
+  renderDecisionBoard();
+  renderStatusStrip();
 }
 
 
 function buildShareBrief() {
   if (!state.content) return "";
-  const activeCodes = state.content.codes
+  const activeCodes = getLiveCodes()
     .filter((item) => item.status === "active")
     .slice(0, 6)
     .map((item) => item.code)
@@ -2127,7 +3151,7 @@ function renderOpsBriefing() {
   const board = document.querySelector("#opsBriefing");
   if (!board || !state.content) return;
 
-  const activeCodes = state.content.codes.filter((item) => item.status === "active").length;
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
   const crystalGap = Number((document.querySelector("#missingCrystals")?.textContent || "0").replace(/,/g, ""));
   const refinedGap = Number((document.querySelector("#missingRefined")?.textContent || "0").replace(/,/g, ""));
   const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
@@ -2199,6 +3223,12 @@ function formatCompactNumber(value, suffix = "") {
   const number = Number(value || 0);
   const fixed = Math.abs(number) >= 100 ? number.toFixed(0) : Math.abs(number) >= 10 ? number.toFixed(1) : number.toFixed(2);
   return Number(fixed).toLocaleString(state.lang) + suffix;
+}
+
+function formatDaysLabel(value) {
+  const days = Number(value || 0);
+  if (!Number.isFinite(days) || days <= 0) return "0d";
+  return days.toLocaleString(state.lang) + "d";
 }
 
 function localText(value) {
@@ -2318,6 +3348,8 @@ function renderResourceDataLab() {
   const totalsNode = document.querySelector("#furnaceTotals");
   if (!lab || !totalsNode) return;
   renderResourceDataLabOptions();
+  const syncNote = document.querySelector("#resourceSyncNote");
+  if (syncNote && !syncNote.textContent.trim()) syncNote.textContent = t("resourceSyncManual");
 
   const furnaceRows = lab.furnaceRows || [];
   const startOrder = Number(document.querySelector("#furnaceStart")?.value || 0);
@@ -2380,6 +3412,7 @@ function renderResourceDataLab() {
   }
   if (prereqAdvice) prereqAdvice.textContent = t("furnacePrereqAdviceTitle") + ": " + (includePrereq && tax.items.length ? tax.items.slice(0, 4).join(" · ") + (tax.items.length > 4 ? "..." : "") : t("includePrereqTaxLabel")) + ".";
   if (refineAdvice) refineAdvice.textContent = t("furnaceRefineAdviceTitle") + ": " + (weeklyRfc ? Math.ceil(missingRfc / weeklyRfc).toLocaleString(state.lang) : "-") + " " + t("weeksLabel") + " / " + (lab.notes?.[state.lang] || lab.notes?.en || "");
+  renderResourceJourneyPanel();
 
   const routeNode = document.querySelector("#furnaceRouteRows");
   if (routeNode) {
@@ -2535,33 +3568,6 @@ function renderEventDayPlans() {
             <p><span>${t("dayPlanAvoid")}</span>${day.avoid[state.lang]}</p>
           </div>
         `).join("")}
-      </div>
-    </article>
-  `).join("");
-}
-
-function renderTodayHoardBoards() {
-  const root = document.querySelector("#todayHoardBoards");
-  if (!root || !state.content?.todayHoardBoards) return;
-  root.innerHTML = state.content.todayHoardBoards.map((item) => `
-    <article class="tool-card hoard-card searchable" data-search="${item.title[state.lang]} ${(item.hold[state.lang] || []).join(" ")}">
-      <h3>${item.title[state.lang]}</h3>
-      <p><strong>${t("hoardHold")}:</strong> ${(item.hold[state.lang] || []).join(" · ")}</p>
-      <p><strong>${t("hoardSpend")}:</strong> ${item.spend[state.lang]}</p>
-      <p><strong>${t("hoardCheck")}:</strong> ${item.check[state.lang]}</p>
-    </article>
-  `).join("");
-}
-
-function renderBuildingChains() {
-  const root = document.querySelector("#buildingChains");
-  if (!root || !state.content?.buildingChains) return;
-  root.innerHTML = state.content.buildingChains.map((chain) => `
-    <article class="tool-card chain-card searchable" data-search="${chain.title[state.lang]} ${chain.focus[state.lang]} ${(chain.steps[state.lang] || []).join(" ")}">
-      <h3>${chain.title[state.lang]}</h3>
-      <p>${chain.focus[state.lang]}</p>
-      <div class="chain-steps">
-        ${(chain.steps[state.lang] || []).map((step) => `<span class="chain-step">${step}</span>`).join("")}
       </div>
     </article>
   `).join("");
@@ -2883,6 +3889,21 @@ function renderStateTimeline() {
   }).join("");
 }
 
+function rerenderStateAgeLinkedViews() {
+  renderStateTimeline();
+  renderHubCards();
+  renderPlannerLinkedPanel();
+  renderPlannerPrepPack();
+  renderPlannerExecutionPanel();
+  renderDecisionBoard();
+  renderHeroActionRail();
+  renderMissionGrid();
+  renderOpsBriefing();
+  renderDailyCockpit();
+  renderShareBrief();
+  renderResourceJourneyPanel();
+}
+
 
 
 function savePlayerId() {
@@ -2894,6 +3915,14 @@ function savePlayerId() {
   localStorage.setItem("wos-player-id", value);
   writeUserMemory("playerIdInput", value);
   renderPlayerId();
+  renderDecisionBoard();
+  renderStatusStrip();
+  renderHeroActionRail();
+  renderHeroSnapshot();
+  renderMissionGrid();
+  renderOpsBriefing();
+  renderDailyCockpit();
+  renderShareBrief();
   showToast(t("saved"));
 }
 
@@ -2928,34 +3957,6 @@ function renderPlayerId() {
   }
 }
 
-function buildBearTrapPlan() {
-  const power = Number(document.querySelector("#bearTrapPower")?.value || 0);
-  const batches = Number(document.querySelector("#bearTrapBatches")?.value || 0);
-  const rating = power >= 3000000 && batches >= 6 ? "Strong" : power >= 1500000 && batches >= 4 ? "Solid" : "Light";
-  const advice = rating === "Strong" ? "Hold speedups for event windows and coordinate your biggest training pushes." : rating === "Solid" ? "Train steadily and save your best batches for event scoring windows." : "You need more troop batches or power gain before the event if you want a stronger result.";
-  return [
-    "Bear Trap plan:",
-    "Expected power gain: " + power.toLocaleString(),
-    "Planned troop batches: " + batches,
-    "Prep rating: " + rating,
-    "Note: " + advice
-  ].join("\n");
-}
-
-function renderBearTrapPlan() {
-  const power = Number(document.querySelector("#bearTrapPower")?.value || 0);
-  const batches = Number(document.querySelector("#bearTrapBatches")?.value || 0);
-  const rating = power >= 3000000 && batches >= 6 ? "Strong" : power >= 1500000 && batches >= 4 ? "Solid" : "Light";
-  const advice = rating === "Strong" ? "Hold speedups for event windows and coordinate your biggest training pushes." : rating === "Solid" ? "Train steadily and save your best batches for event scoring windows." : "You need more troop batches or power gain before the event if you want a stronger result.";
-  const ratingNode = document.querySelector("#bearTrapRating");
-  const shortNode = document.querySelector("#bearTrapAdviceShort");
-  const adviceNode = document.querySelector("#bearTrapAdvice");
-  if (!ratingNode || !shortNode || !adviceNode) return;
-  ratingNode.textContent = rating;
-  shortNode.textContent = advice;
-  adviceNode.textContent = advice;
-}
-
 function copySavedPlayerId() {
   const value = document.querySelector("#playerIdInput")?.value.trim() || getSavedPlayerIds()[0] || localStorage.getItem("wos-player-id") || "";
   if (!value) return;
@@ -2976,17 +3977,6 @@ function savePlanner() {
   localStorage.setItem("wos-planner", JSON.stringify(payload));
   persistCurrentMemory();
   showToast(t("saved"));
-}
-
-function renderGuides() {
-  document.querySelector("#guideGrid").innerHTML = translations[state.lang].guides.map((guide) => `
-    <article class="guide-card searchable" data-search="${guide.title} ${guide.tag} ${guide.points.join(" ")}">
-      <span class="tag">${guide.tag}</span>
-      <h3>${guide.title}</h3>
-      <ul>${guide.points.map((point) => `<li>${point}</li>`).join("")}</ul>
-      <a class="button secondary" href="#timer">${guide.cta}</a>
-    </article>
-  `).join("");
 }
 
 function persistTimerState(isRunning = Boolean(state.timerId)) {
@@ -3046,6 +4036,7 @@ function renderTimer() {
   document.querySelector("#phaseAdvice").textContent = t(`phase${phaseKey}Advice`);
   renderBattleBoard(phase, elapsed);
   renderFrostfireTimeline(elapsed);
+  refreshTimerLinkedViews(phase);
   const checklist = phase === "ready" ? checklistByPhase.open[state.lang] : checklistByPhase[phase][state.lang];
   document.querySelector("#eventChecklist").innerHTML = checklist.map((item, index) => `
     <label class="check-item">
@@ -3058,6 +4049,22 @@ function renderTimer() {
       localStorage.setItem(`wos-check-${input.dataset.check}`, input.checked ? "1" : "0");
     });
   });
+}
+
+function refreshTimerLinkedViews(phase) {
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  if (state.lastTimerCue === nextWindow && state.lastTimerPhase === phase) return;
+  state.lastTimerCue = nextWindow;
+  state.lastTimerPhase = phase;
+  renderShareBrief();
+  renderHeroSnapshot();
+  renderHeroActionRail();
+  renderHubCards();
+  renderMissionGrid();
+  renderOpsBriefing();
+  renderDailyCockpit();
+  renderDecisionBoard();
+  renderStatusStrip();
 }
 
 function renderBattleBoard(phase, elapsedSeconds) {
@@ -3132,7 +4139,6 @@ function renderFrostfireTimeline(elapsedSeconds) {
     <small>${timeline.at(-1)?.advice[state.lang] || ""}</small>
   `;
 
-  renderShareBrief();
   document.querySelector("#frostfireTimeline").innerHTML = timeline.map((item, index) => {
     const status = index < currentIndex ? "past" : index === currentIndex ? "active" : "";
     return `

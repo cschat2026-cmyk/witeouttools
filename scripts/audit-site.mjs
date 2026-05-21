@@ -62,7 +62,9 @@ for (const marker of [
   'data-ad-slot-key="guides"',
   '"@type": "FAQPage"',
   '"@type": "SoftwareApplication"',
-  'max-image-preview:large'
+  'max-image-preview:large',
+  'id="dailyCockpitBoard"',
+  'id="resourceJourneyPanel"'
 ]) {
   requireText(html, marker, `Missing SEO/ad marker: ${marker}`);
 }
@@ -84,7 +86,16 @@ for (const marker of [
   "adsbygoogle",
   "expiresAt && item.expiresAt < today",
   "syncResourceLabToPlanner",
-  "applyStateAgePlan"
+  "applyStateAgePlan",
+  "buildDecisionModel",
+  "renderDecisionBoard",
+  "getDailyLoopModel",
+  "renderDailyCockpit",
+  "bindDailyCockpitActions",
+  "runDailyCockpitStep",
+  "renderResourceJourneyPanel",
+  "rerenderStateAgeLinkedViews",
+  "refreshTimerLinkedViews"
 ]) {
   requireText(app, marker, `Missing app behavior marker: ${marker}`);
 }
@@ -99,7 +110,14 @@ for (const marker of [
   "refresh-policy",
   "ad-placeholder",
   ".adsbygoogle",
-  ".state-age-card-primary .tag"
+  ".state-age-card-primary .tag",
+  ".decision-section",
+  ".decision-mini-grid",
+  ".daily-cockpit-section",
+  ".daily-cockpit-board",
+  ".daily-cockpit-insights",
+  ".resource-journey-panel",
+  ".resource-journey-grid"
 ]) {
   requireText(css, marker, `Missing CSS marker: ${marker}`);
 }

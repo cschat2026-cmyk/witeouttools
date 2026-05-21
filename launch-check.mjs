@@ -43,7 +43,7 @@ for (const key of ["canonical", "og:title", "twitter:card", "application/ld+json
   if (!index.includes(key)) errors.push(`Missing SEO marker: ${key}`);
 }
 
-for (const marker of ["ops-section", "shareBrief", "sourceLog", "copyShareBrief", "copyRedeemGuide", "data-ad-slot-key", "FAQPage", "SoftwareApplication"]) {
+for (const marker of ["ops-section", "decisionBoard", "dailyCockpitBoard", "resourceJourneyPanel", "shareBrief", "sourceLog", "copyShareBrief", "copyRedeemGuide", "data-ad-slot-key", "FAQPage", "SoftwareApplication"]) {
   if (!index.includes(marker)) errors.push(`Missing homepage feature marker: ${marker}`);
 }
 

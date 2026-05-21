@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-19T03:23:17.311Z",
+  "updatedAt": "2026-05-21T04:31:23.212Z",
   "sources": [
     {
       "name": "Whiteout Survival official channels",
@@ -44,25 +44,6 @@
   ],
   "codes": [
     {
-      "code": "WOSFAMILY26",
-      "region": "Global",
-      "expiresAt": "2026-05-20",
-      "rewards": [
-        "1K Gems",
-        "8x 1h Training Speedup",
-        "2x 100 VIP XP",
-        "10x 5m General Speedup"
-      ],
-      "sourceLevel": "official+editorial",
-      "activeWhenSeen": true,
-      "note": {
-        "en": "Confirmed active by the official wiki and GamesRadar on May 15, 2026. Expires May 20, 2026.",
-        "zh-CN": "2026 年 5 月 15 日官方 Wiki 与 GamesRadar 均确认可用，已标注 2026 年 5 月 20 日到期。",
-        "zh-TW": "2026 年 5 月 15 日官方 Wiki 與 GamesRadar 均確認可用，已標註 2026 年 5 月 20 日到期。"
-      },
-      "status": "active"
-    },
-    {
       "code": "gogoWOS",
       "region": "Global",
       "rewards": [
@@ -79,6 +60,25 @@
         "zh-TW": "截至 2026 年 5 月 15 日，官方 Wiki 與 GamesRadar 仍列為可用。"
       },
       "status": "active"
+    },
+    {
+      "code": "WOSFAMILY26",
+      "region": "Global",
+      "expiresAt": "2026-05-20",
+      "rewards": [
+        "1K Gems",
+        "8x 1h Training Speedup",
+        "2x 100 VIP XP",
+        "10x 5m General Speedup"
+      ],
+      "sourceLevel": "official+editorial",
+      "activeWhenSeen": true,
+      "note": {
+        "en": "Confirmed active by the official wiki and GamesRadar on May 15, 2026. Expires May 20, 2026.",
+        "zh-CN": "2026 年 5 月 15 日官方 Wiki 与 GamesRadar 均确认可用，已标注 2026 年 5 月 20 日到期。",
+        "zh-TW": "2026 年 5 月 15 日官方 Wiki 與 GamesRadar 均確認可用，已標註 2026 年 5 月 20 日到期。"
+      },
+      "status": "expired"
     },
     {
       "code": "LoveMom2026",

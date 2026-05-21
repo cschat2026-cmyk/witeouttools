@@ -98,7 +98,7 @@
         <a href="#timer" data-i18n="navTimer">Event Timer</a>
         <a href="#planner" data-i18n="navPlanner">Planner</a>
         <a href="#resource-lab" data-i18n="navResource">Resources</a>
-        <a href="#guides" data-i18n="navGuides">Guides</a>
+        <a href="#day-plan" data-i18n="navGuides">Spend Plan</a>
       </nav>
       <div class="top-actions">
         <label class="search-box">
@@ -124,6 +124,12 @@
           <div class="march-line line-b"></div>
         </div>
         <div class="hero-copy panel-glass">
+          <div class="hero-pill-row" aria-label="Core tools">
+            <span class="hero-pill" data-i18n="navCodes">Codes</span>
+            <span class="hero-pill" data-i18n="navTimer">Event Timer</span>
+            <span class="hero-pill" data-i18n="navPlanner">Planner</span>
+            <span class="hero-pill" data-i18n="navResource">Resources</span>
+          </div>
           <span class="eyebrow" data-i18n="heroEyebrow">Updated player tools for Whiteout Survival</span>
           <h1 data-i18n="heroTitle">Plan events, copy codes, and save Fire Crystals without spreadsheet pain.</h1>
           <p data-i18n="heroText">
@@ -134,25 +140,22 @@
             <a class="button secondary" href="#planner" data-i18n="ctaPlanner">Open planner</a>
           </div>
           <div class="hero-kpis" aria-label="Project status">
-            <span><strong>13</strong><small data-i18n="kpiCodes">codes tracked</small></span>
-            <span><strong>30m</strong><small data-i18n="kpiTimer">mine timer</small></span>
-            <span><strong>F30-FC10</strong><small data-i18n="kpiPlanner">crystal plan</small></span>
+            <span><strong id="heroKpiCodes">0</strong><small data-i18n="kpiCodes">codes tracked</small></span>
+            <span><strong id="heroKpiTimer">30m</strong><small data-i18n="kpiTimer">mine timer</small></span>
+            <span><strong id="heroKpiPlanner">F30-FC10</strong><small data-i18n="kpiPlanner">crystal plan</small></span>
           </div>
         </div>
         <aside class="command-panel panel-glass hero-visual-panel">
-          <div class="hero-live-snapshot" id="heroLiveSnapshot"></div>
-          <div class="command-head">
-            <span data-i18n="commandLabel">Today command board</span>
-            <strong data-i18n="commandTitle">Do these before reset</strong>
+          <div class="hero-preview-frame">
+            <img src="assets/hero-dashboard-preview.png" alt="Whiteout Hub dashboard preview" />
+            <span class="hero-preview-badge" data-i18n="heroPreviewBadge">Live tool preview</span>
           </div>
-          <div class="command-list">
+          <div class="hero-live-snapshot" id="heroLiveSnapshot"></div>
+          <div class="hero-action-rail" id="heroActionRail"></div>
+          <div class="command-list hero-quick-links">
             <a href="#codes"><span>01</span><strong data-i18n="commandCode">Copy and test new gift codes</strong></a>
             <a href="#timer"><span>02</span><strong data-i18n="commandTimer">Run Frostfire phase timer</strong></a>
             <a href="#planner"><span>03</span><strong data-i18n="commandPlanner">Check Fire Crystal gap</strong></a>
-          </div>
-          <div class="market-pick">
-            <span data-i18n="decisionLabel">Project decision</span>
-            <strong data-i18n="decisionTitle">Recommended: Whiteout Survival</strong>
           </div>
         </aside>
       </section>
@@ -163,48 +166,50 @@
           <span data-i18n="updatedLabel">Last content refresh</span>
         </div>
         <div>
-          <strong>8</strong>
-          <span data-i18n="toolCount">core tools live</span>
+          <strong id="statusCodesValue">0</strong>
+          <span data-i18n="statusCodesLabel">likely active codes now</span>
         </div>
         <div>
-          <strong>EN / 简中 / 繁中</strong>
-          <span data-i18n="langReady">language coverage</span>
+          <strong id="statusMemoryValue">0</strong>
+          <span data-i18n="statusMemoryLabel">saved helpers on this device</span>
         </div>
         <div>
-          <strong data-i18n="sourceMix">Official + community + inference</strong>
-          <span data-i18n="sourceLabel">source labels</span>
+          <strong id="statusFocusValue">-</strong>
+          <span data-i18n="statusFocusLabel">next best check</span>
         </div>
+      </section>
+
+      <section id="decision" class="decision-section">
+        <div class="section-heading decision-heading">
+          <span class="eyebrow" data-i18n="decisionEyebrow">Player decision desk</span>
+          <h2 data-i18n="decisionTitle">What should you do next?</h2>
+          <p data-i18n="decisionText">This section turns your saved ID, state age, planner gaps, event timer, and spend tables into one practical next-action board.</p>
+        </div>
+        <div class="decision-board" id="decisionBoard"></div>
+      </section>
+
+      <section id="daily-cockpit" class="daily-cockpit-section">
+        <div class="section-heading daily-cockpit-heading">
+          <span class="eyebrow" data-i18n="dailyCockpitEyebrow">Daily session</span>
+          <h2 data-i18n="dailyCockpitTitle">Today’s login loop</h2>
+          <p data-i18n="dailyCockpitText">A stronger portal gives players a real daily pass: quick rewards, route checks, event timing, and one more useful follow-up before reset.</p>
+        </div>
+        <div class="daily-cockpit-board" id="dailyCockpitBoard"></div>
+      </section>
+
+      <section class="mission-section">
+        <div class="section-heading mission-heading">
+          <span class="eyebrow" id="missionEyebrow" data-i18n="missionEyebrow">Best first steps</span>
+          <h2 id="missionTitle" data-i18n="missionTitle">Start from your real player goal</h2>
+          <p id="missionText" data-i18n="missionText">These routes connect tools together, so one action leads to the next thing you should actually do.</p>
+        </div>
+        <div class="mission-grid" id="missionGrid"></div>
       </section>
 
       <section class="ad-band ad-band-compact" aria-label="Advertisement" data-ad-slot-key="top"></section>
 
-      <section class="hub-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="hubEyebrow">Player hub</span>
-          <h2 data-i18n="hubTitle">Open the thing you need right now</h2>
-          <p data-i18n="hubText">This homepage is arranged around repeated player jobs: redeem, time, plan, coordinate, and report updates.</p>
-        </div>
-        <div class="hub-grid" id="hubGrid"></div>
-      </section>
 
-
-      <section class="strategy-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="strategyEyebrow">Personal coach</span>
-          <h2 data-i18n="strategyTitle">Save-or-spend strategy mode</h2>
-          <p data-i18n="strategyText">Players keep asking whether to save for SvS, push KOI, or spend now. Pick a play style and the site turns broad advice into a more useful operating rule.</p>
-        </div>
-        <div class="strategy-shell tool-card">
-          <div class="strategy-tabs" id="strategyTabs" role="tablist" aria-label="Player strategy mode">
-            <button type="button" data-strategy="f2p" class="active" data-i18n="strategyF2P">F2P</button>
-            <button type="button" data-strategy="low" data-i18n="strategyLow">Low spender</button>
-            <button type="button" data-strategy="push" data-i18n="strategyPush">Ranking push</button>
-          </div>
-          <div class="strategy-board" id="strategyBoard"></div>
-        </div>
-      </section>
-
-      <section class="ops-section">
+      <section id="ops" class="ops-section">
         <div class="section-heading">
           <span class="eyebrow" data-i18n="opsEyebrow">High-repeat tasks</span>
           <h2 data-i18n="opsTitle">Player operations desk</h2>
@@ -267,6 +272,7 @@
               <option value="official" data-i18n="filterOfficial">Official</option>
             </select>
           </div>
+          <div class="codes-summary" id="codesSummary"></div>
           <div id="codesList" class="codes-list"></div>
         </div>
       </section>
@@ -288,6 +294,7 @@
               <select id="stateAgeCurrentLevel"></select>
             </label>
           </div>
+          <div class="timeline-chip-row" id="stateAgeQuickChips" aria-label="Popular state-age checkpoints"></div>
           <small class="memory-status" data-memory-status></small>
           <div class="planner-insight-grid">
             <div class="priority planner-brief" id="stateAgeNow"></div>
@@ -327,14 +334,6 @@
         </div>
       </section>
 
-      <section class="intel-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="intelEyebrow">Market intel</span>
-          <h2 data-i18n="intelTitle">Why this project beats the alternatives</h2>
-        </div>
-        <div class="score-grid" id="marketScores"></div>
-      </section>
-
       <section id="timer" class="section-grid reversed">
         <div class="section-copy">
           <span class="eyebrow" data-i18n="timerEyebrow">Return-visit utility</span>
@@ -364,32 +363,6 @@
         </div>
       </section>
 
-
-      <section class="section-grid beartrap-section">
-        <div class="section-copy">
-          <span class="eyebrow" data-i18n="bearEyebrow">Community demand</span>
-          <h2 data-i18n="bearTitle">Bear Trap prep helper</h2>
-          <p data-i18n="bearText">Players repeatedly ask how much training and power they should line up before Bear Trap. This quick helper turns your rough power gain into a clean prep note.</p>
-        </div>
-        <div class="tool-card planner beartrap-card">
-          <label>
-            <span data-i18n="bearPowerLabel">Expected power gain</span>
-            <input id="bearTrapPower" type="number" min="0" step="50000" value="2500000" />
-          </label>
-          <label>
-            <span data-i18n="bearTrainsLabel">Planned troop batches</span>
-            <input id="bearTrapBatches" type="number" min="0" step="1" value="6" />
-          </label>
-          <div class="result-card">
-            <span data-i18n="bearEstimateLabel">Estimated prep rating</span>
-            <strong id="bearTrapRating">Solid</strong>
-            <span data-i18n="bearAdviceLabel">Prep note</span>
-            <strong id="bearTrapAdviceShort">Train and hold speedups.</strong>
-          </div>
-          <p class="priority" id="bearTrapAdvice"></p>
-          <button class="button primary full" id="copyBearTrapPlan" type="button" data-i18n="copyBearTrapPlan">Copy Bear Trap plan</button>
-        </div>
-      </section>
 
       <section id="planner" class="section-grid">
         <div class="section-copy">
@@ -466,6 +439,7 @@
             <div class="priority planner-brief" id="plannerMilestone"></div>
             <div class="priority planner-brief" id="plannerSources"></div>
           </div>
+          <div class="planner-execution-panel" id="plannerExecutionPanel"></div>
           <div class="planner-smart-panel">
             <div class="planner-smart-head">
               <div>
@@ -477,6 +451,8 @@
             <div class="smart-preset-grid" id="smartPresetGrid"></div>
             <div class="smart-next-grid" id="smartNextNeeds"></div>
           </div>
+          <div class="planner-linked-panel" id="plannerLinkedPanel"></div>
+          <div class="planner-pack-panel" id="plannerPrepPack"></div>
           <div class="planner-route planner-route-compact" id="plannerRoute"></div>
           <small class="memory-status" data-memory-status></small>
           <button class="button primary full" id="savePlanner" type="button" data-i18n="savePlanner">Save my planner</button>
@@ -499,6 +475,7 @@
               </div>
               <span class="confidence-badge" id="furnaceConfidenceBadge">source-backed</span>
             </div>
+            <p class="resource-sync-note" id="resourceSyncNote"></p>
             <div class="planner-grid resource-controls">
               <label>
                 <span data-i18n="routeStartLabel">Current stage</span>
@@ -536,6 +513,7 @@
               <div class="priority planner-brief" id="furnacePrereqAdvice"></div>
               <div class="priority planner-brief" id="furnaceRefineAdvice"></div>
             </div>
+            <div class="resource-journey-panel" id="resourceJourneyPanel"></div>
             <div class="planner-route resource-route" id="furnaceRouteRows"></div>
           </article>
 
@@ -671,24 +649,6 @@
         <div class="dayplan-grid" id="eventDayPlans"></div>
       </section>
 
-      <section class="guides-section hoard-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="hoardEyebrow">Today board</span>
-          <h2 data-i18n="hoardTitle">What should you hoard today</h2>
-          <p data-i18n="hoardText">This board is for repeat visits: open it, decide what to keep, what to spend, and what to double-check before you waste stock.</p>
-        </div>
-        <div class="hoard-grid" id="todayHoardBoards"></div>
-      </section>
-
-      <section class="guides-section chain-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="chainEyebrow">Route map</span>
-          <h2 data-i18n="chainTitle">Building prerequisite route</h2>
-          <p data-i18n="chainText">Most players do not fail because they lack one resource. They fail because the supporting route is out of sync. This makes that route visible.</p>
-        </div>
-        <div class="chain-grid" id="buildingChains"></div>
-      </section>
-
       <section id="share" class="share-section">
         <div class="section-heading">
           <span class="eyebrow" data-i18n="shareEyebrow">Alliance utility</span>
@@ -699,15 +659,6 @@
           <div class="share-preview" id="shareBrief" aria-live="polite"></div>
           <button class="button primary full" id="copyShareBrief" type="button" data-i18n="copyShareBrief">Copy alliance brief</button>
         </div>
-      </section>
-
-      <section id="guides" class="guides-section">
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="guidesEyebrow">Content that earns repeat visits</span>
-          <h2 data-i18n="guidesTitle">Event and upgrade playbooks</h2>
-          <p data-i18n="guidesText">Short, practical pages users can scan before an event. The site is structured so each guide can become its own SEO landing page later.</p>
-        </div>
-        <div class="guide-grid" id="guideGrid"></div>
       </section>
 
       <section class="ad-band" aria-label="Advertisement" data-ad-slot-key="guides"></section>
@@ -751,7 +702,7 @@
 
     <div id="toast" role="status" aria-live="polite"></div>
     <script id="contentData" type="application/json">{
-  "updatedAt": "2026-05-19T03:23:17.311Z",
+  "updatedAt": "2026-05-21T04:31:23.212Z",
   "sources": [
     {
       "name": "Whiteout Survival official channels",
@@ -796,25 +747,6 @@
   ],
   "codes": [
     {
-      "code": "WOSFAMILY26",
-      "region": "Global",
-      "expiresAt": "2026-05-20",
-      "rewards": [
-        "1K Gems",
-        "8x 1h Training Speedup",
-        "2x 100 VIP XP",
-        "10x 5m General Speedup"
-      ],
-      "sourceLevel": "official+editorial",
-      "activeWhenSeen": true,
-      "note": {
-        "en": "Confirmed active by the official wiki and GamesRadar on May 15, 2026. Expires May 20, 2026.",
-        "zh-CN": "2026 年 5 月 15 日官方 Wiki 与 GamesRadar 均确认可用，已标注 2026 年 5 月 20 日到期。",
-        "zh-TW": "2026 年 5 月 15 日官方 Wiki 與 GamesRadar 均確認可用，已標註 2026 年 5 月 20 日到期。"
-      },
-      "status": "active"
-    },
-    {
       "code": "gogoWOS",
       "region": "Global",
       "rewards": [
@@ -831,6 +763,25 @@
         "zh-TW": "截至 2026 年 5 月 15 日，官方 Wiki 與 GamesRadar 仍列為可用。"
       },
       "status": "active"
+    },
+    {
+      "code": "WOSFAMILY26",
+      "region": "Global",
+      "expiresAt": "2026-05-20",
+      "rewards": [
+        "1K Gems",
+        "8x 1h Training Speedup",
+        "2x 100 VIP XP",
+        "10x 5m General Speedup"
+      ],
+      "sourceLevel": "official+editorial",
+      "activeWhenSeen": true,
+      "note": {
+        "en": "Confirmed active by the official wiki and GamesRadar on May 15, 2026. Expires May 20, 2026.",
+        "zh-CN": "2026 年 5 月 15 日官方 Wiki 与 GamesRadar 均确认可用，已标注 2026 年 5 月 20 日到期。",
+        "zh-TW": "2026 年 5 月 15 日官方 Wiki 與 GamesRadar 均確認可用，已標註 2026 年 5 月 20 日到期。"
+      },
+      "status": "expired"
     },
     {
       "code": "LoveMom2026",
