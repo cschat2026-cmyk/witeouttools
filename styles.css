@@ -485,13 +485,78 @@ button:hover {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
 }
 
-.hero-preview-frame img {
+.hero-preview-stage {
   display: block;
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top center;
+  padding: 18px;
+}
+
+.hero-preview-shell {
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  padding: 14px;
+  color: var(--text);
+  border: 1px solid rgba(191, 241, 255, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(8, 26, 42, 0.94), rgba(18, 46, 63, 0.9)),
+    radial-gradient(circle at 92% 0%, rgba(245, 182, 75, 0.18), transparent 28%);
+}
+
+.hero-preview-topline,
+.hero-preview-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.hero-preview-topline span,
+.hero-preview-foot span,
+.hero-preview-foot small {
+  color: #9cc4d0;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-preview-topline strong,
+.hero-preview-foot strong,
+.hero-preview-grid strong {
+  color: #ffffff;
+}
+
+.hero-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hero-preview-grid article {
+  display: grid;
+  gap: 5px;
+  min-height: 78px;
+  padding: 11px 12px;
+  border: 1px solid rgba(191, 241, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-preview-grid article.wide {
+  grid-column: 1 / -1;
+}
+
+.hero-preview-grid span {
+  color: #bfe8f2;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-preview-grid strong {
+  line-height: 1.24;
 }
 
 .hero-preview-badge {
@@ -2728,8 +2793,22 @@ footer {
     border-radius: 14px;
   }
 
-  .hero-preview-frame img {
+  .hero-preview-stage {
+    padding: 12px;
     aspect-ratio: 16 / 11;
+  }
+
+  .hero-preview-shell,
+  .hero-preview-grid article {
+    border-radius: 14px;
+  }
+
+  .hero-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-preview-grid article.wide {
+    grid-column: auto;
   }
 
   .hero-action-links {

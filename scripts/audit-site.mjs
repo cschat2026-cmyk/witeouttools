@@ -68,6 +68,7 @@ for (const marker of [
   '"@type": "FAQPage"',
   '"@type": "SoftwareApplication"',
   'max-image-preview:large',
+  'id="heroPreviewStage"',
   'id="dailyCockpitBoard"',
   'id="resourceJourneyPanel"'
 ]) {
@@ -98,6 +99,7 @@ for (const marker of [
   "applyStateAgePlan",
   "buildDecisionModel",
   "renderDecisionBoard",
+  "renderHeroPreviewStage",
   "getDailyLoopModel",
   "renderDailyCockpit",
   "bindDailyCockpitActions",
@@ -121,6 +123,8 @@ for (const marker of [
   ".adsbygoogle",
   ".ad-band-ezoic",
   ".ezoic-slot",
+  ".hero-preview-stage",
+  ".hero-preview-shell",
   ".state-age-card-primary .tag",
   ".decision-section",
   ".decision-mini-grid",

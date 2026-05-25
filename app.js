@@ -76,6 +76,9 @@ const translations = {
     heroSnapshotCodes: "Likely active codes",
     heroSnapshotTimer: "Next mine cue",
     heroSnapshotPlanner: "Crystal gap",
+    heroPreviewUpdated: "Content refresh",
+    heroPreviewSource: "Live homepage signals",
+    heroPreviewAction: "Best next action",
     strategyEyebrow: "Personal coach",
     strategyTitle: "Save-or-spend strategy mode",
     strategyText: "Players keep asking whether to save for SvS, push KOI, or spend now. Pick a play style and the site turns broad advice into a more useful operating rule.",
@@ -510,6 +513,9 @@ const translations = {
     kpiTimer: "矿场计时",
     kpiPlanner: "火晶规划",
     heroPreviewBadge: "工具预览",
+    heroPreviewUpdated: "内容刷新时间",
+    heroPreviewSource: "首页实时信号",
+    heroPreviewAction: "当前最佳动作",
     heroActionTag: "当前最优先",
     heroActionLinks: "直接跳过去做",
     commandCode: "复制并测试新兑换码",
@@ -938,6 +944,9 @@ const translations = {
     kpiTimer: "礦場計時",
     kpiPlanner: "火晶規劃",
     heroPreviewBadge: "工具預覽",
+    heroPreviewUpdated: "內容刷新時間",
+    heroPreviewSource: "首頁即時訊號",
+    heroPreviewAction: "目前最佳動作",
     heroActionTag: "目前最優先",
     heroActionLinks: "直接跳過去做",
     commandCode: "複製並測試新兌換碼",
@@ -1636,6 +1645,7 @@ function renderAll() {
   renderDailyCockpit();
   renderShareBrief();
   renderHeroSnapshot();
+  renderHeroPreviewStage();
   renderHeroActionRail();
   renderDecisionBoard();
   renderStatusStrip();
@@ -1880,6 +1890,33 @@ function renderHeroSnapshot() {
   if (kpiCodes) kpiCodes.textContent = activeCodes.toLocaleString(state.lang);
   if (kpiTimer) kpiTimer.textContent = nextWindow.includes(":") ? nextWindow : "30m";
   if (kpiPlanner) kpiPlanner.textContent = refined !== "0" ? `${missing} / ${refined}` : missing;
+}
+
+function renderHeroPreviewStage() {
+  const root = document.querySelector("#heroPreviewStage");
+  if (!root || !state.content) return;
+  const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
+  const nextWindow = document.querySelector("#nextWindow strong")?.textContent || t("phaseReady");
+  const crystalGap = document.querySelector("#missingCrystals")?.textContent || "0";
+  const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
+  const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
+  const updatedAt = new Date(state.content.updatedAt).toLocaleDateString(state.lang);
+  const bestAction = document.querySelector(".hero-action-call strong")?.textContent || t("ctaPlanner");
+  root.innerHTML = [
+    '<div class="hero-preview-shell">',
+    '<div class="hero-preview-topline"><span>' + t("heroPreviewUpdated") + '</span><strong>' + updatedAt + '</strong></div>',
+    '<div class="hero-preview-grid">',
+    '<article><span>' + t("heroSnapshotCodes") + '</span><strong>' + activeCodes.toLocaleString(state.lang) + '</strong></article>',
+    '<article><span>' + t("heroSnapshotTimer") + '</span><strong>' + nextWindow + '</strong></article>',
+    '<article class="wide"><span>' + t("heroSnapshotPlanner") + '</span><strong>' + crystalGap + ' · ' + currentLevel + ' → ' + targetLevel + '</strong></article>',
+    '</div>',
+    '<div class="hero-preview-foot">',
+    '<span>' + t("heroPreviewAction") + '</span>',
+    '<strong>' + bestAction + '</strong>',
+    '<small>' + t("heroPreviewSource") + '</small>',
+    '</div>',
+    '</div>'
+  ].join("");
 }
 
 function renderHeroActionRail() {
@@ -3224,6 +3261,7 @@ function calculatePlanner(options = {}) {
   renderResourceJourneyPanel();
   renderShareBrief();
   renderHeroSnapshot();
+  renderHeroPreviewStage();
   renderHeroActionRail();
   renderHubCards();
   renderMissionGrid();
@@ -4031,6 +4069,7 @@ function savePlayerId() {
   renderStatusStrip();
   renderHeroActionRail();
   renderHeroSnapshot();
+  renderHeroPreviewStage();
   renderMissionGrid();
   renderOpsBriefing();
   renderDailyCockpit();
@@ -4170,6 +4209,7 @@ function refreshTimerLinkedViews(phase) {
   state.lastTimerPhase = phase;
   renderShareBrief();
   renderHeroSnapshot();
+  renderHeroPreviewStage();
   renderHeroActionRail();
   renderHubCards();
   renderMissionGrid();
