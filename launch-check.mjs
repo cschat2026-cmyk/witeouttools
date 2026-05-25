@@ -26,7 +26,7 @@ for (const file of htmlFiles) {
   const html = readFileSync(file, "utf8");
   const hrefs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((match) => match[1]);
   for (const href of hrefs) {
-    if (/^(https?:|mailto:|#|data:)/.test(href)) continue;
+    if (/^(https?:|\/\/|mailto:|#|data:)/.test(href)) continue;
     const clean = href.split("#")[0].split("?")[0];
     if (!clean) continue;
     const target = join(root, clean);

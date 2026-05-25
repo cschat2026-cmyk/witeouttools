@@ -1330,7 +1330,12 @@ const DEFAULT_AD_CONFIG = {
   ezoic: {
     enabled: true,
     siteId: "",
-    verificationMeta: "pending"
+    verificationMeta: "pending",
+    placements: {
+      top: "",
+      tools: "",
+      guides: ""
+    }
   },
   adsense: {
     enabled: true,
@@ -2487,7 +2492,11 @@ function getAdConfig() {
     provider: runtime.provider || DEFAULT_AD_CONFIG.provider,
     ezoic: {
       ...DEFAULT_AD_CONFIG.ezoic,
-      ...(runtime.ezoic || {})
+      ...(runtime.ezoic || {}),
+      placements: {
+        ...DEFAULT_AD_CONFIG.ezoic.placements,
+        ...((runtime.ezoic && runtime.ezoic.placements) || {})
+      }
     },
     adsense: {
       ...DEFAULT_AD_CONFIG.adsense,
@@ -2510,7 +2519,7 @@ function isEzoicEnabled(config = getAdConfig()) {
 
 function isEzoicActive(config = getAdConfig()) {
   if (!isEzoicEnabled(config)) return false;
-  if (window.ezstandalone || window.ezoicpubads || window.ezslots) return true;
+  if ((window.ezstandalone && Array.isArray(window.ezstandalone.cmd)) || window.ezoicpubads || window.ezslots) return true;
   if (document.querySelector('script[src*="ezoic"], script[src*="ezstandalone"]')) return true;
   return false;
 }
@@ -2533,13 +2542,12 @@ function ensureEzoicMeta(config = getAdConfig()) {
 
 function ensureEzoicScript(config = getAdConfig()) {
   ensureEzoicMeta(config);
-  if (!isEzoicEnabled(config) || document.querySelector("#ezoicScript") || isEzoicActive(config)) return;
-  const script = document.createElement("script");
-  script.id = "ezoicScript";
-  script.async = true;
-  script.src = "//www.ezojs.com/ezoic/sa.min.js";
-  if (config.ezoic?.siteId) script.setAttribute("data-ezid", config.ezoic.siteId);
-  document.head.appendChild(script);
+  if (!isEzoicEnabled(config)) return;
+  if (config.ezoic?.siteId && window._ezoic && typeof window._ezoic.setSiteId === "function") {
+    try {
+      window._ezoic.setSiteId(config.ezoic.siteId);
+    } catch {}
+  }
 }
 
 function renderAdPlaceholder(slot, mode = "standby") {
@@ -2559,9 +2567,23 @@ function renderAdPlaceholder(slot, mode = "standby") {
 
 function renderEzoicSlot(slot) {
   const name = slot.dataset.ezoicName || slot.dataset.adSlotKey || "content_slot";
+  const config = getAdConfig();
+  const key = slot.dataset.adSlotKey;
+  const placementId = config.ezoic?.placements?.[key] || "";
   slot.classList.remove("ad-placeholder");
   slot.classList.add("ad-band-ezoic");
-  slot.innerHTML = '<div class="ezoic-slot-shell"><span>' + t("adLabel") + '</span><div class="ezoic-slot" data-ezoic-name="' + name + '"></div></div>';
+  slot.innerHTML = '<div class="ezoic-slot-shell"><span>' + t("adLabel") + '</span><div class="ezoic-slot" data-ezoic-name="' + name + '"' + (placementId ? ' data-ez-placeholder-id="' + placementId + '"' : "") + '></div></div>';
+  if (placementId && window.ezstandalone && Array.isArray(window.ezstandalone.cmd)) {
+    window.ezstandalone.cmd.push(function () {
+      try {
+        if (window.ezstandalone?.define) {
+          window.ezstandalone.define(placementId);
+          window.ezstandalone.enable();
+          window.ezstandalone.display();
+        }
+      } catch {}
+    });
+  }
 }
 
 function renderAdsenseSlot(slot, config) {
