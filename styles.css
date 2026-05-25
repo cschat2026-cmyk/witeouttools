@@ -2195,6 +2195,36 @@ button:hover {
   min-height: 90px;
 }
 
+.ad-band-ezoic {
+  border-style: solid;
+  border-color: rgba(168, 196, 207, 0.5);
+  background: linear-gradient(180deg, #ffffff 0%, #f6fbfc 100%);
+}
+
+.ezoic-slot-shell {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.ezoic-slot {
+  width: 100%;
+  min-height: 250px;
+  border: 1px dashed rgba(168, 196, 207, 0.72);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(238, 246, 248, 0.7)),
+    repeating-linear-gradient(135deg, rgba(13, 38, 56, 0.02) 0 14px, rgba(13, 38, 56, 0.05) 14px 28px);
+}
+
+.ad-band-compact .ezoic-slot {
+  min-height: 120px;
+}
+
+.ad-band-tool .ezoic-slot {
+  min-height: 180px;
+}
+
 .ad-placeholder {
   display: grid;
   gap: 4px;
@@ -2850,6 +2880,10 @@ footer {
     border-radius: 16px;
   }
 
+  .ezoic-slot {
+    border-radius: 16px;
+  }
+
   .tool-card {
     padding: 14px;
   }
@@ -3007,6 +3041,10 @@ footer {
     margin-right: 12px;
     margin-left: 12px;
     padding: 18px;
+  }
+
+  .ezoic-slot {
+    border-radius: 14px;
   }
 
   .region-controls {

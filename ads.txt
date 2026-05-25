@@ -1,1 +1,4 @@
 google.com, pub-2456404542897668, DIRECT, f08c47fec0942fa0
+# Add your Ezoic entry after Ezoic assigns it in the dashboard.
+# Example format only:
+# ezoic.com, YOUR_EZOIC_ID, DIRECT

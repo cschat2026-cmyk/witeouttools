@@ -1325,12 +1325,21 @@ const CONTENT_REFRESH_INTERVAL = 8 * 60 * 60 * 1000;
 const DAILY_DONE_PREFIX = "wos-daily-done-v2";
 const PLAYER_IDS_KEY = "wos-player-ids-v2";
 const TIMER_STATE_KEY = "wos-timer-state-v2";
-const ADSENSE_CONFIG = {
-  publisherId: "ca-pub-2456404542897668",
-  slots: {
-    top: "",
-    tools: "",
-    guides: ""
+const DEFAULT_AD_CONFIG = {
+  provider: "ezoic",
+  ezoic: {
+    enabled: true,
+    siteId: "",
+    verificationMeta: "pending"
+  },
+  adsense: {
+    enabled: true,
+    publisherId: "ca-pub-2456404542897668",
+    slots: {
+      top: "",
+      tools: "",
+      guides: ""
+    }
   }
 };
 
@@ -2472,38 +2481,119 @@ function renderResourceJourneyPanel() {
   ].join("");
 }
 
-function hasAdsenseConfig() {
-  return /^ca-pub-\d{10,}$/.test(ADSENSE_CONFIG.publisherId);
+function getAdConfig() {
+  const runtime = window.__WHITEOUT_ADS__ || {};
+  return {
+    provider: runtime.provider || DEFAULT_AD_CONFIG.provider,
+    ezoic: {
+      ...DEFAULT_AD_CONFIG.ezoic,
+      ...(runtime.ezoic || {})
+    },
+    adsense: {
+      ...DEFAULT_AD_CONFIG.adsense,
+      ...(runtime.adsense || {}),
+      slots: {
+        ...DEFAULT_AD_CONFIG.adsense.slots,
+        ...((runtime.adsense && runtime.adsense.slots) || {})
+      }
+    }
+  };
 }
 
-function ensureAdsenseScript() {
-  if (!hasAdsenseConfig() || document.querySelector("#adsenseScript")) return;
+function hasAdsenseConfig(config = getAdConfig()) {
+  return Boolean(config.adsense?.enabled) && /^ca-pub-\d{10,}$/.test(config.adsense?.publisherId || "");
+}
+
+function isEzoicEnabled(config = getAdConfig()) {
+  return Boolean(config.ezoic?.enabled);
+}
+
+function isEzoicActive(config = getAdConfig()) {
+  if (!isEzoicEnabled(config)) return false;
+  if (window.ezstandalone || window.ezoicpubads || window.ezslots) return true;
+  if (document.querySelector('script[src*="ezoic"], script[src*="ezstandalone"]')) return true;
+  return false;
+}
+
+function ensureAdsenseScript(config = getAdConfig()) {
+  if (!hasAdsenseConfig(config) || document.querySelector("#adsenseScript")) return;
   const script = document.createElement("script");
   script.id = "adsenseScript";
   script.async = true;
   script.crossOrigin = "anonymous";
-  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADSENSE_CONFIG.publisherId;
+  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + config.adsense.publisherId;
   document.head.appendChild(script);
 }
 
+function ensureEzoicMeta(config = getAdConfig()) {
+  const meta = document.querySelector('meta[name="ezoic-site-verification"]');
+  if (!meta) return;
+  meta.content = config.ezoic?.verificationMeta || "pending";
+}
+
+function ensureEzoicScript(config = getAdConfig()) {
+  ensureEzoicMeta(config);
+  if (!isEzoicEnabled(config) || document.querySelector("#ezoicScript") || isEzoicActive(config)) return;
+  const script = document.createElement("script");
+  script.id = "ezoicScript";
+  script.async = true;
+  script.src = "//www.ezojs.com/ezoic/sa.min.js";
+  if (config.ezoic?.siteId) script.setAttribute("data-ezid", config.ezoic.siteId);
+  document.head.appendChild(script);
+}
+
+function renderAdPlaceholder(slot, mode = "standby") {
+  const title = mode === "ezoic"
+    ? triText("Ezoic slot ready", "Ezoic 广告位已预留", "Ezoic 廣告位已預留")
+    : mode === "adsense"
+      ? t("adPlaceholderTitle")
+      : triText("Ad stack standby", "广告栈待命中", "廣告棧待命中");
+  const text = mode === "ezoic"
+    ? triText("This position is ready for Ezoic placeholders and can fall back to AdSense when needed.", "这个位置已经按 Ezoic 预留，同时可以在需要时回退到 AdSense。", "這個位置已按 Ezoic 預留，同時可以在需要時回退到 AdSense。")
+    : mode === "adsense"
+      ? t("adPlaceholderText")
+      : triText("Enable Ezoic or add AdSense slot IDs to activate a live unit without changing the layout.", "启用 Ezoic 或补上 AdSense 广告位 ID 后即可启用，不用再改版面。", "啟用 Ezoic 或補上 AdSense 廣告位 ID 後即可啟用，不用再改版面。");
+  slot.classList.add("ad-placeholder");
+  slot.innerHTML = '<span>' + t("adLabel") + '</span><strong>' + title + '</strong><small>' + text + '</small>';
+}
+
+function renderEzoicSlot(slot) {
+  const name = slot.dataset.ezoicName || slot.dataset.adSlotKey || "content_slot";
+  slot.classList.remove("ad-placeholder");
+  slot.classList.add("ad-band-ezoic");
+  slot.innerHTML = '<div class="ezoic-slot-shell"><span>' + t("adLabel") + '</span><div class="ezoic-slot" data-ezoic-name="' + name + '"></div></div>';
+}
+
+function renderAdsenseSlot(slot, config) {
+  const key = slot.dataset.adSlotKey;
+  const slotId = config.adsense?.slots?.[key];
+  if (!slotId) {
+    renderAdPlaceholder(slot, hasAdsenseConfig(config) ? "adsense" : "standby");
+    return;
+  }
+  if (slot.dataset.loaded === "1") return;
+  slot.classList.remove("ad-placeholder");
+  slot.classList.remove("ad-band-ezoic");
+  slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="' + config.adsense.publisherId + '" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+  slot.dataset.loaded = "1";
+  try {
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adsbygoogle.push({});
+  } catch {}
+}
+
 function renderAdSlots() {
-  ensureAdsenseScript();
+  const config = getAdConfig();
+  const ezoicActive = isEzoicActive(config);
+  if (isEzoicEnabled(config)) ensureEzoicScript(config);
+  if (!ezoicActive && hasAdsenseConfig(config)) ensureAdsenseScript(config);
   document.querySelectorAll("[data-ad-slot-key]").forEach((slot) => {
-    const key = slot.dataset.adSlotKey;
-    const slotId = ADSENSE_CONFIG.slots[key];
-    if (!slotId) {
-      slot.classList.add("ad-placeholder");
-      slot.innerHTML = '<span>' + t("adLabel") + '</span><strong>' + t("adPlaceholderTitle") + '</strong><small>' + t("adPlaceholderText") + '</small>';
+    slot.dataset.loaded = "0";
+    if (ezoicActive || isEzoicEnabled(config)) {
+      renderEzoicSlot(slot);
       return;
     }
-    if (slot.dataset.loaded === "1") return;
-    slot.classList.remove("ad-placeholder");
-    slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="' + ADSENSE_CONFIG.publisherId + '" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-    slot.dataset.loaded = "1";
-    try {
-      window.adsbygoogle = window.adsbygoogle || [];
-      window.adsbygoogle.push({});
-    } catch {}
+    renderAdsenseSlot(slot, config);
   });
 }
 
