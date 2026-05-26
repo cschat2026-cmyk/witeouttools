@@ -16,7 +16,8 @@ if (!pattern.test(html)) {
 
 const next = html.replace(pattern, `\n${script}`);
 if (next === html) {
-  throw new Error("Embedded contentData script was found but not updated");
+  console.log("Embedded content already synced in index.html");
+  process.exit(0);
 }
 
 writeFileSync(indexPath, next);

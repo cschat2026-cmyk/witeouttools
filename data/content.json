@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-21T04:31:23.212Z",
+  "updatedAt": "2026-05-26T02:15:46.325Z",
   "sources": [
     {
       "name": "Whiteout Survival official channels",
@@ -4351,6 +4351,40 @@
           "zh-CN": "后期账号常常要把碎片节奏和熔炉一起算，尤其是研究积分活动前。",
           "zh-TW": "後期帳號常常要把碎片節奏和熔爐一起算，尤其是研究積分活動前。"
         }
+      }
+    ]
+  },
+  "refreshMeta": {
+    "checkedAt": "2026-05-26T02:42:58.386Z",
+    "successfulSources": 0,
+    "failedSources": 2,
+    "fetchedCandidateCount": 0,
+    "reliableSourceCount": 8,
+    "codeSourceCount": 2,
+    "status": "fallback",
+    "note": {
+      "en": "Public references could not be reached in this run. The site keeps the last conservative source-backed data instead of inventing new codes.",
+      "zh-CN": "本次未能访问公开来源。网站保留上一版有来源依据的保守数据，不编造新兑换码。",
+      "zh-TW": "本次未能存取公開來源。網站保留上一版有來源依據的保守資料，不編造新兌換碼。"
+    },
+    "sources": [
+      {
+        "name": "Whiteout Survival Wiki gift code list",
+        "type": "official-wiki",
+        "url": "https://www.whiteoutsurvival.wiki/giftcodes/",
+        "checkedAt": "2026-05-26T02:42:58.386Z",
+        "ok": false,
+        "status": "fetch-failed",
+        "candidateCount": 0
+      },
+      {
+        "name": "GamesRadar code checks",
+        "type": "editorial",
+        "url": "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
+        "checkedAt": "2026-05-26T02:42:58.424Z",
+        "ok": false,
+        "status": "fetch-failed",
+        "candidateCount": 0
       }
     ]
   }

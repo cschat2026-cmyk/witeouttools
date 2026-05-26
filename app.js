@@ -52,14 +52,20 @@ const translations = {
     timelineOpenDayPlan: "Open event day plan",
     sourceHubEyebrow: "Trust layer",
     sourceHubTitle: "What was updated and where it came from",
-    sourceHubText: "Launch-ready portals make the source trail visible. This board shows refresh date and the public references used for current code status.",
-    sourceUpdatedLabel: "Latest source refresh",
+    sourceHubText: "This board separates data version, source checks, and fallback status, so players can tell whether new information was found or only re-checked.",
+    sourceUpdatedLabel: "Data version",
     refreshPolicyLabel: "Auto-refresh policy",
-    refreshPolicyText: "This page checks for newer data on first open and then roughly every 8 hours. Expired or stale codes are hidden from the active view.",
+    refreshPolicyText: "GitHub Actions checks trusted public references 3 times per day. The page checks the repo on first open and then roughly every 8 hours.",
     refreshStatusIdle: "Refresh ready",
     refreshStatusChecking: "Checking latest data...",
     refreshStatusFresh: "Latest local data loaded",
     refreshStatusOffline: "Using cached data",
+    refreshStatusChecked: "Checked",
+    refreshStatusRepo: "Repo data",
+    refreshStatusFallback: "Sources unreachable, using conservative data",
+    refreshMetaChecked: "Sources checked",
+    refreshMetaCandidates: "candidate codes found",
+    refreshMetaFailed: "sources failed",
     expiresLabel: "Expires",
     rewardsLabel: "Known rewards",
     sourceLevelLabel: "Source level",
@@ -498,14 +504,20 @@ const translations = {
     timelineOpenDayPlan: "打开分日规划",
     sourceHubEyebrow: "可信层",
     sourceHubTitle: "本次更新了什么，来源是什么",
-    sourceHubText: "更接近上线标准的门户，需要把数据来源链路公开给用户看。这里展示刷新时间和当前兑换码状态所用公开来源。",
-    sourceUpdatedLabel: "最近来源刷新",
+    sourceHubText: "这里把数据版本、来源检查和兜底状态拆开显示，让玩家知道是发现了新内容，还是只完成了一次复查。",
+    sourceUpdatedLabel: "数据版本",
     refreshPolicyLabel: "自动更新机制",
-    refreshPolicyText: "页面首次打开会检查新数据，之后约每 8 小时检查一次。过期或不可靠兑换码不会混入可用视图。",
+    refreshPolicyText: "GitHub Actions 每天 3 次检查可信公开来源。页面首次打开会检查仓库数据，之后约每 8 小时检查一次。",
     refreshStatusIdle: "刷新状态就绪",
     refreshStatusChecking: "正在检查最新数据...",
     refreshStatusFresh: "已加载本地最新数据",
     refreshStatusOffline: "当前使用缓存数据",
+    refreshStatusChecked: "已检查",
+    refreshStatusRepo: "仓库数据",
+    refreshStatusFallback: "来源暂时不可访问，使用保守数据",
+    refreshMetaChecked: "已检查来源",
+    refreshMetaCandidates: "个候选码",
+    refreshMetaFailed: "个来源失败",
     expiresLabel: "到期",
     rewardsLabel: "已知奖励",
     sourceLevelLabel: "来源等级",
@@ -929,14 +941,20 @@ const translations = {
     timelineOpenDayPlan: "打開分日規劃",
     sourceHubEyebrow: "可信層",
     sourceHubTitle: "本次更新了什麼，來源是什麼",
-    sourceHubText: "更接近上線標準的入口站，需要把資料來源鏈路公開給使用者看。這裡展示刷新時間和目前兌換碼狀態所用公開來源。",
-    sourceUpdatedLabel: "最近來源刷新",
+    sourceHubText: "這裡把資料版本、來源檢查和兜底狀態拆開顯示，讓玩家知道是發現了新內容，還是只完成了一次複查。",
+    sourceUpdatedLabel: "資料版本",
     refreshPolicyLabel: "自動更新機制",
-    refreshPolicyText: "頁面首次打開會檢查新資料，之後約每 8 小時檢查一次。過期或不可靠兌換碼不會混入可用視圖。",
+    refreshPolicyText: "GitHub Actions 每天 3 次檢查可信公開來源。頁面首次打開會檢查倉庫資料，之後約每 8 小時檢查一次。",
     refreshStatusIdle: "刷新狀態就緒",
     refreshStatusChecking: "正在檢查最新資料...",
     refreshStatusFresh: "已載入本地最新資料",
     refreshStatusOffline: "目前使用快取資料",
+    refreshStatusChecked: "已檢查",
+    refreshStatusRepo: "倉庫資料",
+    refreshStatusFallback: "來源暫時無法存取，使用保守資料",
+    refreshMetaChecked: "已檢查來源",
+    refreshMetaCandidates: "個候選碼",
+    refreshMetaFailed: "個來源失敗",
     expiresLabel: "到期",
     rewardsLabel: "已知獎勵",
     sourceLevelLabel: "來源等級",
@@ -1384,6 +1402,53 @@ function setRefreshStatus(key) {
   if (node) node.textContent = t(key);
 }
 
+function formatContentDate(value, options = {}) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "-";
+  return options.time
+    ? date.toLocaleString(state.lang)
+    : date.toLocaleDateString(state.lang);
+}
+
+function getContentVersion(data) {
+  return [
+    data?.updatedAt || "",
+    data?.refreshMeta?.checkedAt || "",
+    data?.refreshMeta?.status || "",
+    data?.refreshMeta?.fetchedCandidateCount ?? ""
+  ].join("|");
+}
+
+function getLastContentCheckLabel() {
+  const checkedAt = Number(localStorage.getItem(CONTENT_REFRESH_KEY) || 0);
+  if (!checkedAt) return t("refreshStatusIdle");
+  return t("refreshStatusChecked") + " " + new Date(checkedAt).toLocaleTimeString(state.lang, { hour: "2-digit", minute: "2-digit" });
+}
+
+function getRefreshSummaryLabel() {
+  const meta = state.content?.refreshMeta;
+  if (!meta?.checkedAt) return getLastContentCheckLabel();
+  const checked = formatContentDate(meta.checkedAt, { time: true });
+  const sourceCount = meta.codeSourceCount || meta.sources?.length || 0;
+  const failed = meta.failedSources || 0;
+  const candidates = meta.fetchedCandidateCount || 0;
+  const status = meta.status === "fallback" ? t("refreshStatusFallback") : t("refreshStatusChecked");
+  return `${status} · ${checked} · ${t("refreshMetaChecked")} ${sourceCount} · ${candidates} ${t("refreshMetaCandidates")} · ${failed} ${t("refreshMetaFailed")}`;
+}
+
+function renderRefreshIndicators() {
+  if (!state.content) return;
+  const lastUpdated = document.querySelector("#lastUpdated");
+  const sourceUpdated = document.querySelector("#sourceUpdatedAt");
+  const refreshStatus = document.querySelector("#refreshStatus");
+  if (lastUpdated) lastUpdated.textContent = formatContentDate(state.content.updatedAt);
+  if (sourceUpdated) sourceUpdated.textContent = t("refreshStatusRepo") + ": " + formatContentDate(state.content.updatedAt, { time: true });
+  if (refreshStatus && (!refreshStatus.textContent || refreshStatus.dataset.auto === "1")) {
+    refreshStatus.textContent = getRefreshSummaryLabel();
+    refreshStatus.dataset.auto = "1";
+  }
+}
+
 async function boot() {
   state.content = await loadContent();
   restoreTimerState();
@@ -1405,7 +1470,9 @@ async function loadContent() {
       const cachedData = JSON.parse(cached);
       const cachedTime = Date.parse(cachedData.updatedAt || "") || 0;
       const embeddedTime = Date.parse(embeddedData?.updatedAt || "") || 0;
-      if (embeddedData && embeddedTime > cachedTime) {
+      const cachedCheckTime = Date.parse(cachedData.refreshMeta?.checkedAt || "") || 0;
+      const embeddedCheckTime = Date.parse(embeddedData?.refreshMeta?.checkedAt || "") || 0;
+      if (embeddedData && (embeddedTime > cachedTime || embeddedCheckTime > cachedCheckTime)) {
         localStorage.setItem(CONTENT_CACHE_KEY, JSON.stringify(embeddedData));
         return embeddedData;
       }
@@ -1432,7 +1499,7 @@ async function refreshContentInBackground(force = false) {
   try {
     const response = await fetch(`data/content.json?ts=${Date.now()}`, { cache: "no-store" });
     const fresh = await response.json();
-    if (!state.content || fresh.updatedAt !== state.content.updatedAt) {
+    if (!state.content || getContentVersion(fresh) !== getContentVersion(state.content)) {
       state.content = fresh;
       localStorage.setItem(CONTENT_CACHE_KEY, JSON.stringify(fresh));
       localStorage.setItem(CONTENT_REFRESH_KEY, String(Date.now()));
@@ -1440,7 +1507,12 @@ async function refreshContentInBackground(force = false) {
       showToast(t("contentUpdated") || "Content updated");
     } else {
       localStorage.setItem(CONTENT_REFRESH_KEY, String(Date.now()));
-      setRefreshStatus("refreshStatusFresh");
+      const refreshStatus = document.querySelector("#refreshStatus");
+      if (refreshStatus) {
+        refreshStatus.textContent = t("refreshStatusFresh") + " · " + getRefreshSummaryLabel();
+        refreshStatus.dataset.auto = "1";
+      }
+      renderRefreshIndicators();
     }
   } catch (error) {
     console.error(error);
@@ -1652,7 +1724,7 @@ function renderAll() {
   renderAdSlots();
   updateMemoryStatus();
   setRegion(state.activeRegion);
-  document.querySelector("#lastUpdated").textContent = new Date(state.content.updatedAt).toLocaleDateString(state.lang);
+  renderRefreshIndicators();
   runSearch();
 }
 
@@ -1901,6 +1973,10 @@ function renderHeroPreviewStage() {
   const currentLevel = document.querySelector("#currentLevel")?.value || "F30";
   const targetLevel = document.querySelector("#targetLevel")?.value || currentLevel;
   const updatedAt = new Date(state.content.updatedAt).toLocaleDateString(state.lang);
+  const meta = state.content.refreshMeta || {};
+  const refreshBadge = meta.status === "fallback"
+    ? t("refreshStatusFallback")
+    : `${t("refreshMetaChecked")} ${meta.codeSourceCount || meta.sources?.length || 0} · ${meta.fetchedCandidateCount || 0} ${t("refreshMetaCandidates")}`;
   const bestAction = document.querySelector(".hero-action-call strong")?.textContent || t("ctaPlanner");
   root.innerHTML = [
     '<div class="hero-preview-shell">',
@@ -1913,7 +1989,7 @@ function renderHeroPreviewStage() {
     '<div class="hero-preview-foot">',
     '<span>' + t("heroPreviewAction") + '</span>',
     '<strong>' + bestAction + '</strong>',
-    '<small>' + t("heroPreviewSource") + '</small>',
+    '<small>' + refreshBadge + '</small>',
     '</div>',
     '</div>'
   ].join("");
@@ -2009,6 +2085,8 @@ function renderStatusStrip() {
   const codesNode = document.querySelector("#statusCodesValue");
   const memoryNode = document.querySelector("#statusMemoryValue");
   const focusNode = document.querySelector("#statusFocusValue");
+  const refreshNode = document.querySelector("#statusRefreshValue");
+  const refreshDetailNode = document.querySelector("#statusRefreshDetail");
   if (!codesNode || !memoryNode || !focusNode || !state.content) return;
 
   const activeCodes = getLiveCodes().filter((item) => item.status === "active").length;
@@ -2030,6 +2108,19 @@ function renderStatusStrip() {
     : crystalGap > 0
       ? triText("FC gap", "火晶缺口", "火晶缺口")
       : nextWindow;
+
+  const meta = state.content.refreshMeta || {};
+  if (refreshNode) {
+    refreshNode.textContent = meta.status === "fallback"
+      ? triText("Fallback active", "保守兜底中", "保守兜底中")
+      : triText("3x/day checks", "每日3次检查", "每日3次檢查");
+  }
+  if (refreshDetailNode) {
+    const sourceCount = meta.codeSourceCount || meta.sources?.length || 0;
+    const failed = meta.failedSources || 0;
+    const candidates = meta.fetchedCandidateCount || 0;
+    refreshDetailNode.textContent = `${sourceCount} ${t("refreshMetaChecked")} · ${candidates} ${t("refreshMetaCandidates")} · ${failed} ${t("refreshMetaFailed")}`;
+  }
 }
 
 function buildDecisionModel() {
@@ -2705,18 +2796,22 @@ function renderCodes() {
 
 function renderSourceLog() {
   const root = document.querySelector("#sourceLog");
-  const updated = document.querySelector("#sourceUpdatedAt");
-  const refreshStatus = document.querySelector("#refreshStatus");
-  if (!root || !updated || !state.content) return;
-  updated.textContent = new Date(state.content.updatedAt).toLocaleString(state.lang);
-  if (refreshStatus && !refreshStatus.textContent) refreshStatus.textContent = t("refreshStatusIdle");
+  if (!root || !state.content) return;
+  renderRefreshIndicators();
   root.innerHTML = state.content.sources.map((item) => [
     '<article class="source-item searchable" data-search="' + [item.name, item.type, item.url].join(" ") + '">',
     '<strong>' + item.name + '</strong>',
-    '<span>' + item.type + '</span>',
+    '<span>' + item.type + getSourceCheckSuffix(item.url) + '</span>',
     '<a href="' + item.url + '" target="_blank" rel="noreferrer">' + item.url + '</a>',
     '</article>'
   ].join('')).join('');
+}
+
+function getSourceCheckSuffix(url) {
+  const checked = state.content?.refreshMeta?.sources?.find((item) => item.url === url);
+  if (!checked) return "";
+  const result = checked.ok ? "OK" : String(checked.status || "failed");
+  return ` · ${result} · ${checked.candidateCount || 0}`;
 }
 
 

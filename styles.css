@@ -479,7 +479,7 @@ button:hover {
 
 .hero-preview-frame {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(191, 241, 255, 0.18);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
@@ -488,14 +488,14 @@ button:hover {
 .hero-preview-stage {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  padding: 18px;
+  min-height: 250px;
+  padding: 14px;
 }
 
 .hero-preview-shell {
   display: grid;
   gap: 12px;
-  height: 100%;
+  min-height: 100%;
   padding: 14px;
   color: var(--text);
   border: 1px solid rgba(191, 241, 255, 0.12);
@@ -561,14 +561,16 @@ button:hover {
 
 .hero-preview-badge {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
+  right: 28px;
+  top: 28px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   min-height: 32px;
   padding: 6px 11px;
   color: #07111d;
   background: rgba(245, 182, 75, 0.94);
+  box-shadow: 0 12px 26px rgba(5, 15, 24, 0.3);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 950;
@@ -714,7 +716,7 @@ button:hover {
 
 .status-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr) minmax(260px, 1.25fr);
   gap: 1px;
   margin: 0 clamp(16px, 4vw, 48px);
   transform: translateY(-20px);
@@ -741,6 +743,10 @@ button:hover {
 
 .status-strip span {
   color: var(--muted-dark);
+}
+
+.status-strip .status-wide {
+  background: linear-gradient(135deg, #ffffff, #eaf9f8);
 }
 
 .hub-section,
@@ -2795,7 +2801,7 @@ footer {
 
   .hero-preview-stage {
     padding: 12px;
-    aspect-ratio: 16 / 11;
+    aspect-ratio: auto;
   }
 
   .hero-preview-shell,
@@ -2853,6 +2859,11 @@ footer {
     padding: 13px;
     border: 1px solid var(--line-dark);
     border-radius: 14px;
+  }
+
+  .status-strip .status-wide {
+    grid-column: 1 / -1;
+    min-height: auto;
   }
 
   .hub-section,
@@ -3157,10 +3168,13 @@ footer {
 
 .hero-visual-panel {
   display: grid;
-  gap: 14px;
+  gap: 22px;
+  align-content: start;
 }
 
 .hero-live-snapshot {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 14px;
   padding: 18px;

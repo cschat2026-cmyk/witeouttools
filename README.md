@@ -72,4 +72,6 @@ node scripts/audit-site.mjs
 
 Recommended cadence: every 8 hours, which is roughly 3 refreshes per day.
 
-The update script is intentionally conservative: it keeps only source-backed codes from reliable public references and automatically marks codes expired when their known expiry date has passed or the trusted reference no longer treats them as active.
+The update script is intentionally conservative: it keeps only source-backed codes from reliable public references and automatically marks codes expired when their known expiry date has passed or the trusted reference no longer treats them as active. It also writes `refreshMeta`, which separates the data version from the latest source check. If public sources are temporarily unreachable, the site says it is using conservative fallback data instead of pretending fresh codes were found.
+
+On GitHub Pages this is automated by `.github/workflows/update-content.yml`. The workflow runs at 00:07, 08:07, and 16:07 UTC, refreshes `data/content.json`, syncs the embedded homepage JSON, runs launch/audit checks, and commits only when the content files changed. You can also run it manually from the GitHub Actions tab with `workflow_dispatch`.

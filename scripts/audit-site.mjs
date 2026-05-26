@@ -13,6 +13,7 @@ const privacy = read("privacy.html");
 const contact = read("contact.html");
 const disclaimer = read("disclaimer.html");
 const content = JSON.parse(read("data/content.json"));
+const workflow = read(".github/workflows/update-content.yml");
 
 const errors = [];
 const requireText = (source, text, label) => {
@@ -69,6 +70,7 @@ for (const marker of [
   '"@type": "SoftwareApplication"',
   'max-image-preview:large',
   'id="heroPreviewStage"',
+  'id="statusRefreshValue"',
   'id="dailyCockpitBoard"',
   'id="resourceJourneyPanel"'
 ]) {
@@ -80,6 +82,10 @@ for (const marker of [
   "restoreUserMemory",
   "bindMemoryInputs",
   "updateMemoryStatus",
+  "renderRefreshIndicators",
+  "getRefreshSummaryLabel",
+  "getContentVersion",
+  "getLastContentCheckLabel",
   "getLocalDateKey",
   "renderDailyTaskBoard",
   "refreshContentInBackground",
@@ -137,6 +143,17 @@ for (const marker of [
   requireText(css, marker, `Missing CSS marker: ${marker}`);
 }
 
+for (const marker of [
+  "cron: \"7 0,8,16 * * *\"",
+  "workflow_dispatch",
+  "node scripts/update-content.mjs",
+  "node scripts/sync-embedded-content.mjs",
+  "node scripts/audit-site.mjs",
+  "git-auto-commit-action"
+]) {
+  requireText(workflow, marker, `Missing update workflow marker: ${marker}`);
+}
+
 if ((content.resourceDataLab?.furnaceRows || []).length < 45) errors.push("Furnace route data is too thin");
 if ((content.resourceDataLab?.chiefGearRows || []).length < 40) errors.push("Chief Gear data is too thin");
 if ((content.resourceDataLab?.chiefCharmRows || []).length < 14) errors.push("Chief Charm data is too thin");
@@ -145,6 +162,10 @@ if ((content.resourceDataLab?.resourceNeedMap || []).length < 5) errors.push("Mi
 if ((content.eventSpendMap || []).length < 3) errors.push("Missing event spend map breadth");
 if ((content.eventDayPlans || []).length < 2) errors.push("Missing event day plans");
 if ((content.sources || []).length < 8) errors.push("Source list should include code and resource references");
+if (!content.refreshMeta?.checkedAt) errors.push("Missing refreshMeta.checkedAt");
+if (!["checked", "fallback"].includes(content.refreshMeta?.status)) errors.push("refreshMeta.status must be checked or fallback");
+if (typeof content.refreshMeta?.fetchedCandidateCount !== "number") errors.push("Missing refreshMeta fetchedCandidateCount");
+if ((content.refreshMeta?.sources || []).length < 2) errors.push("Missing per-source refresh audit results");
 
 const today = new Date().toISOString().slice(0, 10);
 for (const code of content.codes || []) {
@@ -159,6 +180,7 @@ if (!embedded) errors.push("Missing embedded contentData");
 else {
   const embeddedData = JSON.parse(embedded[1]);
   if (embeddedData.updatedAt !== content.updatedAt) errors.push("Embedded contentData is not synced");
+  if (embeddedData.refreshMeta?.checkedAt !== content.refreshMeta?.checkedAt) errors.push("Embedded refreshMeta is not synced");
   if ((embeddedData.sources || []).length !== (content.sources || []).length) errors.push("Embedded source list differs from data/content.json");
 }
 

@@ -123,16 +123,41 @@ function extractPotentialCodes(html) {
 }
 
 async function fetchSourceCodes(source) {
+  const checkedAt = new Date().toISOString();
   try {
     const response = await fetch(source.url, {
       headers: {
         "user-agent": "whiteout-survival-tools/1.0 content refresh"
       }
     });
-    if (!response.ok) return [];
-    return extractPotentialCodes(await response.text());
+    if (!response.ok) {
+      return {
+        ...source,
+        checkedAt,
+        ok: false,
+        status: response.status,
+        candidateCount: 0,
+        codes: []
+      };
+    }
+    const codes = extractPotentialCodes(await response.text());
+    return {
+      ...source,
+      checkedAt,
+      ok: true,
+      status: response.status,
+      candidateCount: codes.length,
+      codes
+    };
   } catch {
-    return [];
+    return {
+      ...source,
+      checkedAt,
+      ok: false,
+      status: "fetch-failed",
+      candidateCount: 0,
+      codes: []
+    };
   }
 }
 
@@ -148,18 +173,53 @@ function mergeFetchedStatus(codes, fetchedActiveCodes, today) {
 
 const content = JSON.parse(readFileSync(dataPath, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
-const fetchedCodeLists = await Promise.all(RELIABLE_SOURCES
-  .filter((source) => /gift|code/i.test(source.name + " " + source.url))
-  .map(fetchSourceCodes));
-const fetchedCodes = [...new Set(fetchedCodeLists.flat())];
-
-content.updatedAt = new Date().toISOString();
-content.sources = RELIABLE_SOURCES;
-content.codes = mergeFetchedStatus(KNOWN_CODES, fetchedCodes, today).sort((a, b) => {
+const checkedAt = new Date().toISOString();
+const codeSources = RELIABLE_SOURCES.filter((source) => /gift|code/i.test(source.name + " " + source.url));
+const sourceResults = await Promise.all(codeSources.map(fetchSourceCodes));
+const fetchedCodes = [...new Set(sourceResults.flatMap((result) => result.codes))];
+const nextCodes = mergeFetchedStatus(KNOWN_CODES, fetchedCodes, today).sort((a, b) => {
   const order = { active: 0, official: 1, check: 2, expired: 3 };
   return (order[a.status] ?? 9) - (order[b.status] ?? 9);
 });
+const sourceSummary = {
+  checkedAt,
+  successfulSources: sourceResults.filter((result) => result.ok).length,
+  failedSources: sourceResults.filter((result) => !result.ok).length,
+  fetchedCandidateCount: fetchedCodes.length,
+  reliableSourceCount: RELIABLE_SOURCES.length,
+  codeSourceCount: codeSources.length,
+  status: sourceResults.some((result) => result.ok) ? "checked" : "fallback",
+  note: {
+    en: sourceResults.some((result) => result.ok)
+      ? "Public references were checked. Active labels stay conservative when sources disagree."
+      : "Public references could not be reached in this run. The site keeps the last conservative source-backed data instead of inventing new codes.",
+    "zh-CN": sourceResults.some((result) => result.ok)
+      ? "已检查公开来源。来源不一致时，可用状态保持保守标注。"
+      : "本次未能访问公开来源。网站保留上一版有来源依据的保守数据，不编造新兑换码。",
+    "zh-TW": sourceResults.some((result) => result.ok)
+      ? "已檢查公開來源。來源不一致時，可用狀態保持保守標註。"
+      : "本次未能存取公開來源。網站保留上一版有來源依據的保守資料，不編造新兌換碼。"
+  },
+  sources: sourceResults.map(({ name, type, url, checkedAt, ok, status, candidateCount }) => ({
+    name,
+    type,
+    url,
+    checkedAt,
+    ok,
+    status,
+    candidateCount
+  }))
+};
+const codesChanged = JSON.stringify(content.codes || []) !== JSON.stringify(nextCodes);
+const sourcesChanged = JSON.stringify(content.sources || []) !== JSON.stringify(RELIABLE_SOURCES);
+
+if (!content.updatedAt || codesChanged || sourcesChanged) {
+  content.updatedAt = checkedAt;
+}
+content.refreshMeta = sourceSummary;
+content.sources = RELIABLE_SOURCES;
+content.codes = nextCodes;
 
 writeFileSync(dataPath, JSON.stringify(content, null, 2) + "\n");
-console.log(`Updated content.json with ${content.codes.length} filtered codes at ${content.updatedAt}`);
-console.log(`Fetched ${fetchedCodes.length} candidate codes from reliable public references; conservative fallback used when fetch is unavailable.`);
+console.log(`Checked ${sourceSummary.codeSourceCount} code sources at ${sourceSummary.checkedAt}`);
+console.log(`Data version: ${content.updatedAt}; ${content.codes.length} filtered codes; ${sourceSummary.fetchedCandidateCount} fetched candidates; ${sourceSummary.successfulSources} sources ok / ${sourceSummary.failedSources} failed.`);

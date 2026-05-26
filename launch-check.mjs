@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL(".", import.meta.url).pathname;
@@ -43,7 +43,7 @@ for (const key of ["canonical", "og:title", "twitter:card", "application/ld+json
   if (!index.includes(key)) errors.push(`Missing SEO marker: ${key}`);
 }
 
-for (const marker of ["ops-section", "decisionBoard", "dailyCockpitBoard", "resourceJourneyPanel", "shareBrief", "sourceLog", "copyShareBrief", "copyRedeemGuide", "heroPreviewStage", "data-ad-slot-key", "data-ezoic-name", "__WHITEOUT_ADS__", "ezoic-site-verification", "FAQPage", "SoftwareApplication"]) {
+for (const marker of ["ops-section", "decisionBoard", "dailyCockpitBoard", "resourceJourneyPanel", "shareBrief", "sourceLog", "copyShareBrief", "copyRedeemGuide", "heroPreviewStage", "statusRefreshValue", "data-ad-slot-key", "data-ezoic-name", "__WHITEOUT_ADS__", "ezoic-site-verification", "FAQPage", "SoftwareApplication"]) {
   if (!index.includes(marker)) errors.push(`Missing homepage feature marker: ${marker}`);
 }
 
@@ -52,6 +52,17 @@ if (!content.codes.length) errors.push("No codes in content data");
 if (!content.marketNotes.length) errors.push("No market notes in content data");
 if (!content.sources?.length) errors.push("No sources in content data");
 if (!content.updatedAt) errors.push("Missing updatedAt in content data");
+if (!content.refreshMeta?.checkedAt) errors.push("Missing refreshMeta.checkedAt in content data");
+if (typeof content.refreshMeta?.fetchedCandidateCount !== "number") errors.push("Missing refresh candidate count in content data");
+
+const workflow = join(root, ".github", "workflows", "update-content.yml");
+if (!existsSync(workflow)) errors.push("Missing GitHub Actions content refresh workflow");
+else {
+  const workflowText = readFileSync(workflow, "utf8");
+  for (const marker of ["cron:", "scripts/update-content.mjs", "scripts/sync-embedded-content.mjs", "scripts/audit-site.mjs", "git-auto-commit-action"]) {
+    if (!workflowText.includes(marker)) errors.push(`Missing workflow marker: ${marker}`);
+  }
+}
 
 if (errors.length) {
   console.error(errors.join("\n"));
