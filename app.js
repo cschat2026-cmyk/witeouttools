@@ -1353,9 +1353,9 @@ const DAILY_DONE_PREFIX = "wos-daily-done-v2";
 const PLAYER_IDS_KEY = "wos-player-ids-v2";
 const TIMER_STATE_KEY = "wos-timer-state-v2";
 const DEFAULT_AD_CONFIG = {
-  provider: "ezoic",
+  provider: "adsense",
   ezoic: {
-    enabled: true,
+    enabled: false,
     siteId: "",
     verificationMeta: "pending",
     placements: {
@@ -2641,8 +2641,20 @@ function hasAdsenseConfig(config = getAdConfig()) {
   return Boolean(config.adsense?.enabled) && /^ca-pub-\d{10,}$/.test(config.adsense?.publisherId || "");
 }
 
+function hasAdsenseLiveSlots(config = getAdConfig()) {
+  if (!hasAdsenseConfig(config)) return false;
+  return Object.values(config.adsense?.slots || {}).some((value) => String(value || "").trim().length > 0);
+}
+
+function hasEzoicConfig(config = getAdConfig()) {
+  const siteIdReady = String(config.ezoic?.siteId || "").trim().length > 0;
+  const verificationReady = String(config.ezoic?.verificationMeta || "").trim() && String(config.ezoic?.verificationMeta || "").trim() !== "pending";
+  const placementReady = Object.values(config.ezoic?.placements || {}).some((value) => String(value || "").trim().length > 0);
+  return siteIdReady || verificationReady || placementReady;
+}
+
 function isEzoicEnabled(config = getAdConfig()) {
-  return Boolean(config.ezoic?.enabled);
+  return Boolean(config.ezoic?.enabled) && hasEzoicConfig(config);
 }
 
 function isEzoicActive(config = getAdConfig()) {
@@ -2653,7 +2665,7 @@ function isEzoicActive(config = getAdConfig()) {
 }
 
 function ensureAdsenseScript(config = getAdConfig()) {
-  if (!hasAdsenseConfig(config) || document.querySelector("#adsenseScript")) return;
+  if (!hasAdsenseLiveSlots(config) || document.querySelector("#adsenseScript")) return;
   const script = document.createElement("script");
   script.id = "adsenseScript";
   script.async = true;
@@ -2693,11 +2705,20 @@ function renderAdPlaceholder(slot, mode = "standby") {
   slot.innerHTML = '<span>' + t("adLabel") + '</span><strong>' + title + '</strong><small>' + text + '</small>';
 }
 
+function hideAdSlot(slot) {
+  slot.dataset.loaded = "0";
+  slot.classList.add("ad-slot-hidden");
+  slot.classList.remove("ad-placeholder");
+  slot.classList.remove("ad-band-ezoic");
+  slot.innerHTML = "";
+}
+
 function renderEzoicSlot(slot) {
   const name = slot.dataset.ezoicName || slot.dataset.adSlotKey || "content_slot";
   const config = getAdConfig();
   const key = slot.dataset.adSlotKey;
   const placementId = config.ezoic?.placements?.[key] || "";
+  slot.classList.remove("ad-slot-hidden");
   slot.classList.remove("ad-placeholder");
   slot.classList.add("ad-band-ezoic");
   slot.innerHTML = '<div class="ezoic-slot-shell"><span>' + t("adLabel") + '</span><div class="ezoic-slot" data-ezoic-name="' + name + '"' + (placementId ? ' data-ez-placeholder-id="' + placementId + '"' : "") + '></div></div>';
@@ -2718,10 +2739,11 @@ function renderAdsenseSlot(slot, config) {
   const key = slot.dataset.adSlotKey;
   const slotId = config.adsense?.slots?.[key];
   if (!slotId) {
-    renderAdPlaceholder(slot, hasAdsenseConfig(config) ? "adsense" : "standby");
+    hideAdSlot(slot);
     return;
   }
   if (slot.dataset.loaded === "1") return;
+  slot.classList.remove("ad-slot-hidden");
   slot.classList.remove("ad-placeholder");
   slot.classList.remove("ad-band-ezoic");
   slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="' + config.adsense.publisherId + '" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
@@ -2735,11 +2757,17 @@ function renderAdsenseSlot(slot, config) {
 function renderAdSlots() {
   const config = getAdConfig();
   const ezoicActive = isEzoicActive(config);
+  const ezoicReady = isEzoicEnabled(config);
+  const adsenseReady = hasAdsenseLiveSlots(config);
   if (isEzoicEnabled(config)) ensureEzoicScript(config);
-  if (!ezoicActive && hasAdsenseConfig(config)) ensureAdsenseScript(config);
+  if (!ezoicActive && hasAdsenseLiveSlots(config)) ensureAdsenseScript(config);
   document.querySelectorAll("[data-ad-slot-key]").forEach((slot) => {
     slot.dataset.loaded = "0";
-    if (ezoicActive || isEzoicEnabled(config)) {
+    if (!ezoicActive && !ezoicReady && !adsenseReady) {
+      hideAdSlot(slot);
+      return;
+    }
+    if (ezoicActive || ezoicReady) {
       renderEzoicSlot(slot);
       return;
     }

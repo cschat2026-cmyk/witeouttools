@@ -4355,7 +4355,7 @@
     ]
   },
   "refreshMeta": {
-    "checkedAt": "2026-05-26T02:42:58.386Z",
+    "checkedAt": "2026-05-26T09:32:59.392Z",
     "successfulSources": 0,
     "failedSources": 2,
     "fetchedCandidateCount": 0,
@@ -4372,7 +4372,7 @@
         "name": "Whiteout Survival Wiki gift code list",
         "type": "official-wiki",
         "url": "https://www.whiteoutsurvival.wiki/giftcodes/",
-        "checkedAt": "2026-05-26T02:42:58.386Z",
+        "checkedAt": "2026-05-26T09:32:59.392Z",
         "ok": false,
         "status": "fetch-failed",
         "candidateCount": 0
@@ -4381,7 +4381,7 @@
         "name": "GamesRadar code checks",
         "type": "editorial",
         "url": "https://www.gamesradar.com/games/survival/whiteout-survival-codes-gift/",
-        "checkedAt": "2026-05-26T02:42:58.424Z",
+        "checkedAt": "2026-05-26T09:32:59.440Z",
         "ok": false,
         "status": "fetch-failed",
         "candidateCount": 0

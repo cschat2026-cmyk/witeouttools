@@ -95,6 +95,7 @@ for (const marker of [
   "persistTimerState",
   "DEFAULT_AD_CONFIG",
   "getAdConfig",
+  "hasAdsenseLiveSlots",
   "ensureEzoicScript",
   "renderEzoicSlot",
   "renderAdsenseSlot",

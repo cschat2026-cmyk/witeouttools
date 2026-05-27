@@ -57,7 +57,15 @@ AdSense is dormant until real approval/config is available. After approval:
 node set-adsense.mjs ca-pub-1234567890123456 TOP_SLOT_ID TOOLS_SLOT_ID GUIDES_SLOT_ID
 ```
 
-Then update `ads.txt` with the same publisher id and redeploy. If slot ids are left blank, the site keeps showing clean placeholders and does not load the Google ad script.
+This updates `app.js`, `index.html`, and `ads.txt`. If slot ids are left blank, the layout stays reserved but live Google units will not render.
+
+Ezoic should only be enabled after you have the real site id, verification meta value, and placement ids from the Ezoic dashboard:
+
+```bash
+node set-ezoic.mjs YOUR_SITE_ID YOUR_VERIFICATION_META TOP_PLACEMENT TOOLS_PLACEMENT GUIDES_PLACEMENT
+```
+
+Until those values are present, the site now falls back to AdSense instead of letting empty Ezoic placeholders take over the ad stack.
 
 ## Update pipeline
 

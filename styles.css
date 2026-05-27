@@ -2251,6 +2251,10 @@ button:hover {
   background: repeating-linear-gradient(135deg, #ffffff 0 12px, #eef6f8 12px 24px);
 }
 
+.ad-slot-hidden {
+  display: none !important;
+}
+
 .ad-band-compact {
   margin-top: 18px;
   margin-bottom: 18px;
